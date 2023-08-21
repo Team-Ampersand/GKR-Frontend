@@ -1,0 +1,15 @@
+name: "✅ FEATURE"
+description: Feature 작업 사항을 입력해주세요.
+body:
+  - type: textarea
+    attributes:
+      label: Describe
+      description: |
+        [Description] 작업 사항 설명을 작성해주세요.
+      placeholder: |
+        로그인 기능구현하기
+  - type: textarea
+    attributes:
+      label: Additional
+      description: |
+        [추가사항] 추가사항을 작성해주세요
