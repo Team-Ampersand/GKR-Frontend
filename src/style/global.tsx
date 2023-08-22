@@ -5,6 +5,7 @@ const color = {
   '--PRIMARY_P1': '#FF6000',
   '--PRIMARY_P2': '#FFA559',
   '--PRIMARY_P3': '#FFB16F',
+  '--PRIMARY_P4': '#865DFF',
 
   '--NATURAL_N1': '#000000',
   '--NATURAL_N2': '#D9D9D9',
