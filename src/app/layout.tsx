@@ -1,13 +1,9 @@
-import './globals.css';
-import type { Metadata } from 'next';
+import GlobalStyle from '@/style/global';
+import { RecoilRoot } from 'recoil';
+import { ToastContainer } from 'react-toastify';
 import { Fraunces } from 'next/font/google';
 
 const FrauncesFont = Fraunces({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: '홈페이지',
-  description: '',
-};
 
 export default function RootLayout({
   children,
@@ -16,7 +12,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={FrauncesFont.className}>{children}</body>
+      <body className={FrauncesFont.className}>
+        <RecoilRoot>
+          <GlobalStyle />
+          {children}
+          <ToastContainer />
+        </RecoilRoot>
+      </body>
     </html>
   );
 }
