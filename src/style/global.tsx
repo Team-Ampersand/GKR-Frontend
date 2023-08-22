@@ -17,13 +17,14 @@ const color = {
 const cssColor = (color: string) => `var(--${color})`;
 
 export const Palette = {
-  PRIMARY_P1: cssColor('PRIMARY_P10'),
-  PRIMARY_P2: cssColor('PRIMARY_P20'),
-  PRIMARY_P3: cssColor('PRIMARY_P30'),
+  PRIMARY_P1: cssColor('PRIMARY_P1'),
+  PRIMARY_P2: cssColor('PRIMARY_P2'),
+  PRIMARY_P3: cssColor('PRIMARY_P3'),
+  PRIMARY_P4: cssColor('PRIMARY_P4'),
 
-  NATURAL_N1: cssColor('NATURAL_N10'),
-  NATURAL_N2: cssColor('NATURAL_N20'),
-  NATURAL_N3: cssColor('NATURAL_N30'),
+  NATURAL_N1: cssColor('NATURAL_N1'),
+  NATURAL_N2: cssColor('NATURAL_N2'),
+  NATURAL_N3: cssColor('NATURAL_N3'),
 
   SUB_RED: cssColor('SUB_RED'),
 };
