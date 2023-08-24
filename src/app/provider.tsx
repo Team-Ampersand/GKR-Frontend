@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import GlobalStyle from '@/style/global';
+import GlobalStyle from 'style/global';
 import { RecoilRoot } from 'recoil';
 import { ToastContainer } from 'react-toastify';
 
