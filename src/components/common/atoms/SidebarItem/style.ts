@@ -3,6 +3,7 @@ import { Palette } from 'style/global';
 
 interface ColorType {
   checked: boolean;
+  roleType: 'member' | 'admin';
 }
 
 export const Wrapper = styled.div<ColorType>`
@@ -12,15 +13,28 @@ export const Wrapper = styled.div<ColorType>`
   justify-content: center;
   > div {
     background: ${(props: ColorType) =>
-      props.checked ? Palette.PRIMARY_P4 : 'none'};
+      props.checked
+        ? props.roleType === 'member'
+          ? Palette.PRIMARY_P4
+          : Palette.PRIMARY_P5
+        : ''};
   }
   > div > p {
     color: ${(props: ColorType) =>
-      props.checked ? Palette.PRIMARY_P1 : 'none'};
+      props.checked
+        ? props.roleType === 'member'
+          ? Palette.PRIMARY_P1
+          : '#fff'
+        : ''};
   }
   > div > div > svg {
     path {
-      fill: ${(props: ColorType) => (props.checked ? Palette.PRIMARY_P1 : '')};
+      fill: ${(props: ColorType) =>
+        props.checked
+          ? props.roleType === 'member'
+            ? Palette.PRIMARY_P1
+            : '#fff'
+          : ''};
     }
   }
 `;
