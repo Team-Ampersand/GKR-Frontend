@@ -5,7 +5,8 @@ const color = {
   '--PRIMARY_P1': '#FF6000',
   '--PRIMARY_P2': '#FFA559',
   '--PRIMARY_P3': '#FFB16F',
-  '--PRIMARY_P4': '#865DFF',
+  '--PRIMARY_P4': '#FFE6C7',
+  '--PRIMARY_P5': '#865DFF',
 
   '--NATURAL_N1': '#000000',
   '--NATURAL_N2': '#D9D9D9',
@@ -21,6 +22,7 @@ export const Palette = {
   PRIMARY_P2: cssColor('PRIMARY_P2'),
   PRIMARY_P3: cssColor('PRIMARY_P3'),
   PRIMARY_P4: cssColor('PRIMARY_P4'),
+  PRIMARY_P5: cssColor('PRIMARY_P5'),
 
   NATURAL_N1: cssColor('NATURAL_N1'),
   NATURAL_N2: cssColor('NATURAL_N2'),
