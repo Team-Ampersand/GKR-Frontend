@@ -4,13 +4,16 @@ import { Palette } from 'style/global';
 interface ColorType {
   checked: boolean;
   roleType: 'member' | 'admin';
+  show: boolean;
 }
 
 export const Wrapper = styled.div<ColorType>`
+  margin-bottom: 20px;
   width: 100%;
   height: 48px;
-  display: flex;
+  display: ${(props: ColorType) => (props.show ? 'flex' : 'none')};
   justify-content: center;
+
   > div {
     background: ${(props: ColorType) =>
       props.checked
