@@ -9,8 +9,12 @@ const color = {
   '--PRIMARY_P5': '#865DFF',
 
   '--NATURAL_N1': '#000000',
-  '--NATURAL_N2': '#D9D9D9',
-  '--NATURAL_N3': '#FFFFFF',
+  '--NATURAL_N2': '#FFFFFF',
+  '--NATURAL_N3': '#D9D9D9',
+  '--NATURAL_N4': '#c2c2c2',
+  '--NATURAL_N5': '#999999',
+
+  '--BACKGROUND_BG': '#F7F7F9',
 
   '--SUB_RED': '#FF7D7D',
 };
@@ -27,6 +31,10 @@ export const Palette = {
   NATURAL_N1: cssColor('NATURAL_N1'),
   NATURAL_N2: cssColor('NATURAL_N2'),
   NATURAL_N3: cssColor('NATURAL_N3'),
+  NATURAL_N4: cssColor('NATURAL_N4'),
+  NATURAL_N5: cssColor('NATURAL_N5'),
+
+  BACKGROUND_BG: cssColor('BACKGROUND_BG'),
 
   SUB_RED: cssColor('SUB_RED'),
 };
