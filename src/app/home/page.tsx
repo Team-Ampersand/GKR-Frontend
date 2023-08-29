@@ -1,4 +1,5 @@
 'use client';
+import MenuList from 'components/Home/molecules/MenuList';
 import { HomeTemplate } from 'components/Home/template/style';
 import SearchField from 'components/common/molecules/SearchField';
 import Sidebar from 'components/common/organisms/Sidebar';
@@ -10,6 +11,7 @@ const HomePage = () => {
       <Sidebar />
       <HomeTemplate>
         <SearchField />
+        <MenuList />
       </HomeTemplate>
     </CommonTemplate>
   );
