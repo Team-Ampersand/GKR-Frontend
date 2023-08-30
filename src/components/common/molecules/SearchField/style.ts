@@ -5,7 +5,7 @@ export const Label = styled.label`
   position: relative;
   width: 640px;
   height: 48px;
-  margin-bottom: 60px;
+  margin: 0 auto 60px auto;
 `;
 
 export const Input = styled.input<{ role: string }>`

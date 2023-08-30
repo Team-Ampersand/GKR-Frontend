@@ -8,6 +8,7 @@ export const Layer = styled.div`
   flex-wrap: wrap;
   gap: 32px;
   overflow-y: auto;
+  padding: 10px 0;
 
   ::-webkit-scrollbar {
     width: 6px;
