@@ -19,4 +19,8 @@ export const Layer = styled.button<{ role: string; selected: boolean }>`
       ? Palette.PRIMARY_P5
       : Palette.PRIMARY_P1};
   cursor: pointer;
+
+  :hover {
+    box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
+  }
 `;

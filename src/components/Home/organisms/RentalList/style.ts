@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Layer = styled.div`
+  width: 100%;
   display: flex;
-  gap: 16px;
-  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 32px;
 `;
