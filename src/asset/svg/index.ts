@@ -9,6 +9,7 @@ import GKRLogoA from 'asset/svg/GKRLogoA.svg';
 import Document from 'asset/svg/Document.svg';
 import Cution from 'asset/svg/Cution.svg';
 import Letter from 'asset/svg/Letter.svg';
+import Addfile from 'asset/svg/Addfile.svg';
 import Magnifier from 'asset/svg/Magnifier.svg';
 
 export {
@@ -23,5 +24,6 @@ export {
   Document,
   Cution,
   Letter,
+  Addfile,
   Magnifier,
 };
