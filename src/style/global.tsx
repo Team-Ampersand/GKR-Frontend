@@ -47,6 +47,21 @@ const style = css`
     text-decoration: none;
   }
 
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+
+  input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+  button {
+    cursor: pointer;
+    outline: none;
+  }
+
   a {
     color: inherit;
   }
