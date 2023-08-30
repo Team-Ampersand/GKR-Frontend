@@ -13,6 +13,18 @@ const RentalList = () => {
       <RentalItem />
       <RentalItem />
       <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
+      <RentalItem />
     </S.Layer>
   );
 };
