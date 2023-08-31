@@ -17,3 +17,7 @@ export const Wrapper = styled.div`
     padding-bottom: 32px;
   }
 `;
+
+export const BtnBox = styled.div`
+  width: 320px;
+`;
