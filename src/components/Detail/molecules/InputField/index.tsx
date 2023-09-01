@@ -16,7 +16,12 @@ const InputField = ({ label, type = 'text', placeholder = '' }: Props) => {
     <S.Layer>
       <p>{label}</p>
       {type === 'textarea' ? (
-        <S.Textarea placeholder={placeholder} rows={1} role={role} />
+        <S.Textarea
+          placeholder={placeholder}
+          rows={1}
+          role={role}
+          minRows={10}
+        />
       ) : type === 'period' ? (
         <S.Label>
           <S.Input

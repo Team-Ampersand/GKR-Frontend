@@ -1,3 +1,4 @@
+import TextareaAutosize from 'react-textarea-autosize';
 import styled from '@emotion/styled';
 import { Calendar } from 'asset/svg';
 import { Palette } from 'style/global';
@@ -29,7 +30,9 @@ export const Input = styled.input<Props>`
   border-radius: 8px;
   padding: 12px 16px;
   background-color: ${Palette.BACKGROUND_BG};
-  transition: all.3s;
+  transition:
+    all 0.3s,
+    height 0s;
   border: 1px solid transparent;
   cursor: pointer;
 
@@ -45,10 +48,8 @@ export const Input = styled.input<Props>`
 `;
 
 export const Textarea = styled(Input)`
-  min-height: 200px;
-  height: max-content;
   resize: none;
-`.withComponent('textarea');
+`.withComponent(TextareaAutosize);
 
 export const Icon = styled(Calendar)`
   position: absolute;
