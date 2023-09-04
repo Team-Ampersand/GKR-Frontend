@@ -14,3 +14,8 @@ export const rentalPeriod = atom({
   key: 'rentalPeriod',
   default: [new Date(), new Date()],
 });
+
+export const ruleType = atom<'연체' | '제재'>({
+  key: 'ruleType',
+  default: '연체',
+});

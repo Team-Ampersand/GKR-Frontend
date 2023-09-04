@@ -28,7 +28,7 @@ export const MenuData: menuListProps[] = [
   },
   {
     icon: Cution,
-    routerName: '/sanction',
+    routerName: '/rule',
     title: '제재내역',
     show: ['admin'],
   },
