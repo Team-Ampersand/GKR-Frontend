@@ -2,22 +2,26 @@ import styled from '@emotion/styled';
 import { Palette } from 'style/global';
 
 export const Wrapper = styled.div`
-  width: 800px;
-  padding: 40px;
+  position: sticky;
+  top: 0;
+  width: 27%;
+  background: ${Palette.NATURAL_N2};
   border-radius: 10px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: ${Palette.NATURAL_N2};
-
+  gap: 32px;
   p {
-    font-size: 32px;
-    font-weight: 900;
+    font-size: 24px;
+    font-weight: 800;
     color: ${Palette.PRIMARY_P5};
-    padding-bottom: 32px;
   }
-`;
 
-export const BtnBox = styled.div`
-  width: 320px;
+  > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 `;
