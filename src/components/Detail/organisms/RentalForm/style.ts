@@ -14,6 +14,7 @@ export const Layer = styled.div`
   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.25);
   width: 30%;
   background: ${Palette.NATURAL_N2};
+  position: relative;
 `;
 
 export const Submit = styled.button<Props>`
@@ -25,4 +26,11 @@ export const Submit = styled.button<Props>`
   border: none;
   color: ${Palette.NATURAL_N2};
   font-size: 16px;
+`;
+
+export const CalendarBox = styled.div`
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 40%;
 `;

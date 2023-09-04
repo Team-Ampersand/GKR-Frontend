@@ -1,13 +1,15 @@
 import InputField from 'components/Detail/molecules/InputField';
 import { Noto_Sans_KR } from 'next/font/google';
 import { useRecoilValue } from 'recoil';
-import { roleType } from 'recoilAtoms';
+import { calendarState, roleType } from 'recoilAtoms';
 import * as S from './style';
+import Calendar from 'components/common/atoms/Calendar';
 
 const notoSansKR = Noto_Sans_KR({ weight: '700', subsets: ['latin'] });
 
 const RentalForm = () => {
   const role = useRecoilValue(roleType);
+  const isCalendar = useRecoilValue(calendarState);
 
   return (
     <S.Layer className={notoSansKR.className}>
@@ -18,6 +20,12 @@ const RentalForm = () => {
       <InputField label="대여 기간" type="period" />
       <InputField label="대여 사유" type="textarea" />
       <S.Submit role={role}>대여하기</S.Submit>
+
+      {isCalendar && (
+        <S.CalendarBox>
+          <Calendar />
+        </S.CalendarBox>
+      )}
     </S.Layer>
   );
 };

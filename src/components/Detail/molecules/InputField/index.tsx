@@ -1,7 +1,7 @@
 import { HTMLInputTypeAttribute } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { calendarState, rentalPeriod, roleType } from 'recoilAtoms';
 import * as S from './style';
-import { useRecoilValue } from 'recoil';
-import { roleType } from 'recoilAtoms';
 
 interface Props {
   label: string;
@@ -11,6 +11,14 @@ interface Props {
 
 const InputField = ({ label, type = 'text', placeholder = '' }: Props) => {
   const role = useRecoilValue(roleType);
+  const [isCalendar, setCalendar] = useRecoilState(calendarState);
+  const period = useRecoilValue(rentalPeriod);
+
+  const changeDate = (date: Date) => {
+    return `${date.getFullYear()}년 ${
+      date.getMonth() + 1
+    }월 ${date.getDate()}일`;
+  };
 
   return (
     <S.Layer>
@@ -23,11 +31,12 @@ const InputField = ({ label, type = 'text', placeholder = '' }: Props) => {
           minRows={10}
         />
       ) : type === 'period' ? (
-        <S.Label>
+        <S.Label onFocus={() => setCalendar(!isCalendar)}>
           <S.Input
-            value="2023년 8월 1일 ~ 2024년 8월 1일"
+            value={changeDate(period[0]) + ' ~ ' + changeDate(period[1])}
             readOnly
             role={role}
+            isCalendar={isCalendar}
           />
           <S.Icon />
         </S.Label>

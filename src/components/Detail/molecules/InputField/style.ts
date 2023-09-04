@@ -1,13 +1,18 @@
-import TextareaAutosize from 'react-textarea-autosize';
 import styled from '@emotion/styled';
 import { Calendar } from 'asset/svg';
+import TextareaAutosize from 'react-textarea-autosize';
 import { Palette } from 'style/global';
 
 interface Props {
   role: 'admin' | 'member';
+  isCalendar?: boolean;
 }
 
+const borderColor = (role: 'admin' | 'member') =>
+  role === 'admin' ? Palette.PRIMARY_P5 : Palette.PRIMARY_P1;
+
 export const Layer = styled.div`
+  position: relative;
   width: 100%;
   font-size: 16px;
   display: flex;
@@ -33,7 +38,9 @@ export const Input = styled.input<Props>`
   transition:
     all 0.3s,
     height 0s;
-  border: 1px solid transparent;
+  border: 1px solid
+    ${({ isCalendar, role }) =>
+      !isCalendar ? 'transparent' : borderColor(role)};
   cursor: pointer;
 
   ::placeholder {
@@ -41,9 +48,7 @@ export const Input = styled.input<Props>`
   }
 
   :focus {
-    border: 1px solid
-      ${({ role }) =>
-        role === 'admin' ? Palette.PRIMARY_P5 : Palette.PRIMARY_P1};
+    border: 1px solid ${({ role }) => borderColor(role)};
   }
 `;
 
