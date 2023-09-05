@@ -10,9 +10,9 @@ export const Wrapper = styled.div`
 `;
 
 export const ProfileImg = styled.div`
-  width: 40px;
-  height: 40px;
-  background: ${Palette.NATURAL_N2};
+  width: 50px;
+  height: 50px;
+  background: ${Palette.NATURAL_N3};
   border-radius: 50px;
 `;
 
