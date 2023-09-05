@@ -17,7 +17,6 @@ const RentalForm = () => {
         label="대여자 이름"
         placeholder="대여자 이름을 입력해주세요"
       />
-      <InputField label="대여 기간" type="period" />
       <InputField label="대여 사유" type="textarea" />
       <S.Submit role={role}>대여하기</S.Submit>
 
