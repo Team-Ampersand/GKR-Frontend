@@ -42,11 +42,30 @@ export const Palette = {
 };
 
 const style = css`
+  @font-face {
+    font-family: 's-core';
+    src: url('/font/SCDream4.otf');
+    font-style:normal;
+    font-weight:400;
+  }
+  @font-face {
+    font-family: 's-core';
+    src: url('/font/SCDream5.otf');
+    font-style:Medium;
+    font-weight:500;
+  }
+  @font-face {
+    font-family: 's-core';
+    src: url('/font/SCDream6.otf');
+    font-style:bold;
+    font-weight:600;
+  }
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     text-decoration: none;
+    font-family:s-core;
   }
 
   input:focus,

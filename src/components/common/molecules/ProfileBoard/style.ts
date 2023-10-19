@@ -17,8 +17,10 @@ export const ProfileImg = styled.div`
 export const InfoBox = styled.div`
   color: #999;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   p {
     font-size: 15px;
+    font-weight: 400;
   }
 `;
+

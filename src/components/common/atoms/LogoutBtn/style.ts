@@ -21,6 +21,7 @@ export const IconBox = styled.div`
     width: 30px;
     height: 30px;
   }
+  
 `;
 
 export const NameBox = styled.p`
@@ -41,5 +42,13 @@ export const Content = styled.div`
 
   :hover {
     background: rgba(0, 0, 0, 0.05);
+    p{
+      color: ${Palette.PRIMARY_P6}
+    }
+    svg {
+    path{
+      stroke: ${Palette.PRIMARY_P6};
+    }
+  }
   }
 `;
