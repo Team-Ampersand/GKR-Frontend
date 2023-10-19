@@ -1,6 +1,6 @@
 import * as S from './style';
 import Link from 'next/link';
-import * as I from "../../../../asset/svg/";
+import * as I from "asset/svg";
 import SidebarList from 'components/common/molecules/SidebarList';
 import ProfileBoard from 'components/common/molecules/ProfileBoard';
 import LogoutBtn from 'components/common/atoms/LogoutBtn';

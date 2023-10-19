@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as S from './style';
 import { useRecoilValue } from 'recoil';
 import { roleType } from 'recoilAtoms';
-import { Magnifier } from 'asset/svg';
+import * as I from 'asset/svg'
 
 const SearchField = () => {
   const [timer, setTimer] = useState<NodeJS.Timeout>();
@@ -31,7 +31,7 @@ const SearchField = () => {
     >
       <S.Input role={role} type="text" placeholder="검색어를 입력해주세요" />
       <S.SearchIcon>
-        <Magnifier />
+        <I.Magnifier />
       </S.SearchIcon>
     </S.Label>
   );

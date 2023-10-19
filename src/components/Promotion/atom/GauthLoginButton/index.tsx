@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import * as I from "../../../../asset/svg";
+import * as I from "asset/svg";
 
 const GauthLoginButton = ({ onClick }: { onClick: () => void }) => {
   return (
