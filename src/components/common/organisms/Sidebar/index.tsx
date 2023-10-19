@@ -1,6 +1,6 @@
 import * as S from './style';
 import Link from 'next/link';
-import { GKRLogo, GKRLogoA, Logo2, Logo2A } from 'asset/svg';
+import * as I from "../../../../asset/svg/";
 import SidebarList from 'components/common/molecules/SidebarList';
 import ProfileBoard from 'components/common/molecules/ProfileBoard';
 import LogoutBtn from 'components/common/atoms/LogoutBtn';
@@ -13,20 +13,20 @@ const Sidebar = () => {
 
   return (
     <S.Wrapper>
-        <Link href="/home">
-          <S.LogoBox>
-            {role === 'member' ? (
-              <GKRLogo width="45" height="45" viewBox="0 0 100 100" />
-            ) : (
-              <GKRLogoA />
-            )}
-            {role === 'member' ? (
-              <Logo2A width="45" height="45" viewBox="0 0 100 100" />
-            ) : (
-              <Logo2 />
-            )}
-          </S.LogoBox>
-        </Link>
+      <Link href="/home">
+        <S.LogoBox>
+          {role === 'member' ? (
+            <I.GKRLogo width="45" height="45" viewBox="0 0 100 100" />
+          ) : (
+            <I.GKRLogoA />
+          )}
+          {role === 'member' ? (
+            <I.Logo2A />
+          ) : (
+            <I.Logo2 />
+          )}
+        </S.LogoBox>
+      </Link>
       <S.Top>
         <SidebarList />
       </S.Top>

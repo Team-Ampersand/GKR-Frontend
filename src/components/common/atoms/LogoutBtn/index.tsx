@@ -1,5 +1,5 @@
 import * as S from './style';
-import { Exit } from 'asset/svg';
+import * as I from '../../../../asset/svg/index';
 
 
 const LogoutBtn = () => {
@@ -7,7 +7,7 @@ const LogoutBtn = () => {
     <S.Wrapper>
       <S.Content>
         <S.IconBox>
-          <Exit />
+          <I.Exit />
         </S.IconBox>
         <S.NameBox>로그아웃</S.NameBox>
       </S.Content>

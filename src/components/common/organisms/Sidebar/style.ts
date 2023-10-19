@@ -26,5 +26,8 @@ export const Top = styled.div`
 `
 
 export const Bottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
   margin-top: 60%;
 `
