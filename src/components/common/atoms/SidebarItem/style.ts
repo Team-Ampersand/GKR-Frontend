@@ -2,9 +2,10 @@ import styled from '@emotion/styled';
 import { Palette } from 'style/global';
 
 interface ColorType {
-  checked: boolean;
-  roleType: 'member' | 'admin';
-  show: boolean;
+  checked?: boolean;
+  active?: boolean;
+  roleType?: 'member' | 'admin';
+  show?: boolean;
 }
 
 export const Wrapper = styled.div<ColorType>`
@@ -40,6 +41,7 @@ export const Wrapper = styled.div<ColorType>`
           : ''};
     }
   }
+
 `;
 
 export const IconBox = styled.div`
@@ -70,7 +72,9 @@ export const Content = styled.div`
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
 
-  :hover {
-    background: rgba(0, 0, 0, 0.05);
-  }
+  ${(props:ColorType) => !props.active && `
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+  `}
 `;

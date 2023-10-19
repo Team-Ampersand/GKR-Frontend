@@ -12,8 +12,8 @@ export const Wrapper = styled.div`
 `;
 
 export const IconBox = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ export const IconBox = styled.div`
 export const NameBox = styled.p`
   font-size: 15px;
   font-weight: 700;
-  color: ${Palette.SUB_RED};
+  color: ${Palette.NATURAL_N5};
 `;
 
 export const Content = styled.div`
@@ -35,7 +35,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   padding-left: 8%;
-  gap: 16px;
+  gap: 2%;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
 

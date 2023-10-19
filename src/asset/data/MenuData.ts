@@ -1,4 +1,4 @@
-import { Folder, Profile, Bell, Document, Cution, Letter } from 'asset/svg';
+import { Folder, Profile, Bell, Cution, Letter, Box } from 'asset/svg';
 
 interface menuListProps {
   icon: any;
@@ -17,31 +17,31 @@ export const MenuData: menuListProps[] = [
   {
     icon: Profile,
     routerName: '/profile',
-    title: '프로필',
-    show: ['member'],
+    title: '대여목록',
+    show: ['admin','member'],
   },
   {
-    icon: Document,
+    icon: Box,
     routerName: '/regist',
-    title: '물품 등록',
+    title: '물품관리',
     show: ['admin'],
   },
   {
     icon: Cution,
     routerName: '/rule',
-    title: '제재내역',
-    show: ['admin'],
+    title: '제재관리',
+    show: ['admin', 'member'],
   },
   {
     icon: Letter,
     routerName: '/request',
-    title: '요청내역',
+    title: '요청목록',
     show: ['admin'],
   },
   {
     icon: Bell,
     routerName: '/notice',
-    title: '알림',
+    title: '공지사항',
     show: ['admin', 'member'],
   },
 ];

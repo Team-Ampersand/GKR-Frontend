@@ -12,6 +12,8 @@ import Letter from 'asset/svg/Letter.svg';
 import Addfile from 'asset/svg/Addfile.svg';
 import Magnifier from 'asset/svg/Magnifier.svg';
 import Calendar from 'asset/svg/Calendar.svg';
+import Box from 'asset/svg/box.svg'
+import People from 'asset/svg/People.svg'
 
 export {
   GauthLgo,
@@ -28,4 +30,6 @@ export {
   Addfile,
   Magnifier,
   Calendar,
+  Box,
+  People
 };

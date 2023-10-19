@@ -18,7 +18,7 @@ const SidebarItem = ({ icon, name, active, show, url }: Props) => {
     <Link href={url}>
       <div>
         <S.Wrapper checked={active} roleType={role} show={show}>
-          <S.Content>
+          <S.Content active={active}>
             <S.IconBox>{icon}</S.IconBox>
             <S.NameBox>{name}</S.NameBox>
           </S.Content>

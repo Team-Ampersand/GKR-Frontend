@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { Palette } from 'style/global';
 
 export const Wrapper = styled.div`
   width: 90%;
@@ -12,8 +11,7 @@ export const Wrapper = styled.div`
 export const ProfileImg = styled.div`
   width: 50px;
   height: 50px;
-  background: ${Palette.NATURAL_N3};
-  border-radius: 50px;
+  
 `;
 
 export const InfoBox = styled.div`
