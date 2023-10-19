@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Palette } from 'style/global';
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 215px;
   height: 48px;
   display: flex;
   justify-content: center;

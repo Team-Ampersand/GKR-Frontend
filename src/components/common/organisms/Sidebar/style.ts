@@ -8,22 +8,23 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
-  gap: 50px;
   background: #fff;
   overflow: hidden;
 `;
 
 export const LogoBox = styled.div`
+background-color:tomato;
   display: flex;
-  color: ${Palette.PRIMARY_P2};
   align-items: center;
-  gap: 10px;
-  margin-left: -60px;
+  justify-content: center;
   cursor: pointer;
-
-  p {
-    font-size: 30px;
-    font-weight: 900;
-  }
+  margin-top: 20%;
 `;
+
+export const Top = styled.div`
+  margin-top: 30%;
+`
+
+export const Bottom = styled.div`
+  margin-top: 60%;
+`

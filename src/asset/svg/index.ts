@@ -14,6 +14,8 @@ import Magnifier from 'asset/svg/Magnifier.svg';
 import Calendar from 'asset/svg/Calendar.svg';
 import Box from 'asset/svg/box.svg'
 import People from 'asset/svg/People.svg'
+import Logo2 from 'asset/svg/Logo2.svg'
+import Logo2A from 'asset/svg/Logo2A.svg'
 
 export {
   GauthLgo,
@@ -31,5 +33,7 @@ export {
   Magnifier,
   Calendar,
   Box,
-  People
+  People,
+  Logo2,
+  Logo2A
 };

@@ -9,11 +9,11 @@ interface ColorType {
 }
 
 export const Wrapper = styled.div<ColorType>`
-  margin-bottom: 20px;
-  width: 100%;
+  width: 215px;
   height: 48px;
   display: ${(props: ColorType) => (props.show ? 'flex' : 'none')};
   justify-content: center;
+  margin-bottom: 20px;
 
   > div {
     background: ${(props: ColorType) =>
@@ -34,6 +34,12 @@ export const Wrapper = styled.div<ColorType>`
   > div > div > svg {
     path {
       fill: ${(props: ColorType) =>
+        props.checked
+          ? props.roleType === 'member'
+            ? Palette.PRIMARY_P1
+            : '#fff'
+          : ''};
+      stroke: ${(props: ColorType) =>
         props.checked
           ? props.roleType === 'member'
             ? Palette.PRIMARY_P1

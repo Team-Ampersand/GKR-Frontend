@@ -10,20 +10,20 @@ const SidebarList = () => {
   const role = useRecoilValue(roleType);
 
   return (
-    <S.Wrapper>
-      {MenuData.map((menu, key) => {
-        return (
-          <SidebarItem
-            key={key}
-            icon={<menu.icon />}
-            name={menu.title}
-            active={pathname.includes(menu.routerName)}
-            show={menu.show.includes(role)}
-            url={menu.routerName}
-          />
-        );
-      })}
-    </S.Wrapper>
+      <>
+        {MenuData.map((menu, key) => {
+          return (
+            <SidebarItem
+              key={key}
+              icon={<menu.icon />}
+              name={menu.title}
+              active={pathname.includes(menu.routerName)}
+              show={menu.show.includes(role)}
+              url={menu.routerName}
+            />
+          );
+        })}
+      </>
   );
 };
 
