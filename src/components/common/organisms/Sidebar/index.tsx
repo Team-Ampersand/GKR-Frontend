@@ -1,30 +1,22 @@
-import * as S from './style';
-import Link from 'next/link';
-import * as I from "asset/svg";
-import SidebarList from 'components/common/molecules/SidebarList';
-import ProfileBoard from 'components/common/molecules/ProfileBoard';
-import LogoutBtn from 'components/common/atoms/LogoutBtn';
-import { roleType } from 'recoilAtoms';
-import { useRecoilValue } from 'recoil';
-import { Palette } from 'style/global';
+import * as S from './style'
+import Link from 'next/link'
+import * as I from 'asset/svg'
+import SidebarList from 'components/common/molecules/SidebarList'
+import ProfileBoard from 'components/common/molecules/ProfileBoard'
+import LogoutBtn from 'components/common/atoms/LogoutBtn'
+import { roleType } from 'recoilAtoms'
+import { useRecoilValue } from 'recoil'
+import { Palette } from 'style/global'
 
 const Sidebar = () => {
-  const role = useRecoilValue(roleType);
+  const role = useRecoilValue(roleType)
 
   return (
     <S.Wrapper>
       <Link href="/home">
         <S.LogoBox>
-          {role === 'member' ? (
-            <I.GKRLogo width="45" height="45" viewBox="0 0 100 100" />
-          ) : (
-            <I.GKRLogoA />
-          )}
-          {role === 'member' ? (
-            <I.Logo2A />
-          ) : (
-            <I.Logo2 />
-          )}
+          {role === 'member' ? <I.GKRLogo /> : <I.GKRLogoA />}
+          {role === 'member' ? <I.Logo2A /> : <I.Logo2 />}
         </S.LogoBox>
       </Link>
       <S.Top>
@@ -35,7 +27,7 @@ const Sidebar = () => {
         <LogoutBtn />
       </S.Bottom>
     </S.Wrapper>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

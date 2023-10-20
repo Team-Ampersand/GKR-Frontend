@@ -13,7 +13,8 @@ export const Wrapper = styled.div<ColorType>`
   height: 48px;
   display: ${(props: ColorType) => (props.show ? 'flex' : 'none')};
   justify-content: center;
-  margin-bottom: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
 
   > div {
     background: ${(props: ColorType) =>
