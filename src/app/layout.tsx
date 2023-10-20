@@ -1,8 +1,4 @@
-import { Fraunces } from 'next/font/google';
 import Providers from './provider';
-import Head from 'next/head';
-
-const FrauncesFont = Fraunces({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -11,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={FrauncesFont.className}>
+      <body>
         <div id="__next">
           <Providers>
             <main>{children}</main>

@@ -6,7 +6,7 @@ import { RuleTemplate } from 'components/Rule/templates/style';
 import RuleHeader from 'components/Rule/molecules/RuleHeader';
 import Rule from 'components/Rule/organisms';
 
-const RulePage = () => {
+const Allviolation = () => {
   return (
     <>
       <CommonTemplate>
@@ -20,4 +20,4 @@ const RulePage = () => {
   );
 };
 
-export default RulePage;
+export default Allviolation;

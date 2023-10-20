@@ -1,11 +1,11 @@
-import { Addfile } from 'asset/svg';
+import * as I from 'asset/svg';
 import * as S from './style';
 import { useForm } from 'react-hook-form';
 
 const BannerBox = () => {
   const { register } = useForm({});
 
-  const onChangeImg = () => {};
+  const onChangeImg = () => { };
 
   return (
     <S.Wrapper>
@@ -20,7 +20,7 @@ const BannerBox = () => {
       />
       <S.ImgLabel htmlFor="imgInput">
         <S.Icon>
-          <Addfile />
+          <I.Addfile />
           <p>배너를 추가해주세요</p>
         </S.Icon>
       </S.ImgLabel>

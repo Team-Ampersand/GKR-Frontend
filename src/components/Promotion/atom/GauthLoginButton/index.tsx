@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import GauthLogo from 'asset/svg/GauthLogo.svg';
+import * as I from "asset/svg";
 
 const GauthLoginButton = ({ onClick }: { onClick: () => void }) => {
   return (
     <Button onClick={onClick}>
-      <GauthLogo />
+      <I.GauthLogo />
       Sign in with GAuth
     </Button>
   );

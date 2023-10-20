@@ -1,31 +1,18 @@
-import GauthLgo from 'asset/svg/GauthLogo.svg';
-import GKRLogo from 'asset/svg/GKRLogo.svg';
-import Folder from 'asset/svg/Folder.svg';
-import Profile from 'asset/svg/Profile.svg';
-import Handshake from 'asset/svg/HandShake.svg';
-import Bell from 'asset/svg/Bell.svg';
-import Exit from 'asset/svg/Exit.svg';
-import GKRLogoA from 'asset/svg/GKRLogoA.svg';
-import Document from 'asset/svg/Document.svg';
-import Cution from 'asset/svg/Cution.svg';
-import Letter from 'asset/svg/Letter.svg';
-import Addfile from 'asset/svg/Addfile.svg';
-import Magnifier from 'asset/svg/Magnifier.svg';
-import Calendar from 'asset/svg/Calendar.svg';
-
-export {
-  GauthLgo,
-  GKRLogo,
-  Folder,
-  Profile,
-  Handshake,
-  Bell,
-  Exit,
-  GKRLogoA,
-  Document,
-  Cution,
-  Letter,
-  Addfile,
-  Magnifier,
-  Calendar,
-};
+export { default as GauthLogo } from './GauthLogo';
+export { default as GKRLogo } from './GKRLogo';
+export { default as Folder } from './Folder'
+export { default as Profile } from './Profile';
+export { default as Handshake } from './HandShake';
+export { default as Bell } from './Bell';
+export { default as Exit } from "./Exit";
+export { default as GKRLogoA } from './GKRLogoA';
+export { default as Document } from './Document';
+export { default as Cution } from './Cution';
+export { default as Letter } from './Letter';
+export { default as Addfile } from './Addfile';
+export { default as Magnifier } from './Magnifier';
+export { default as Calendar } from './Calendar';
+export { default as Box } from './Box'
+export { default as People } from './People'
+export { default as Logo2 } from './Logo2'
+export { default as Logo2A } from 'asset/svg/Logo2A'

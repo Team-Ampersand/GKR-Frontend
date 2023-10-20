@@ -1,15 +1,15 @@
-import styled from '@emotion/styled';
-import { Palette } from 'style/global';
+import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 215px;
   height: 48px;
   display: flex;
   justify-content: center;
   cursor: pointer;
   position: absolute;
   bottom: 4%;
-`;
+`
 
 export const IconBox = styled.div`
   width: 30px;
@@ -21,13 +21,13 @@ export const IconBox = styled.div`
     width: 30px;
     height: 30px;
   }
-`;
+`
 
 export const NameBox = styled.p`
   font-size: 15px;
   font-weight: 700;
-  color: ${Palette.SUB_RED};
-`;
+  color: ${Palette.NATURAL_N5};
+`
 
 export const Content = styled.div`
   width: 90%;
@@ -41,5 +41,13 @@ export const Content = styled.div`
 
   :hover {
     background: rgba(0, 0, 0, 0.05);
+    p {
+      color: ${Palette.PRIMARY_P6};
+    }
+    svg {
+      path {
+        stroke: ${Palette.PRIMARY_P6};
+      }
+    }
   }
-`;
+`

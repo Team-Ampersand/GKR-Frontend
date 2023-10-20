@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { Palette } from 'style/global';
+import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -8,22 +8,27 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
-  gap: 50px;
   background: #fff;
   overflow: hidden;
-`;
+`
 
 export const LogoBox = styled.div`
-  display: flex;
-  color: ${Palette.PRIMARY_P2};
+  width: 107px;
+  gap: 8px;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-left: -60px;
+  justify-content: center;
   cursor: pointer;
+  margin-top: 40%;
+`
 
-  p {
-    font-size: 30px;
-    font-weight: 900;
-  }
-`;
+export const Top = styled.div`
+  margin-top: 30%;
+`
+
+export const Bottom = styled.div`
+  position: fixed;
+  height: 160px;
+  top: 80%;
+  flex-direction: column;
+`

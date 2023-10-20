@@ -1,26 +1,28 @@
 import styled from '@emotion/styled';
-import { Palette } from 'style/global';
 
 export const Wrapper = styled.div`
-  width: 90%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-left: 6%;
+  display: inline-flex;
+  align-items: flex-start;
+  width: 215px;
+  height: 76px;
+  gap: 8px;
+  padding: 16px 46px 16px 16px;
+  box-shadow: 0px 0px 5px 0px rgba(112, 144, 176, 0.15);
 `;
 
 export const ProfileImg = styled.div`
-  width: 50px;
-  height: 50px;
-  background: ${Palette.NATURAL_N3};
-  border-radius: 50px;
+  width: 40px;
+  height: 40px;
 `;
 
 export const InfoBox = styled.div`
-  color: #999;
-  font-size: 20px;
-  font-weight: 700;
+  color: #000000;
+  font-size: 1.125rem;
+  font-weight: 400;
   p {
-    font-size: 15px;
+    color: #757575;
+    font-size: 0.925rem;
+    font-weight: 400;
   }
 `;
+
