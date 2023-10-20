@@ -1,18 +1,19 @@
-import * as S from './style';
+import * as S from './style'
 
 interface BtnProps {
-  text: string;
-  onclick?: () => void;
-  fontsize?: string;
-  border?: boolean;
+  text: string
+  onclick?: () => void
+  fontsize?: string
+  border?: boolean
+  fontweight?: string
 }
 
-const Button = ({ text, onclick, fontsize, border }: BtnProps) => {
+const Button = ({ text, onclick, fontsize, border, fontweight }: BtnProps) => {
   return (
-    <S.Wrapper fontsize={fontsize} border={border}>
+    <S.Wrapper fontweight={fontweight} fontsize={fontsize} border={border}>
       {text}
     </S.Wrapper>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
