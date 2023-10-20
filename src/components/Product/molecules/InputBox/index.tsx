@@ -1,5 +1,5 @@
-import InputItem from 'components/Regist/atom/InputItem';
-import * as S from './style';
+import InputItem from 'components/Product/atom/InputItem'
+import * as S from './style'
 
 const InputBox = () => {
   return (
@@ -11,7 +11,7 @@ const InputBox = () => {
       />
       <InputItem title="기자재 상세 내용" placeholder="라즈베리파이..." />
     </S.Wrapper>
-  );
-};
+  )
+}
 
-export default InputBox;
+export default InputBox
