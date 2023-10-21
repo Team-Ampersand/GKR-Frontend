@@ -1,37 +1,44 @@
-import styled from '@emotion/styled';
-import { Palette } from 'style/global';
+import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const Wrapper = styled.div`
   width: 100%;
-  display: flex;
   justify-content: space-between;
-`;
+  margin-bottom: 10px;
+`
 export const Title = styled.div`
   width: 25%;
-  color: ${Palette.NATURAL_N4};
-  font-size: 18px;
-  font-weight: 700;
-  display: flex;
-`;
+  color: #616161;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+`
 
 export const Input = styled.div`
-  width: 75%;
+  width: 100%;
+  margin-top: 28px;
 
   textarea {
     width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid ${Palette.NATURAL_N3};
-    background: ${Palette.BACKGROUND_BG};
-    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid #d9d9d9;
+    background: none;
+    font-size: 12px;
     font-weight: 500;
+    padding-bottom: 8px;
     resize: none;
 
     :focus {
-      border: 1px solid ${Palette.PRIMARY_P5};
+      border: none;
+      border-bottom: 2px solid ${Palette.PRIMARY_P5};
+      color: #bebdbd;
     }
     ::placeholder {
-      color: ${Palette.NATURAL_N3};
+      color: #bebdbd;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: normal;
+      bottom: 8px;
     }
   }
-`;
+`

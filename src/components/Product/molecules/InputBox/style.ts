@@ -1,9 +1,7 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 export const Wrapper = styled.div`
-  padding: 40px 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-`;
+  width: 450px;
+  height: 192px;
+  margin-top: 50px;
+`

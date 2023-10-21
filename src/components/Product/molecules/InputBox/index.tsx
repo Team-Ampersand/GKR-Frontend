@@ -4,12 +4,11 @@ import * as S from './style'
 const InputBox = () => {
   return (
     <S.Wrapper>
-      <InputItem title="물품 이름" placeholder="ex) 노트북" />
       <InputItem
-        title="기자재 주의사항"
-        placeholder="ex) 사용할 때 파손 주의해주세요."
+        title="기자재 이름"
+        placeholder="기자재의 이름을 입력해주세요"
       />
-      <InputItem title="기자재 상세 내용" placeholder="라즈베리파이..." />
+      <InputItem title="기자재 설명" placeholder="기자재의 설명을 입력해주세요" />
     </S.Wrapper>
   )
 }
