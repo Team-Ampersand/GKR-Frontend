@@ -1,13 +1,13 @@
 import Button from '../../common/atoms/Button'
-import BannerBox from '../molecules/BannerBox'
+import ImgBox from '../molecules/ImgBox'
 import InputBox from '../molecules/InputBox'
 import * as S from './style'
 
 const Regist = () => {
   return (
     <S.Wrapper>
-      <BannerBox />
       <InputBox />
+      <ImgBox />
       <S.BtnBox>
         <Button text="등록하기" fontweight="700" />
       </S.BtnBox>

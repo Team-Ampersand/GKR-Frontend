@@ -8,4 +8,5 @@ export const Wrapper = styled.div`
 
 export const BtnBox = styled.div`
   width: 320px;
+  margin-top: 60px;
 `
