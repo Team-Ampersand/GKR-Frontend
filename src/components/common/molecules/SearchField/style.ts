@@ -12,7 +12,7 @@ export const Input = styled.input<{ role: string }>`
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  border: 1px solid ${Palette.NATURAL_N4};
+  border: 1px solid #E1E1E1;
   color: ${Palette.NATURAL_N4};
   padding: 12px 24px;
   transition: all 0.3s;
@@ -26,7 +26,7 @@ export const Input = styled.input<{ role: string }>`
   :focus {
     border: 1px solid
       ${({ role }) =>
-        role === 'admin' ? Palette.PRIMARY_P5 : Palette.PRIMARY_P2};
+    role === 'admin' ? Palette.PRIMARY_P5 : Palette.PRIMARY_P2};
     color: ${Palette.NATURAL_N1};
   }
 `;
