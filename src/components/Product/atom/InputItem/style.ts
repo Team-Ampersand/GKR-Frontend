@@ -4,7 +4,7 @@ import { Palette } from 'style/global'
 export const Wrapper = styled.div`
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-top: 50px;
 `
 export const Title = styled.div`
   width: 25%;

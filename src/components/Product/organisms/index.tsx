@@ -6,8 +6,10 @@ import * as S from './style'
 const Regist = () => {
   return (
     <S.Wrapper>
+      <S.TopBox>
       <InputBox />
       <ImgBox />
+      </S.TopBox>
       <S.BtnBox>
         <Button text="등록하기" fontweight="700" />
       </S.BtnBox>

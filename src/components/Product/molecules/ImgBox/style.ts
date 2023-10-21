@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   background: #fff;
   display: flex;
   cursor: pointer;
+  margin-top: 60px;
 `
 
 export const Icon = styled.div`
