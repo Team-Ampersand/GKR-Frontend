@@ -19,3 +19,8 @@ export const ruleType = atom<'연체' | '제재'>({
   key: 'ruleType',
   default: '연체',
 })
+
+export const ProductList = atom({
+  key: 'ProductList',
+  default: '',
+})

@@ -3,13 +3,9 @@ import styled from '@emotion/styled'
 interface ButtonProps {
   width: string | undefined
   active: boolean
-  color: string | undefined
 }
 
-export const Wrapper = styled.div`
-  width: 100%;
-  height: 192px;
-`
+export const Wrapper = styled.div``
 
 export const Button = styled.button<ButtonProps>`
   width: ${({ width }) => (width ? width + 'px' : '85px')};
