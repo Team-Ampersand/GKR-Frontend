@@ -2,6 +2,11 @@ export const FilterListData = {
 
     equipmentStatusList: [
         {
+            name: "전체",
+            value: "",
+            color: ""
+        },
+        {
             name: "대여가능",
             value: "NOT_RENT",
             color: "#3484D1"

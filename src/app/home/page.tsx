@@ -12,7 +12,6 @@ const HomePage = () => {
       <Sidebar />
       <HomeTemplate>
         <SearchField />
-        <Filter />
         <Rental />
       </HomeTemplate>
     </CommonTemplate>

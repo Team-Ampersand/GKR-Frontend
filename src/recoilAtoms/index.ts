@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 
 export const roleType = atom<'member' | 'admin'>({
   key: 'roleType',
-  default: 'member',
+  default: 'admin',
 })
 
 export const calendarState = atom<boolean>({
@@ -18,4 +18,12 @@ export const rentalPeriod = atom({
 export const ruleType = atom<'연체' | '제재'>({
   key: 'ruleType',
   default: '연체',
+})
+
+export const filterState = atom({
+  key: "filterState",
+  default: {
+    equipmentStatus: "",
+    equipmentType: ""
+  }
 })
