@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 export const DeleteButtonWrapper = styled.div`
   display: flex;
   width: 134px;
-  height: 40px;
+  height: 48px;
   border-radius: 5px;
   cursor: pointer;
   border: none;

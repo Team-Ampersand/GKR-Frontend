@@ -8,6 +8,7 @@ import InputBox from '../molecules/InputBox'
 import ListBox from '../molecules/ListBox'
 import * as S from './style'
 import DeleteBtn from '../atom/DeleteBtn'
+import DeleteBox from '../molecules/DeleteBox'
 
 const Regist = () => {
   const choice = useRecoilValue(ProductChoice)
@@ -28,8 +29,7 @@ const Regist = () => {
       case '물품 삭제하기':
         return (
           <S.DeleteWrapper>
-            <DeleteBtn />
-            <Rental />
+            <DeleteBox />
           </S.DeleteWrapper>
         )
       default:
