@@ -1,21 +1,21 @@
 'use client'
 
+import Regist from 'components/Product/organisms'
 import { RegistTemplate } from 'components/Product/templates/style'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
-import Request from 'components/Request/organisms/Request'
 
-const RequestPage = () => {
+const RegistPgae = () => {
   return (
     <>
       <CommonTemplate>
         <Sidebar />
         <RegistTemplate>
-          <Request />
+          <Regist />
         </RegistTemplate>
       </CommonTemplate>
     </>
   )
 }
 
-export default RequestPage
+export default RegistPgae

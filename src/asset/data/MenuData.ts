@@ -22,7 +22,7 @@ export const MenuData: menuListProps[] = [
   },
   {
     icon: Box,
-    routerName: '/regist',
+    routerName: '/productmanagement',
     title: '물품관리',
     show: ['admin'],
   },
