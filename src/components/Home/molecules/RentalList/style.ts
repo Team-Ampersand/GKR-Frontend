@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import { Palette } from 'style/global';
 
-export const Layer = styled.div`
+export const RentalListWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 16px;
   overflow-y: auto;
   padding: 10px 0;
 
