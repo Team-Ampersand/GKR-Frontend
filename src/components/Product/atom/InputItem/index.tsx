@@ -1,14 +1,10 @@
-import { useState } from 'react';
-import * as S from './style';
-import TextareaAutosize from 'react-textarea-autosize';
+import { useState } from 'react'
+import * as S from './style'
+import TextareaAutosize from 'react-textarea-autosize'
+import { InputItemProps } from 'types/Product/ProductTypes'
 
-interface InputProps {
-  title: string;
-  placeholder: string;
-}
-
-const InputItem = ({ title, placeholder }: InputProps) => {
-  const [content, setContent] = useState('');
+const InputItem = ({ title, placeholder }: InputItemProps) => {
+  const [content, setContent] = useState('')
 
   return (
     <S.Wrapper>
@@ -22,7 +18,7 @@ const InputItem = ({ title, placeholder }: InputProps) => {
         />
       </S.Input>
     </S.Wrapper>
-  );
-};
+  )
+}
 
-export default InputItem;
+export default InputItem

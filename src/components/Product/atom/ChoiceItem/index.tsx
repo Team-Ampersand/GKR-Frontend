@@ -1,10 +1,7 @@
 import { useRecoilState } from 'recoil'
 import * as S from './style'
 import { ProductChoice } from 'recoilAtoms'
-
-interface ChoiceItemProps {
-  name: string
-}
+import { ChoiceItemProps } from 'types/Product/ProductTypes'
 
 const ChoiceItem = ({ name }: ChoiceItemProps) => {
   const [ChoiceName, setChoiceName] = useRecoilState(ProductChoice)
