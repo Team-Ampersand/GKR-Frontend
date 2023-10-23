@@ -3,9 +3,9 @@ import * as S from './style'
 const DeleteBtn = () => {
 
     return(
-        <S.Wrapper>
-            
-        </S.Wrapper>
+        <S.DeleteButtonWrapper>
+            삭제하기
+        </S.DeleteButtonWrapper>
     )
 }
 

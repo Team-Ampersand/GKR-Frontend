@@ -1,11 +1,12 @@
+import Rental from 'components/Home/organisms/Rental'
+import { useRecoilValue } from 'recoil'
 import { ProductChoice } from 'recoilAtoms'
 import Button from '../../common/atoms/Button'
+import ImgBox from '../molecules/ImgBox'
 import ChoiceBox from '../molecules/ChoiceBox'
 import InputBox from '../molecules/InputBox'
 import ListBox from '../molecules/ListBox'
-import ImgBox from '../molecules/\bImgBox'
 import * as S from './style'
-import { useRecoilValue } from 'recoil'
 
 const Regist = () => {
   const choice = useRecoilValue(ProductChoice)
@@ -14,15 +15,21 @@ const Regist = () => {
     switch (choice) {
       case '물품 등록하기':
         return (
-          <>
-            <ChoiceBox />
+          <S.RegistWrapper>
             <ListBox />
             <InputBox />
             <ImgBox />
-          </>
+            <S.BtnBox>
+              <Button text="등록하기" fontweight="700" />
+            </S.BtnBox>
+          </S.RegistWrapper>
         )
       case '물품 삭제하기':
-        return <ChoiceBox /> 
+        return (
+          <S.DeleteWrapper>
+            <Rental />
+          </S.DeleteWrapper>
+        )
       default:
         return null
     }
@@ -30,12 +37,8 @@ const Regist = () => {
 
   return (
     <S.Wrapper>
-      <S.TopBox>{renderForm()}</S.TopBox>
-      {choice === '물품 등록하기' && (
-        <S.BtnBox>
-          <Button text="등록하기" fontweight="700" />
-        </S.BtnBox>
-      )}
+      <ChoiceBox />
+      {renderForm()}
     </S.Wrapper>
   )
 }
