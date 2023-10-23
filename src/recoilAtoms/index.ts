@@ -22,10 +22,10 @@ export const ruleType = atom<'연체' | '제재'>({
 
 export const ProductChoice = atom({
   key: 'ProductChoice',
-  default: '',
+  default: '물품 등록하기',
 })
 
 export const ProductList = atom({
   key: 'ProductList',
-  default: '',
+  default: '노트북',
 })
