@@ -20,6 +20,11 @@ export const ruleType = atom<'연체' | '제재'>({
   default: '연체',
 })
 
+export const ProductChoice = atom({
+  key: 'ProductChoice',
+  default: '',
+})
+
 export const ProductList = atom({
   key: 'ProductList',
   default: '',
