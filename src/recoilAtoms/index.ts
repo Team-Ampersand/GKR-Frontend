@@ -19,7 +19,6 @@ export const ruleType = atom<'연체' | '제재'>({
   key: 'ruleType',
   default: '연체',
 })
-
 export const filterState = atom({
   key: "filterState",
   default: {
@@ -27,3 +26,14 @@ export const filterState = atom({
     equipmentType: ""
   }
 })
+
+export const ProductChoice = atom({
+  key: 'ProductChoice',
+  default: '',
+})
+
+export const ProductList = atom({
+  key: 'ProductList',
+  default: '',
+})
+
