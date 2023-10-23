@@ -6,7 +6,6 @@ export default function FilterButton({ modal, setModal }: FilterButtonPropsType)
     const onClick = () => {
         setModal(modal ? false : true)
     }
-    console.log(modal)
     return (
         <S.FilterButtonWrapper onClick={onClick} >
             <I.Filter />

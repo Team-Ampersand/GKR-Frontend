@@ -1,5 +1,3 @@
-import { type } from "os"
-
 export interface FilterButtonPropsType {
     modal: boolean
     setModal: React.Dispatch<React.SetStateAction<boolean>>
