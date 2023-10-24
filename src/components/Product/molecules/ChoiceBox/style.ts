@@ -6,6 +6,6 @@ export const Wrapper = styled.div`
 export const ChoiceBox = styled.div`
   display: flex;
   height: fit-content auto;
-  width: 254px;
+  width: 300px;
   gap: 10px;
 `
