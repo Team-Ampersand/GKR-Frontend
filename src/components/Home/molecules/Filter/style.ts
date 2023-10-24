@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 export const FilterListWrapper = styled.div`
-    display: flex;
-    flex-direction: row-reverse;
-    height: 4rem;
+  display: flex;
+  flex-direction: row-reverse;
+  height: 4rem;
 `
 export const FilterModalWrapper = styled.div`
-display: flex;
-flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 `

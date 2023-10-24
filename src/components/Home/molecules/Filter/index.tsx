@@ -10,9 +10,9 @@ function Filter() {
   const [modal, setModal] = useState(false)
   return (
     <S.FilterListWrapper>
-      <FilterButton modal={modal} setModal={setModal} />
+      <FilterButton setModal={setModal} />
       <S.FilterModalWrapper>
-        {modal ? <FilterModal /> : null}
+        {modal ? <FilterModal setModal={setModal}/> : null}
       </S.FilterModalWrapper>
     </S.FilterListWrapper>
   )
