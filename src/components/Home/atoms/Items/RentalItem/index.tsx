@@ -54,9 +54,14 @@ const RentalItem = ({
 
   return (
     <S.Layer onClick={() => {}}>
-      <S.imageFrameWrapper>
+      <S.CheckWrapper>
         {isProductManagementPage && <S.Check type="checkbox" />}
-        <img src={imageUrl} alt="" />
+      </S.CheckWrapper>
+      <S.imageFrameWrapper>
+        <img
+          src="https://s3.orbi.kr/data/file/united/e533d1c052be4ae83b34ddf643989ae0.jpg"
+          alt=""
+        />
       </S.imageFrameWrapper>
       <S.ContentBox>
         <S.TitleWrapper>
