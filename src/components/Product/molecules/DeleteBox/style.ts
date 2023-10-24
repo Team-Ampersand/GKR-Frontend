@@ -11,3 +11,10 @@ export const LineWrapper = styled.div`
   background-color: #c2c2c2;
   margin-bottom: 0.5rem;
 `
+
+export const ToolBox = styled.div`
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  flex-direction: row-reverse;
+`

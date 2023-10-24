@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { Palette } from 'style/global'
 
 interface ChoiceProps {
   active: boolean | undefined

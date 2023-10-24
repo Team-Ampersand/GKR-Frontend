@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { Palette } from 'style/global'
 
 export const Wrapper = styled.div`
   margin-bottom: 30px;

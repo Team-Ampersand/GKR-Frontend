@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { Palette } from 'style/global';
+import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const RentalListWrapper = styled.div`
   width: 100%;
@@ -18,4 +18,4 @@ export const RentalListWrapper = styled.div`
     background: ${Palette.NATURAL_N4};
     border-radius: 10px;
   }
-`;
+`

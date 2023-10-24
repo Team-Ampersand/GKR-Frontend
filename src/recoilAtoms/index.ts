@@ -19,21 +19,26 @@ export const ruleType = atom<'연체' | '제재'>({
   key: 'ruleType',
   default: '연체',
 })
+
 export const filterState = atom({
-  key: "filterState",
+  key: 'filterState',
   default: {
-    equipmentStatus: "",
-    equipmentType: ""
-  }
+    equipmentStatus: '',
+    equipmentType: '',
+  },
 })
 
 export const ProductChoice = atom({
   key: 'ProductChoice',
-  default: '',
+  default: '물품 등록하기',
 })
 
 export const ProductList = atom({
   key: 'ProductList',
-  default: '',
+  default: '노트북',
 })
 
+export const DeleteChoice = atom<number[]>({
+  key: 'DeleteChoice',
+  default: [],
+})

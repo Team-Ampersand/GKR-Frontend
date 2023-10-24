@@ -5,7 +5,6 @@ export const RegistTemplate = styled.div`
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  margin-left: 130px;
-  padding: 3rem 0 5rem;
+  padding: 4.8rem 5rem;
   overflow-y: scroll;
 `

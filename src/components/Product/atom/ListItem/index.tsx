@@ -1,15 +1,9 @@
-import Button from 'components/common/atoms/Button'
-import * as S from './style'
-import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { ProductList } from 'recoilAtoms'
+import { ListItemProps } from 'types/Product/ProductTypes'
+import * as S from './style'
 
-interface ListProps {
-  name: string
-  width?: string
-}
-
-const ListItem = ({ name, width }: ListProps) => {
+const ListItem = ({ name, width }: ListItemProps) => {
   const [PrductName, setProductName] = useRecoilState(ProductList)
 
   return (

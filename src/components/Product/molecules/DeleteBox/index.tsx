@@ -1,10 +1,14 @@
 import RentalList from 'components/common/molecules/RentalList'
 import * as S from './style'
 import Filter from 'components/Home/molecules/Filter'
-export default function Rental() {
+import DeleteBtn from 'components/Product/atom/DeleteBtn'
+export default function DeleteBox() {
   return (
     <S.RentalWrapper>
-      <Filter />
+      <S.ToolBox>
+        <Filter />
+        <DeleteBtn />
+      </S.ToolBox>
       <S.LineWrapper />
       <RentalList />
     </S.RentalWrapper>
