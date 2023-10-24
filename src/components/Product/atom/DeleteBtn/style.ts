@@ -1,5 +1,9 @@
 import styled from '@emotion/styled'
 
+interface TitleColorType {
+  color: string
+}
+
 export const DeleteButtonWrapper = styled.div`
   display: flex;
   width: 134px;
@@ -12,11 +16,11 @@ export const DeleteButtonWrapper = styled.div`
   justify-content: center;
 `
 
-export const Title = styled.p`
+export const Title = styled.p<TitleColorType>`
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
-  color: #999;
+  color: ${(props) => props.color};
 `
 
 export const IconBox = styled.div`
