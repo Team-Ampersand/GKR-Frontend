@@ -1,14 +1,12 @@
-import Rental from 'components/Home/organisms/Rental'
 import { useRecoilValue } from 'recoil'
 import { ProductChoice } from 'recoilAtoms'
 import Button from '../../common/atoms/Button'
-import ImgBox from '../molecules/ImgBox'
 import ChoiceBox from '../molecules/ChoiceBox'
+import DeleteBox from '../molecules/DeleteBox'
+import ImgBox from '../molecules/ImgBox'
 import InputBox from '../molecules/InputBox'
 import ListBox from '../molecules/ListBox'
 import * as S from './style'
-import DeleteBtn from '../atom/DeleteBtn'
-import DeleteBox from '../molecules/DeleteBox'
 
 const Regist = () => {
   const choice = useRecoilValue(ProductChoice)

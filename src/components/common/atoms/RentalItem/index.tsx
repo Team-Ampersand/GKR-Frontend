@@ -1,11 +1,12 @@
 'use client'
 
-import * as S from './style'
-import Tag from 'components/common/atoms/Tag'
-import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
 import { FilterListData } from 'asset/data/FilterListData'
-import { useRouter } from 'next/router'
+import Tag from 'components/common/atoms/Tag'
 import { usePathname } from 'next/navigation'
+import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
+import * as S from './style'
+import { useRecoilState } from 'recoil'
+import { DeleteChoice } from 'recoilAtoms'
 
 interface getNameFromValuePropstype {
   list: {
@@ -13,7 +14,6 @@ interface getNameFromValuePropstype {
     value: string
     color?: string
   }[]
-
   valueToFind: string
 }
 
@@ -30,6 +30,8 @@ const RentalItem = ({
     name: '로딩중',
     value: 'Loading',
   }
+
+  const [deleteIds, setDeleteIds] = useRecoilState(DeleteChoice)
 
   const getNameFromValue = ({
     list,
@@ -52,10 +54,26 @@ const RentalItem = ({
   const router = usePathname()
   const isProductManagementPage = router === '/productmanagement'
 
+  const handleCheckboxChange = () => {
+    if (isProductManagementPage) {
+      if (deleteIds.includes(id)) {
+        setDeleteIds(deleteIds.filter((deleteId) => deleteId !== id))
+      } else {
+        setDeleteIds([...deleteIds, id])
+      }
+    }
+  }
+
   return (
     <S.Layer onClick={() => {}}>
       <S.CheckWrapper>
-        {isProductManagementPage && <S.Check type="checkbox" />}
+        {isProductManagementPage && (
+          <S.Check
+            type="checkbox"
+            checked={deleteIds.includes(id)}
+            onChange={handleCheckboxChange}
+          />
+        )}
       </S.CheckWrapper>
       <S.imageFrameWrapper>
         <img

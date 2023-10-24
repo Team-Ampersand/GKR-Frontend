@@ -13,10 +13,10 @@ export const DeleteButtonWrapper = styled.div`
 `
 
 export const Title = styled.p`
-  color: #999;
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
+  color: #999;
 `
 
 export const IconBox = styled.div`
