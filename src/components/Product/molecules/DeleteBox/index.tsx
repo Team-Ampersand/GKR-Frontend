@@ -1,4 +1,4 @@
-import RentalList from 'components/Home/molecules/RentalList'
+import RentalList from 'components/common/molecules/RentalList'
 import * as S from './style'
 import Filter from 'components/Home/molecules/Filter'
 import DeleteBtn from 'components/Product/atom/DeleteBtn'
