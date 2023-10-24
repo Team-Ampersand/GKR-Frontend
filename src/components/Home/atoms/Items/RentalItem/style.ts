@@ -17,6 +17,9 @@ export const Layer = styled.div`
   }
 `;
 
+export const Check = styled.input`
+`
+
 export const imageFrameWrapper = styled.div`
   width: 100%;
   height: 52%;
