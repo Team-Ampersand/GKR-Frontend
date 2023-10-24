@@ -1,4 +1,4 @@
-import RentalItem from 'components/Home/atoms/Items/RentalItem';
+import RentalItem from 'components/common/atoms/RentalItem';
 import { RentalListDummy } from "asset/dummy/RentalListdummy"
 import { useState } from 'react';
 import * as S from './style';
