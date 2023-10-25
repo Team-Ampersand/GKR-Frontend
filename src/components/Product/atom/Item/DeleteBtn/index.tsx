@@ -4,6 +4,7 @@ import * as I from 'asset/svg'
 import { DeleteChoice } from 'recoilAtoms'
 import { useEffect, useState } from 'react'
 import { ModalPropsType } from 'types/components/Home/FilterTypes'
+import { toast } from 'react-toastify'
 
 const DeleteBtn = ({ setModal }: ModalPropsType) => {
   const DeleteIds = useRecoilValue(DeleteChoice)
@@ -11,7 +12,8 @@ const DeleteBtn = ({ setModal }: ModalPropsType) => {
   const [color, setColor] = useState('')
 
   const openModal = () => {
-    setModal((prev) => !prev)
+    if (DeleteIds.length > 0) setModal((prev) => !prev)
+    else toast.error('삭제할 물품을 선택해 주세요')
   }
 
   useEffect(() => {
