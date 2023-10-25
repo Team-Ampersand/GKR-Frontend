@@ -1,4 +1,4 @@
-import ChoiceItem from 'components/Product/atom/ChoiceItem'
+import ChoiceItem from 'components/Product/atom/Item/ChoiceItem'
 import * as S from './style'
 
 const ChoiceBox = () => {

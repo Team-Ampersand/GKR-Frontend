@@ -1,4 +1,4 @@
-import ListItem from 'components/Product/atom/ListItem'
+import ListItem from 'components/Product/atom/Item/ListItem'
 import * as S from './style'
 
 const ListBox = () => {
