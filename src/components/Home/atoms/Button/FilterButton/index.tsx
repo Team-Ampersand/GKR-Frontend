@@ -1,8 +1,8 @@
-import { FilterButtonPropsType } from 'types/components/Home/FilterTypes'
+import { ModalPropsType } from 'types/components/Home/FilterTypes'
 import * as S from './style'
 import * as I from 'asset/svg'
 
-export default function FilterButton({ setModal }: FilterButtonPropsType) {
+export default function FilterButton({ setModal }: ModalPropsType) {
   const onClick = () => {
     setModal((prev) => !prev)
   }

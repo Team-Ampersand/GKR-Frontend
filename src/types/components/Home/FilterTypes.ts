@@ -1,5 +1,4 @@
-export interface FilterButtonPropsType {
-  modal?: boolean
+export interface ModalPropsType {
   setModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 

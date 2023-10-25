@@ -1,16 +1,16 @@
-import { FilterButtonPropsType } from 'types/components/Home/FilterTypes'
+import { ModalPropsType } from 'types/components/Home/FilterTypes'
 import FilterItem from '../../../../common/atoms/FIlterItem'
 import * as S from './style'
 import { FilterListData } from 'asset/data/FilterListData'
 
-export default function FilterModal({ setModal }: FilterButtonPropsType) {
+export default function FilterModal({ setModal }: ModalPropsType) {
   function closeModal() {
     setModal((prev) => !prev)
   }
   return (
     <>
       <S.Wrapper onClick={closeModal}></S.Wrapper>
-      <S.FilterModalWrapper >
+      <S.FilterModalWrapper>
         <S.Title>필터</S.Title>
         <S.subTitle>기자재 종류</S.subTitle>
         <S.filterListWrapper onClick={(e) => e.stopPropagation()}>
