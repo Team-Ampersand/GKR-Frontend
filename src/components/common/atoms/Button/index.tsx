@@ -6,11 +6,31 @@ interface BtnProps {
   fontsize?: string
   border?: boolean
   fontweight?: string
+  width?: string
+  height?: string
+  color?: string
 }
 
-const Button = ({ text, onclick, fontsize, border, fontweight }: BtnProps) => {
+const Button = ({
+  text,
+  onclick,
+  width,
+  height,
+  color,
+  fontsize,
+  border,
+  fontweight,
+}: BtnProps) => {
   return (
-    <S.Wrapper fontweight={fontweight} fontsize={fontsize} border={border}>
+    <S.Wrapper
+      onClick={onclick}
+      color={color}
+      width={width}
+      height={height}
+      fontweight={fontweight}
+      fontsize={fontsize}
+      border={border}
+    >
       {text}
     </S.Wrapper>
   )
