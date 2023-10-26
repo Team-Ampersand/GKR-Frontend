@@ -1,11 +1,11 @@
 import { useRecoilValue } from 'recoil'
 import { ProductChoice } from 'recoilAtoms'
 import Button from '../../common/atoms/Button'
-import ChoiceBox from '../molecules/ChoiceBox'
-import DeleteBox from '../molecules/DeleteBox'
-import ImgBox from '../molecules/ImgBox'
-import InputBox from '../molecules/InputBox'
-import ListBox from '../molecules/ListBox'
+import ChoiceBox from '../molecules/Box/ChoiceBox'
+import DeleteBox from '../molecules/Box/DeleteBox'
+import ImgBox from '../molecules/Box/ImgBox'
+import InputBox from '../molecules/Box/InputBox'
+import ListBox from '../molecules/Box/ListBox'
 import * as S from './style'
 
 const Regist = () => {
