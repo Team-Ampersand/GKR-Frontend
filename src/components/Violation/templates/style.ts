@@ -6,4 +6,5 @@ export const ViolationTemplate = styled(MainTemplates)`
   background-color: ${Palette.BACKGROUND_BG};
   padding: 24px 80px;
   overflow: hidden;
+  margin-top: 10%;
 `
