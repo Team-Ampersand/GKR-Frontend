@@ -1,15 +1,17 @@
 'use client'
-import { HomeTemplate } from 'components/Home/template/style'
+import Violation from 'components/Violation/organisms'
 import { ViolationTemplate } from 'components/Violation/templates/style'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
 
-const Violation = () => {
+const ViolationPage = () => {
   return (
     <CommonTemplate>
       <Sidebar />
-      <ViolationTemplate></ViolationTemplate>
+      <ViolationTemplate>
+        <Violation />
+      </ViolationTemplate>
     </CommonTemplate>
   )
 }
-export default Violation
+export default ViolationPage
