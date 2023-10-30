@@ -1,4 +1,9 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
+
+interface ColorType {
+  roleType?: 'member' | 'admin'
+}
 
 export const Wrapper = styled.div`
   display: flex;
@@ -8,8 +13,9 @@ export const Wrapper = styled.div`
   margin-top: 6%;
 `
 
-export const TitleWrapper = styled.p`
-  color: #ff6000;
+export const TitleWrapper = styled.p<ColorType>`
+  color: ${(props: ColorType) =>
+    props.roleType ? Palette.PRIMARY_P5 : Palette.PRIMARY_P1};
   font-size: 24px;
   font-weight: 700;
   line-height: normal;
