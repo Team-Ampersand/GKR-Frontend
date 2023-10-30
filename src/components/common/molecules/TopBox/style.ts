@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   gap: 14px;
+  margin-top: 6%;
 `
 
 export const TitleWrapper = styled.p`
