@@ -1,30 +1,28 @@
-import RentalItem from 'components/common/atoms/RentalItem';
-import { RentalListDummy } from "asset/dummy/RentalListdummy"
-import { useState } from 'react';
-import * as S from './style';
-import { useRecoilState } from 'recoil';
-import { roleType } from "recoilAtoms";
+import { RentalListDummy } from 'asset/dummy/RentalListdummy'
+import RentalItem from 'components/common/atoms/RentalItem'
+import { useState } from 'react'
+import { useRecoilValue } from 'recoil'
+import { roleType } from 'recoilAtoms'
+import * as S from './style'
 const RentalList = () => {
-  const [role, setRole] = useRecoilState(roleType)
-  const [dummy, setDummy] = useState(RentalListDummy.equipmentList);
+  const role = useRecoilValue(roleType)
+  const [dummy, setDummy] = useState(RentalListDummy.equipmentList)
   return (
     <S.RentalListWrapper>
-      {
-        dummy.map((i) => (
-          <RentalItem
-            id={i.id}
-            title={i.name}
-            imageUrl={i.imageUrl}
-            description={i.description}
-            equipmentStatus={i.equipmentStatus}
-            equipmentType={i.equipmentType}
-            role={role}
-            key={i.id}
-          />
-        ))
-      }
+      {dummy.map((i) => (
+        <RentalItem
+          id={i.id}
+          title={i.name}
+          imageUrl={i.imageUrl}
+          description={i.description}
+          equipmentStatus={i.equipmentStatus}
+          equipmentType={i.equipmentType}
+          role={role}
+          key={i.id}
+        />
+      ))}
     </S.RentalListWrapper>
-  );
-};
+  )
+}
 
-export default RentalList;
+export default RentalList
