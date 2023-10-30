@@ -1,9 +1,13 @@
 import * as S from './style'
 
-const TopBox = () => {
+interface TopBoxProps {
+  text: string
+}
+
+const TopBox = ({ text }: TopBoxProps) => {
   return (
     <S.Wrapper>
-      <S.TitleWrapper>제제 내역</S.TitleWrapper>
+      <S.TitleWrapper>{text}</S.TitleWrapper>
       <S.LineWrapper />
     </S.Wrapper>
   )
