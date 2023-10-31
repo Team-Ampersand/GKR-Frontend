@@ -1,7 +1,11 @@
 import TopBox from '../../../common/molecules/TopBox'
 import * as S from './style'
 
-const NoticeDetail = () => {
+interface Props {
+  id: string | undefined
+}
+
+const NoticeDetail = ({ id }: Props) => {
   return (
     <S.Wrapper>
       <TopBox text="공지사항" />
