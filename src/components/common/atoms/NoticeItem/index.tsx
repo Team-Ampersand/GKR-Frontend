@@ -15,16 +15,25 @@ function formatDate(inputDate: string) {
   return `${year}.${month}.${day}`
 }
 
+const truncateTitle = (title: string, maxLength: number) => {
+  if (title.length > maxLength) {
+    return `[${title.slice(0, maxLength - 3)}...]`
+  }
+  return `[${title}]`
+}
+
 const NoticeItem = ({
   title,
   content,
   createNoticeDate,
 }: NoticeItemPropsType) => {
   const formattedDate = formatDate(createNoticeDate)
+  const truncatedTitle = truncateTitle(title, 20)
+
   return (
     <S.NoticeItemWrapper>
       <S.Top>
-        <S.Title>[{title}]</S.Title>
+        <S.Title>{truncatedTitle}</S.Title>
         <S.Date>{formattedDate}</S.Date>
       </S.Top>
       <S.Content>{content}</S.Content>
