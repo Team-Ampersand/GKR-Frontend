@@ -2,7 +2,7 @@ export const NoticeListDummy = {
   noticeList: [
     {
       id: 1,
-      title: '일일일일일일일일일일일일일일일일일일일일',
+      title: '일일일일일일일일일일일일일일일일일일일일ㄷㄱㄷㄱㄷㄱㄷ',
       imageUrl: '132412341234',
       createNoticeDate: '2021-11-08T11:44:30.327959',
       content:

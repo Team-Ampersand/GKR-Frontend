@@ -5,6 +5,7 @@ interface NoticeItemPropsType {
   content: string
 }
 
+import Link from 'next/link'
 import * as S from './style'
 
 function formatDate(inputDate: string) {
@@ -23,6 +24,7 @@ const truncateTitle = (title: string, maxLength: number) => {
 }
 
 const NoticeItem = ({
+  id,
   title,
   content,
   createNoticeDate,
@@ -31,13 +33,15 @@ const NoticeItem = ({
   const truncatedTitle = truncateTitle(title, 20)
 
   return (
-    <S.NoticeItemWrapper>
-      <S.Top>
-        <S.Title>{truncatedTitle}</S.Title>
-        <S.Date>{formattedDate}</S.Date>
-      </S.Top>
-      <S.Content>{content}</S.Content>
-    </S.NoticeItemWrapper>
+    <Link href={`/notice/${id}`}>
+      <S.NoticeItemWrapper>
+        <S.Top>
+          <S.Title>{truncatedTitle}</S.Title>
+          <S.Date>{formattedDate}</S.Date>
+        </S.Top>
+        <S.Content>{content}</S.Content>
+      </S.NoticeItemWrapper>
+    </Link>
   )
 }
 

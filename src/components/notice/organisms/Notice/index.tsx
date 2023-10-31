@@ -1,5 +1,5 @@
 import NoticeList from 'components/common/molecules/NoticeList'
-import TopBox from '../../common/molecules/TopBox'
+import TopBox from '../../../common/molecules/TopBox'
 import * as S from './style'
 
 const Notice = () => {

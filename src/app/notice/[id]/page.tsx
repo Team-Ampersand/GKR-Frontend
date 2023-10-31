@@ -1,17 +1,17 @@
 'use client'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
-import Notice from 'components/notice/organisms/Notice'
+import NoticeDetail from 'components/notice/organisms/NoticeDetail'
 import { NoticeTemplate } from 'components/notice/templates/style'
 
-const NoticePage = () => {
+const NoticeDetailPage = () => {
   return (
     <CommonTemplate>
       <Sidebar />
       <NoticeTemplate>
-        <Notice />
+        <NoticeDetail />
       </NoticeTemplate>
     </CommonTemplate>
   )
 }
-export default NoticePage
+export default NoticeDetailPage
