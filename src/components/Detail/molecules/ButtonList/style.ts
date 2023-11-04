@@ -18,6 +18,7 @@ export const FillButtonWrapper = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  cursor: pointer;
 `
 
 export const OutlineButtonWrapper = styled.div`
@@ -33,6 +34,7 @@ export const OutlineButtonWrapper = styled.div`
   font-style: normal;
   font-weight: 00;
   line-height: normal;
+  cursor: pointer;
 `
 
 export const AdminFillButtonWrapper = styled.div`
@@ -48,6 +50,7 @@ export const AdminFillButtonWrapper = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  cursor: pointer;
 `
 
 export const AdminOutlineButtonWrapper = styled.div`
@@ -63,4 +66,5 @@ export const AdminOutlineButtonWrapper = styled.div`
   font-style: normal;
   font-weight: 00;
   line-height: normal;
+  cursor: pointer;
 `

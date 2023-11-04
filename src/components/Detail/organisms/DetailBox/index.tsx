@@ -56,19 +56,20 @@ export default function DetailBox({}) {
       <ImageFrame />
       <S.TitleWrapper>
         <S.TopTitleWrapper>
-          <S.Title>{`Raspberry pi 4`}</S.Title>
-          <S.EditButton>
-            <I.Edit_Outline />
-            수정하기
-          </S.EditButton>
+          <S.Title>{name}</S.Title>
+          {role === 'admin' ? (
+            <S.EditButton>
+              <I.Edit_Outline />
+              수정하기
+            </S.EditButton>
+          ) : null}
         </S.TopTitleWrapper>
         <S.TagListWrapper>
           <Tag data={equipmentStatusName} role={role} />
           <Tag data={equipmentTypeName} role={role} />
         </S.TagListWrapper>
       </S.TitleWrapper>
-      <S.ContentsWrapper>{`이 라즈베리 파이로 말할거같으면 1도 아니고 무려 4인 놀라운 성능을 지닌 라즈베리 파이다.
-사양은 112에서 234한 236이다.`}</S.ContentsWrapper>
+      <S.ContentsWrapper>{description}</S.ContentsWrapper>
       <ButtonList equipmentStatus={'NOT_RENT'} renter={true} role={role} />
     </S.DetailWrapper>
   )
