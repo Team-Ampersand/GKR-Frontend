@@ -17,7 +17,8 @@ interface getNameFromValuePropstype {
   valueToFind: string
 }
 
-const RentalItem = ({
+
+function RentalItem({
   id,
   title,
   imageUrl,
@@ -25,7 +26,7 @@ const RentalItem = ({
   equipmentType,
   equipmentStatus,
   role,
-}: RentalItemPropsType) => {
+}: RentalItemPropsType) {
   const Loading = {
     name: '로딩중',
     value: 'Loading',
@@ -65,7 +66,7 @@ const RentalItem = ({
   }
 
   return (
-    <S.Layer onClick={() => {}}>
+    <S.Layer onClick={() => { }}>
       <S.CheckWrapper>
         {isProductManagementPage && (
           <S.Check

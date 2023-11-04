@@ -7,6 +7,4 @@ export const RentalListWrapper = styled.div`
   flex-wrap: wrap;
   gap: 16px;
   padding: 10px 0;
-
-
 `

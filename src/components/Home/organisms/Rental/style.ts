@@ -20,5 +20,4 @@ export const LineWrapper = styled.div`
   height: 2px;
   background-color: #c2c2c2;
   margin-bottom: 0.5rem;
-  
 `
