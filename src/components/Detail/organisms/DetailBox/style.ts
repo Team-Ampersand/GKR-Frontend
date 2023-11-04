@@ -15,6 +15,7 @@ export const DetailWrapper = styled.div`
 export const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 10px;
 `
 
 export const Title = styled.p`
@@ -27,6 +28,7 @@ export const Title = styled.p`
 
 export const TagListWrapper = styled.div`
   display: flex;
+  gap: 10px;
 `
 
 export const ContentsWrapper = styled.div`

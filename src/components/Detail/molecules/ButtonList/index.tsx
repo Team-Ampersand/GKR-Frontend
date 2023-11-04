@@ -2,30 +2,28 @@ import { ButtonListPropsType } from 'types/components/Detail/ButtonListType'
 import * as S from './style'
 
 export interface changeButtonPropsType {
-  renter: boolean
+  isRenter: boolean
 }
 
 export default function ButtonList({
   equipmentStatus,
-  role,
   renter,
+  role,
 }: ButtonListPropsType) {
-  const isAdmin = role === 'admin'
-  let isRenter = true
-  const chageMemberButton = ({ renter }: changeButtonPropsType) => {
+  const changeMemberButton = ({ isRenter }: changeButtonPropsType) => {
     return {
       NOT_RENT() {
         return <S.FillButtonWrapper>대여하기</S.FillButtonWrapper>
       },
       WAITING() {
-        return renter ? (
+        return isRenter ? (
           <S.OutlineButtonWrapper>취소하기</S.OutlineButtonWrapper>
         ) : (
           <></>
         )
       },
       RENTING() {
-        return renter ? (
+        return isRenter ? (
           <>
             <S.FillButtonWrapper>반납하기</S.FillButtonWrapper>
             <S.OutlineButtonWrapper>연장하기</S.OutlineButtonWrapper>
@@ -40,9 +38,30 @@ export default function ButtonList({
     }
   }
 
+  const changeAdminButton = () => {
+    return {
+      NOT_RENT() {
+        return <S.AdminFillButtonWrapper>수리등록</S.AdminFillButtonWrapper>
+      },
+      WAITING() {
+        return <></>
+      },
+      RENTING() {
+        return <></>
+      },
+      REPAIRING() {
+        return (
+          <S.AdminOutlineButtonWrapper>수리취소</S.AdminOutlineButtonWrapper>
+        )
+      },
+    }
+  }
+
   return (
     <S.ButtonListWrapper>
-      {chageMemberButton({ renter: isRenter })[equipmentStatus]()}
+      {role === 'admin'
+        ? changeAdminButton()[equipmentStatus]()
+        : changeMemberButton({ isRenter: renter })[equipmentStatus]()}
     </S.ButtonListWrapper>
   )
 }
