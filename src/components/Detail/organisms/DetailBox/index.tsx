@@ -1,7 +1,7 @@
 'use client'
 
 import * as S from './style'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ImageFrame from 'components/Detail/molecules/ImageFrame'
 import Tag from 'components/common/atoms/Tag'
 import ButtonList from 'components/Detail/molecules/ButtonList'
@@ -10,7 +10,7 @@ import { roleType } from 'recoilAtoms'
 import { useParams } from 'next/navigation'
 import { Detaildummy } from 'asset/dummy/Detaildummy'
 import { FilterListData } from 'asset/data/FilterListData'
-
+import * as I from 'asset/svg'
 interface getNameFromValuePropstype {
   list: {
     name: string
@@ -55,7 +55,13 @@ export default function DetailBox({}) {
     <S.DetailWrapper>
       <ImageFrame />
       <S.TitleWrapper>
-        <S.Title>{`Raspberry pi 4`}</S.Title>
+        <S.TopTitleWrapper>
+          <S.Title>{`Raspberry pi 4`}</S.Title>
+          <S.EditButton>
+            <I.Edit_Outline />
+            수정하기
+          </S.EditButton>
+        </S.TopTitleWrapper>
         <S.TagListWrapper>
           <Tag data={equipmentStatusName} role={role} />
           <Tag data={equipmentTypeName} role={role} />

@@ -17,6 +17,23 @@ export const TitleWrapper = styled.div`
   flex-direction: column;
   gap: 10px;
 `
+export const TopTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const EditButton = styled.div`
+  display: flex;
+  align-items: center;
+  color: #865dff;
+  border: 1.5px solid #865dff;
+  border-radius: 5px;
+  justify-content: space-around;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+`
 
 export const Title = styled.p`
   color: #000;
