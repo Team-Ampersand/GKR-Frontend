@@ -1,9 +1,8 @@
 'use client'
-
+import Request from 'components/Request/organisms/Request'
 import { RegistTemplate } from 'components/Product/templates/style'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
-import Request from 'components/Request/organisms/Request'
 
 const RequestPage = () => {
   return (
