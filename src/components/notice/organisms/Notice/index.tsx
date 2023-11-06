@@ -1,4 +1,4 @@
-import NoticeList from 'components/common/molecules/NoticeList'
+import NoticeList from 'components/common/molecules/ListBox'
 import TopBox from '../../../common/molecules/TopBox'
 import * as S from './style'
 

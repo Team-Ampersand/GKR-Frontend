@@ -3,7 +3,7 @@ import NoticeItem from 'components/common/atoms/NoticeItem'
 import { useState } from 'react'
 import * as S from './style'
 
-const NoticeList = () => {
+const ListBox = () => {
   const [dummy, setDummy] = useState(NoticeListDummy.noticeList)
 
   return (
@@ -21,4 +21,4 @@ const NoticeList = () => {
   )
 }
 
-export default NoticeList
+export default ListBox
