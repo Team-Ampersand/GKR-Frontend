@@ -1,13 +1,17 @@
-import RequestList from '../../molecules/RequestList';
-import * as S from './style';
+import MGMTListItem from "components/common/atoms/MGMTListItem"
+import * as S from "./style"
 
-const Request = () => {
-  return (
-    <S.Wrapper>
-      <p>요청 학생 리스트</p>
-      <RequestList />
-    </S.Wrapper>
-  );
-};
-
-export default Request;
+export default function Request() {
+    return (
+        <S.RequestWrapper>
+            <MGMTListItem
+                thumbnail="s"
+                title="Raspberry pie"
+                tag="대여중"
+                tagVisible={true}
+                student="손정민"
+                period="2023.05.26 ~ 2023.06.26"
+            />
+        </S.RequestWrapper>
+    )
+}

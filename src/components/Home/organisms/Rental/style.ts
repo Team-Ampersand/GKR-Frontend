@@ -1,8 +1,18 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const RentalWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: ${Palette.NATURAL_N2};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${Palette.NATURAL_N4};
+    border-radius: 10px;
+  }
 `
 
 export const LineWrapper = styled.div`

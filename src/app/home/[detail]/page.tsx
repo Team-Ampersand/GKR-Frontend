@@ -1,9 +1,9 @@
-'use client';
-import RentalForm from 'components/Detail/organisms/RentalForm';
-import { DetailTemplate } from 'components/Detail/templates/style';
-import SearchField from 'components/common/molecules/SearchField';
-import Sidebar from 'components/common/organisms/Sidebar';
-import { CommonTemplate } from 'components/common/templates/style';
+'use client'
+import DetailBox from 'components/Detail/organisms/DetailBox'
+import { DetailTemplate } from 'components/Detail/template/style'
+import SearchField from 'components/common/molecules/SearchField'
+import Sidebar from 'components/common/organisms/Sidebar'
+import { CommonTemplate } from 'components/common/templates/style'
 
 const DetailPage = () => {
   return (
@@ -11,9 +11,9 @@ const DetailPage = () => {
       <Sidebar />
       <DetailTemplate>
         <SearchField />
-        <RentalForm />
+        <DetailBox />
       </DetailTemplate>
     </CommonTemplate>
-  );
-};
-export default DetailPage;
+  )
+}
+export default DetailPage
