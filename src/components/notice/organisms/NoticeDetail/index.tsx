@@ -12,7 +12,6 @@ const NoticeDetail = ({ id }: Props) => {
   const [dummy, setDummy] = useState(NoticeDetailDummy.NoticeDetailDummy)
   return (
     <S.Wrapper>
-      <TopBox text="공지사항" />
       <DetailBox dummy={dummy} />
     </S.Wrapper>
   )
