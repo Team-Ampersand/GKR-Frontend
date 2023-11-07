@@ -1,4 +1,4 @@
-import TopBox from '../molecules/Box/TopBox'
+import TopBox from '../../common/molecules/TopBox'
 import ViolationList from '../molecules/Box/VoilationListBox'
 import * as S from './style'
 

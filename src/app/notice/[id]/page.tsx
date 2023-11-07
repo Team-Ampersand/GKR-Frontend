@@ -1,17 +1,23 @@
 'use client'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
-import Notice from 'components/Notice/organisms/Notice'
+import NoticeDetail from 'components/Notice/organisms/NoticeDetail'
 import { NoticeTemplate } from 'components/Notice/templates/style'
+import { usePathname } from 'next/navigation'
 
-const NoticePage = () => {
+const NoticeDetailPage = () => {
+  const pathname = usePathname()
+
+  const id = pathname.split('/').pop()
+
+  console.log(id)
   return (
     <CommonTemplate>
       <Sidebar />
       <NoticeTemplate>
-        <Notice />
+        <NoticeDetail id={id} />
       </NoticeTemplate>
     </CommonTemplate>
   )
 }
-export default NoticePage
+export default NoticeDetailPage
