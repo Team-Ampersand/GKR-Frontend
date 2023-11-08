@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 
 export const TitleWrapper = styled.p<ColorType>`
   color: ${(props: ColorType) =>
-    props.roleType ? Palette.PRIMARY_P5 : Palette.PRIMARY_P1};
+    props.roleType === 'admin' ? Palette.PRIMARY_P5 : Palette.PRIMARY_P1};
   font-size: 24px;
   font-weight: 700;
   line-height: normal;
