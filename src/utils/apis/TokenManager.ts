@@ -4,7 +4,7 @@ import {
   accessExp,
   refreshExp,
 } from 'utils/libs/localStorage'
-import { TokensType } from 'types/api/TokenManager'
+import { TokensType } from 'types/apis/TokenManager'
 
 class TokenManager {
   private _accessToken: string | null = null
