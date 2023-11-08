@@ -1,6 +1,6 @@
 'use client'
 import Request from 'components/Request/organisms/Request'
-import { RegistTemplate } from 'components/Product/templates/style'
+import { RequestTemplate } from 'components/Request/template/style'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
 
@@ -9,9 +9,9 @@ const RequestPage = () => {
     <>
       <CommonTemplate>
         <Sidebar />
-        <RegistTemplate>
+        <RequestTemplate>
           <Request />
-        </RegistTemplate>
+        </RequestTemplate>
       </CommonTemplate>
     </>
   )
