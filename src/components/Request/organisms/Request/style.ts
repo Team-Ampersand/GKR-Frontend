@@ -1,7 +1,9 @@
-import styled from "@emotion/styled"
+import styled from '@emotion/styled'
 
 export const RequestWrapper = styled.div`
-    height: 100%;
-    width: 100%;
-    background-color: tomato;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  width: 100%;
 `
