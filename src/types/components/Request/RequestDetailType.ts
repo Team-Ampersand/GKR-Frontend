@@ -5,5 +5,5 @@ export interface RequestDetailItemPropsType {
 
 export interface RequestButtonList {
   id: number
-  equipmentStatus: 'RENTAL' | 'RETURN' | 'EXTENSION'
+  orderType: 'RENTAL' | 'RETURN' | 'EXTENSION'
 }

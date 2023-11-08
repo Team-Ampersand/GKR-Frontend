@@ -5,4 +5,5 @@ export interface MGMTListItemPropsType {
   student: string
   period: string
   tagVisible: boolean
+  id: number
 }
