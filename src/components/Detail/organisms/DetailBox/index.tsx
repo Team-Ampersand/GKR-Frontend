@@ -53,7 +53,7 @@ export default function DetailBox({}) {
 
   return (
     <S.DetailWrapper>
-      <ImageFrame />
+      <ImageFrame url={'d'} />
       <S.TitleWrapper>
         <S.TopTitleWrapper>
           <S.Title>{name}</S.Title>
