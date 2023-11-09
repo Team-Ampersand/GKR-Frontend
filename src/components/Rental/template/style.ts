@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const RegistTemplate = styled.div`
+export const RentalTemplate = styled.div`
   width: calc(100% - 250px);
   height: 100dvh;
   display: flex;

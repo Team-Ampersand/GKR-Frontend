@@ -1,9 +1,8 @@
 import styled from '@emotion/styled'
 
-export const RequestWrapper = styled.div`
+export const RentalListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  height: 100%;
   width: 100%;
+  gap: 12px;
 `
