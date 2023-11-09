@@ -1,4 +1,4 @@
-import ChoiceItem from 'components/Rental/atoms/ChoiceItem'
+import ChoiceItem from 'components/common/atoms/ChoiceItem'
 import * as S from './style'
 import { ChiceBoxPropsType } from 'types/components/Rental/RentalType'
 const ChoiceBox = ({ data, setValue, value }: ChiceBoxPropsType) => {
