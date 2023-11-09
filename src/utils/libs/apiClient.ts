@@ -1,9 +1,8 @@
 import axios from 'axios'
-import { baseUrl } from './env'
 import { getRefresh } from './getRefresh'
 
 export const apiClient = axios.create({
-  baseURL: baseUrl,
+  baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
   withCredentials: true,
 })
 
