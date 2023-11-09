@@ -56,8 +56,6 @@ const useFetch = <T,>({
           toast.error(errors[e.response.status], toastOption)
         }
         if (onFailure) await onFailure(e)
-
-        if (autoPushToggle) window.location.replace('/')
       } finally {
         setIsLoading(false)
       }

@@ -1,4 +1,3 @@
-import useFetch from 'hook/useFetch'
 import { apiClient } from 'utils/libs/apiClient'
 import TokenManager from './TokenManager'
 
