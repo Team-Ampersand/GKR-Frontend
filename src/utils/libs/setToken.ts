@@ -1,6 +1,5 @@
 import { GetServerSidePropsContext } from 'next'
 import { setCookie } from 'nookies'
-
 export const setToken = (
   AccessTokenn: string,
   RefreshToken: string,

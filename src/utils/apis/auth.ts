@@ -1,7 +1,6 @@
 import { GetServerSidePropsContext } from 'next'
 import { apiClient } from 'utils/libs/apiClient'
 import { setToken } from 'utils/libs/setToken'
-
 export const tokenReissue = async (
   refreshToken: string,
   ctx: GetServerSidePropsContext | null,

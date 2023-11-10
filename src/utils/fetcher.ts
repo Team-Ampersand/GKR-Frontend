@@ -1,3 +1,3 @@
-import axios from 'axios'
-const fetcher = (url: string) => axios.get(url).then((res) => res.data)
+import { apiClient } from './libs/apiClient'
+const fetcher = (url: string) => apiClient.get(url).then((res) => res.data)
 export default fetcher
