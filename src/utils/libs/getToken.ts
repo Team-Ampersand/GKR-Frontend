@@ -1,21 +1,18 @@
 import { GetServerSidePropsContext } from 'next'
 import { parseCookies } from 'nookies'
 import { tokenReissue } from 'utils/apis/auth'
-
 export const getToken = async (ctx: GetServerSidePropsContext | null) => {
   if (ctx) {
-    let Authorization = ctx.req.cookies['Authorization'] || ''
+    let AccessToken = ctx.req.cookies['AccessToken'] || ''
     let RefreshToken = ctx.req.cookies['RefreshToken'] || ''
-
     if (!RefreshToken) return {}
-    else if (!Authorization) {
-      const { newAuthorization }: any = await tokenReissue(RefreshToken, ctx)
-      Authorization = newAuthorization
+    else if (!AccessToken) {
+      const { newAcessToken }: any = await tokenReissue(RefreshToken, ctx)
+      AccessToken = newAcessToken
     }
-
-    return { Authorization, RefreshToken }
+    return { AccessToken, RefreshToken }
   } else {
-    const { Authorization, RefreshToken } = parseCookies()
-    return { Authorization, RefreshToken }
+    const { AccessToken, RefreshToken } = parseCookies()
+    return { AccessToken, RefreshToken }
   }
 }
