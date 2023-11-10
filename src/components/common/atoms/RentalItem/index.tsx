@@ -17,7 +17,6 @@ interface getNameFromValuePropstype {
   valueToFind: string
 }
 
-
 function RentalItem({
   id,
   title,
@@ -31,9 +30,7 @@ function RentalItem({
     name: '로딩중',
     value: 'Loading',
   }
-
   const [deleteIds, setDeleteIds] = useRecoilState(DeleteChoice)
-
   const getNameFromValue = ({
     list,
     valueToFind,
@@ -41,20 +38,16 @@ function RentalItem({
     const item = list.find((item) => item.value === valueToFind)
     return item ? item : Loading
   }
-
   const equipmentTypeName = getNameFromValue({
     list: FilterListData.equipmentType,
     valueToFind: equipmentType,
   })
-
   const equipmentStatusName = getNameFromValue({
     list: FilterListData.equipmentStatusList,
     valueToFind: equipmentStatus,
   })
-
   const router = usePathname()
   const isProductManagementPage = router === '/productmanagement'
-
   const handleCheckboxChange = () => {
     if (isProductManagementPage) {
       if (deleteIds.includes(id)) {
@@ -64,9 +57,8 @@ function RentalItem({
       }
     }
   }
-
   return (
-    <S.Layer onClick={() => { }}>
+    <S.Layer onClick={() => {}}>
       <S.CheckWrapper>
         {isProductManagementPage && (
           <S.Check
@@ -77,10 +69,7 @@ function RentalItem({
         )}
       </S.CheckWrapper>
       <S.imageFrameWrapper>
-        <img
-          src="https://s3.orbi.kr/data/file/united/e533d1c052be4ae83b34ddf643989ae0.jpg"
-          alt=""
-        />
+        <img src={imageUrl} alt="기자재 사진" />
       </S.imageFrameWrapper>
       <S.ContentBox>
         <S.TitleWrapper>
