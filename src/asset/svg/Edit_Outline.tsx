@@ -1,12 +1,18 @@
 interface Edit_OutLinePropsType {
   stroke: string
+  width?: string
+  height?: string
 }
 
-export default function Edit_OutLine({ stroke }: Edit_OutLinePropsType) {
+export default function Edit_OutLine({
+  stroke,
+  width = '20px',
+  height = '20px',
+}: Edit_OutLinePropsType) {
   return (
     <svg
-      width="20"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

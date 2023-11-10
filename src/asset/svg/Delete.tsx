@@ -1,13 +1,19 @@
 interface DeleteSvgPropType {
-  strok:string
+  strok: string
+  width?: string
+  height?: string
 }
 
-export default function Delete({strok}:DeleteSvgPropType) {
+export default function Delete({
+  strok,
+  width = '24px',
+  height = '24px',
+}: DeleteSvgPropType) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
     >
