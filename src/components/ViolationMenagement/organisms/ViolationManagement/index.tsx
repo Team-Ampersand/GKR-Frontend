@@ -2,6 +2,7 @@ import { useState } from 'react'
 import * as S from './style'
 import ChoiceBox from 'components/common/molecules/ChoiceBox'
 import AddViolation from 'components/ViolationMenagement/molecules/AddViolation'
+import ViolationList from 'components/ViolationMenagement/molecules/ViolationList'
 export default function ViolationManagement() {
   const [pageState, setPageState] = useState('제재 목록')
   return (
@@ -11,7 +12,7 @@ export default function ViolationManagement() {
         value={pageState}
         setValue={setPageState}
       />
-      {pageState === '제재 목록' ? null : <AddViolation />}
+      {pageState === '제재 목록' ? <ViolationList /> : <AddViolation />}
     </S.AllViolationWrapper>
   )
 }
