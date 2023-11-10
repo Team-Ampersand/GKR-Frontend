@@ -29,12 +29,12 @@ const RentalList = () => {
   const { data, refetch } = useQuery(
     ['equipment', url],
     () => {
-      let queryParams = {}
-      if (!params.equipmentType && params.equipmentStatus) {
-        queryParams = { equipmentStatus: params.equipmentStatus }
-      } else if (params.equipmentType && !params.equipmentStatus) {
-        queryParams = { equipmentType: params.equipmentType }
-      }
+      const queryParams =
+        !params.equipmentType && params.equipmentStatus
+          ? { equipmentStatus: params.equipmentStatus }
+          : params.equipmentType && !params.equipmentStatus
+          ? { equipmentType: params.equipmentType }
+          : {}
       return getEquipment(url, queryParams)
     },
     {
@@ -49,16 +49,16 @@ const RentalList = () => {
   return (
     <S.RentalListWrapper>
       {equipmentList &&
-        [...equipmentList].map((i) => (
+        [...equipmentList].map((equipment) => (
           <RentalItem
-            id={i.id}
-            title={i.name}
-            imageUrl={i.imageUrl}
-            description={i.description}
-            equipmentStatus={i.equipmentStatus}
-            equipmentType={i.equipmentType}
+            key={equipment.id}
+            id={equipment.id}
+            title={equipment.name}
+            imageUrl={equipment.imageUrl}
+            description={equipment.description}
+            equipmentStatus={equipment.equipmentStatus}
+            equipmentType={equipment.equipmentType}
             role={role}
-            key={i.id}
           />
         ))}
     </S.RentalListWrapper>
