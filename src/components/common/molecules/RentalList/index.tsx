@@ -8,22 +8,24 @@ import * as S from './style'
 const RentalList = () => {
   const role = useRecoilValue(roleType)
   const params = useRecoilValue(filterState)
-
-  const url =
-    !params.equipmentType && params.equipmentStatus
-      ? EquipmentController.getState('state')
-      : params.equipmentType && !params.equipmentStatus
-      ? EquipmentController.getState('type')
-      : (() => {
-          return EquipmentController.getEquipment()
-        })()
-
+  const generateUrl = () => {
+    if (!params.equipmentType && params.equipmentStatus) {
+      return EquipmentController.getState('state')
+    } else if (params.equipmentType && !params.equipmentStatus) {
+      return EquipmentController.getState('type')
+    } else {
+      return EquipmentController.getEquipment()
+    }
+  }
+  const url = generateUrl()
   const { data } = useQuery(['equipment', url], () => {
-    return !params.equipmentType && params.equipmentStatus
-      ? getEquipment(url, { equipmentStatus: params.equipmentStatus })
-      : params.equipmentType && !params.equipmentStatus
-      ? getEquipment(url, { equipmentType: params.equipmentType })
-      : getEquipment(url)
+    let queryParams = {}
+    if (!params.equipmentType && params.equipmentStatus) {
+      queryParams = { equipmentStatus: params.equipmentStatus }
+    } else if (params.equipmentType && !params.equipmentStatus) {
+      queryParams = { equipmentType: params.equipmentType }
+    }
+    return getEquipment(url, queryParams)
   })
   const equipmentList = data?.data?.equipmentList
   return (
