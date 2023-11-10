@@ -6,7 +6,7 @@ export const tokenReissue = async (
   refreshToken: string,
   ctx: GetServerSidePropsContext | null,
 ) => {
-  let newAuthorization: string
+  let newAcessToken: string
   try {
     const { data } = await apiClient.patch(
       'auth',
@@ -17,9 +17,9 @@ export const tokenReissue = async (
         },
       },
     )
-    newAuthorization = data.accessToken
+    newAcessToken = data.accessToken
     refreshToken = data.refreshToken
-    setToken(newAuthorization, refreshToken, ctx)
-    return { newAuthorization }
+    setToken(newAcessToken, refreshToken, ctx)
+    return { newAcessToken }
   } catch (e: any) {}
 }

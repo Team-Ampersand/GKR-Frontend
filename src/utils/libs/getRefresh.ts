@@ -6,16 +6,13 @@ export const getRefresh = async (config: InternalAxiosRequestConfig) => {
   if (typeof window !== 'object') {
     return config
   }
-  const { Authorization, RefreshToken } = await getToken(null)
-  if (config.headers && Authorization) {
-    config.headers['Authorization'] = Authorization
-  } else if (!Authorization && config?.url?.includes('/auth')) {
-    const { newAuthorization }: any = await tokenReissue(
-      RefreshToken || '',
-      null,
-    )
+  const { AccessToken, RefreshToken } = await getToken(null)
+  if (config.headers && AccessToken) {
+    config.headers['AccessToken'] = AccessToken
+  } else if (!AccessToken && config?.url?.includes('/auth')) {
+    const { AccessToken }: any = await tokenReissue(RefreshToken || '', null)
     if (config.headers) {
-      config.headers['Authorization'] = `Bearer ${newAuthorization}`
+      config.headers['AccessToken'] = `Bearer ${AccessToken}`
     }
   }
 
