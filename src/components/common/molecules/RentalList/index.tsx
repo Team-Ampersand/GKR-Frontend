@@ -18,6 +18,13 @@ const RentalList = () => {
           return EquipmentController.getEquipment()
         })()
 
+  const { data } = useQuery(['equipment', url], () => {
+    return !params.equipmentType && params.equipmentStatus
+      ? getEquipment(url, { equipmentStatus: params.equipmentStatus })
+      : params.equipmentType && !params.equipmentStatus
+      ? getEquipment(url, { equipmentType: params.equipmentType })
+      : getEquipment(url)
+  })
   const equipmentList = data?.data?.equipmentList
   return (
     <S.RentalListWrapper>
