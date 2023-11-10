@@ -14,7 +14,7 @@ const useLogin = () => {
   const { fetch } = useFetch<TokensType>({
     url: 'auth',
     method: 'post',
-    successMessage: '로그인에 성공했습니다.',
+    successMessage: '로그인되었습니다.',
     errors: '로그인에 실패했습니다.',
     onSuccess: (data) => {
       if (typeof window !== 'undefined') {
