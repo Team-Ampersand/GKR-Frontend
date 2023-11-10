@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import Promotion from 'components/Promotion/organisms';
+import Promotion from 'components/Promotion/organisms'
 
 const PromotionPage = () => {
-  return <Promotion />;
-};
-export default PromotionPage;
+  return <Promotion />
+}
+export default PromotionPage
