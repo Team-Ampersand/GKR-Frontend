@@ -12,7 +12,6 @@ interface Props<T> {
   onFailure?: (e: unknown) => void | Promise<void>
   successMessage?: string
   errors?: ErrorsType | string
-  autoPushToggle?: boolean
 }
 
 const useFetch = <T,>({
@@ -22,7 +21,6 @@ const useFetch = <T,>({
   onFailure,
   successMessage,
   errors,
-  autoPushToggle = true,
 }: Props<T>) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [data, setData] = useState<T | null>(null)

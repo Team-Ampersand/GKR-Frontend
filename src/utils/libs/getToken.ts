@@ -1,12 +1,21 @@
-import TokenManager from 'utils/apis/TokenManager'
+import { GetServerSidePropsContext } from 'next'
+import { parseCookies } from 'nookies'
+import { tokenReissue } from 'utils/apis/auth'
 
-const getToken = () => {
-  const tokenManager = new TokenManager()
+export const getToken = async (ctx: GetServerSidePropsContext | null) => {
+  if (ctx) {
+    let Authorization = ctx.req.cookies['Authorization'] || ''
+    let RefreshToken = ctx.req.cookies['RefreshToken'] || ''
 
-  const accessToken = tokenManager.accessToken
-  const refreshToken = tokenManager.refreshToken
+    if (!RefreshToken) return {}
+    else if (!Authorization) {
+      const { newAuthorization }: any = await tokenReissue(RefreshToken, ctx)
+      Authorization = newAuthorization
+    }
 
-  return { accessToken, refreshToken }
+    return { Authorization, RefreshToken }
+  } else {
+    const { Authorization, RefreshToken } = parseCookies()
+    return { Authorization, RefreshToken }
+  }
 }
-
-export default getToken

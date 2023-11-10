@@ -1,9 +1,9 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { TokensType } from 'types/apis/TokenManager'
-import TokenManager from 'utils/apis/TokenManager'
 import useFetch from './useFetch'
 import { toast } from 'react-toastify'
+import { setToken } from 'utils/libs/setToken'
 
 const useLogin = () => {
   const router = useRouter()
@@ -14,17 +14,16 @@ const useLogin = () => {
   const { fetch } = useFetch<TokensType>({
     url: 'auth',
     method: 'post',
+    successMessage: '로그인에 성공했습니다.',
+    errors: '로그인에 실패했습니다.',
     onSuccess: (data) => {
       if (typeof window !== 'undefined') {
-        const tokenManager = new TokenManager()
-        tokenManager.setTokens(data)
+        setToken(data.accessToken, data.refreshToken, null)
       }
       router.replace('/home')
-      toast.success('로그인 성공')
     },
     onFailure: () => {
       router.replace('')
-      toast.error('로그인 실패')
     },
   })
 

@@ -1,11 +1,15 @@
+import { GetServerSidePropsContext } from 'next'
 import { apiClient } from 'utils/libs/apiClient'
-import TokenManager from './TokenManager'
+import { setToken } from 'utils/libs/setToken'
 
-export const TokenReissue = async (refreshToken: string) => {
-  const tokenManager = new TokenManager()
+export const tokenReissue = async (
+  refreshToken: string,
+  ctx: GetServerSidePropsContext | null,
+) => {
+  let newAuthorization: string
   try {
     const { data } = await apiClient.patch(
-      '/auth',
+      'auth',
       {},
       {
         headers: {
@@ -13,11 +17,9 @@ export const TokenReissue = async (refreshToken: string) => {
         },
       },
     )
-    tokenManager.setTokens(data)
-    const newAccessToken: string = data.accessToken
+    newAuthorization = data.accessToken
     refreshToken = data.refreshToken
-    return { newAccessToken, refreshToken }
-  } catch {
-    return { newAccessToken: '', refreshToken }
-  }
+    setToken(newAuthorization, refreshToken, ctx)
+    return { newAuthorization }
+  } catch (e: any) {}
 }

@@ -1,16 +1,22 @@
 import { InternalAxiosRequestConfig } from 'axios'
-import getToken from './getToken'
-import { TokenReissue } from 'utils/apis/auth'
+import { tokenReissue } from 'utils/apis/auth'
+import { getToken } from './getToken'
 
 export const getRefresh = async (config: InternalAxiosRequestConfig) => {
-  if (typeof window !== 'object' || !config.headers) return config
-
-  const { accessToken, refreshToken } = getToken()
-
-  if (accessToken) config.headers['Authorization'] = `Bearer ${accessToken}`
-  else if (!accessToken && config.url?.includes('/auth')) {
-    const { newAccessToken } = await TokenReissue(refreshToken || '')
-    config.headers['Authorization'] = `Bearer ${newAccessToken}`
+  if (typeof window !== 'object') {
+    return config
+  }
+  const { Authorization, RefreshToken } = await getToken(null)
+  if (config.headers && Authorization) {
+    config.headers['Authorization'] = Authorization
+  } else if (!Authorization && config?.url?.includes('/auth')) {
+    const { newAuthorization }: any = await tokenReissue(
+      RefreshToken || '',
+      null,
+    )
+    if (config.headers) {
+      config.headers['Authorization'] = `Bearer ${newAuthorization}`
+    }
   }
 
   return config
