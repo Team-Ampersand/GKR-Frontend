@@ -16,9 +16,9 @@ const RentalList = () => {
   const params = useRecoilValue(filterState)
   const generateUrl = () => {
     if (!params.equipmentType && params.equipmentStatus) {
-      return EquipmentController.getState('state')
+      return EquipmentController.getEquipment('state')
     } else if (params.equipmentType && !params.equipmentStatus) {
-      return EquipmentController.getState('type')
+      return EquipmentController.getEquipment('type')
     } else if (params.equipmentType && params.equipmentStatus) {
       handleInvalidCondition()
     } else {
