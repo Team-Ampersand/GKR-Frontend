@@ -1,9 +1,8 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { TokensType } from 'types/apis/TokenManager'
-import useFetch from './useFetch'
-import { toast } from 'react-toastify'
 import { setToken } from 'utils/libs/setToken'
+import useFetch from './useFetch'
 
 const useLogin = () => {
   const router = useRouter()
@@ -20,10 +19,10 @@ const useLogin = () => {
       if (typeof window !== 'undefined') {
         setToken(data.accessToken, data.refreshToken, null)
       }
-      router.replace('/home')
+      router.push('/home')
     },
     onFailure: () => {
-      router.replace('')
+      router.push('')
     },
   })
 
