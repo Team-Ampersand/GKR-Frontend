@@ -17,7 +17,6 @@ interface getNameFromValuePropstype {
   valueToFind: string
 }
 
-
 function RentalItem({
   id,
   title,
@@ -66,7 +65,7 @@ function RentalItem({
   }
 
   return (
-    <S.Layer onClick={() => { }}>
+    <S.Layer onClick={() => {}}>
       <S.CheckWrapper>
         {isProductManagementPage && (
           <S.Check
@@ -77,10 +76,7 @@ function RentalItem({
         )}
       </S.CheckWrapper>
       <S.imageFrameWrapper>
-        <img
-          src="https://s3.orbi.kr/data/file/united/e533d1c052be4ae83b34ddf643989ae0.jpg"
-          alt=""
-        />
+        <img src={imageUrl} alt="기자재 사진" />
       </S.imageFrameWrapper>
       <S.ContentBox>
         <S.TitleWrapper>

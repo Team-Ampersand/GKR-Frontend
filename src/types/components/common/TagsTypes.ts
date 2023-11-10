@@ -4,5 +4,5 @@ export interface TagPropsType {
     value: string
     color?: string
   }
-  role: 'admin' | 'member'
+  role?: 'admin' | 'member'
 }
