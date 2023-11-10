@@ -6,6 +6,11 @@ import { getEquipment } from 'utils/apis/equipment'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
 import { useEffect } from 'react'
+import { toast } from 'react-toastify'
+const handleInvalidCondition = () => {
+  toast.error('잘못된 필터 조건입니다. 동시에 선택 불가능 합니다.')
+}
+
 const RentalList = () => {
   const role = useRecoilValue(roleType)
   const params = useRecoilValue(filterState)
@@ -14,6 +19,8 @@ const RentalList = () => {
       return EquipmentController.getState('state')
     } else if (params.equipmentType && !params.equipmentStatus) {
       return EquipmentController.getState('type')
+    } else if (params.equipmentType && params.equipmentStatus) {
+      handleInvalidCondition()
     } else {
       return EquipmentController.getEquipment()
     }
@@ -31,12 +38,13 @@ const RentalList = () => {
       return getEquipment(url, queryParams)
     },
     {
-      enabled: false,
+      enabled: !!url,
+      refetchOnWindowFocus: false,
     },
   )
   useEffect(() => {
-    refetch()
-  }, [params, refetch])
+    if (url) refetch()
+  }, [url, refetch, params])
   const equipmentList = data?.data?.equipmentList
   return (
     <S.RentalListWrapper>
