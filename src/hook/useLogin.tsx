@@ -20,10 +20,10 @@ const useLogin = () => {
       if (typeof window !== 'undefined') {
         setToken(data.accessToken, data.refreshToken, null)
       }
-      router.replace('/home')
+      router.push('/home')
     },
     onFailure: () => {
-      router.replace('')
+      router.push('')
     },
   })
 
