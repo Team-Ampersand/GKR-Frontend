@@ -2,8 +2,9 @@ import { ToastOptions } from 'react-toastify'
 
 const toastOption: ToastOptions = {
   position: 'top-right',
-  autoClose: 3000,
-  theme: 'colored',
+  autoClose: 5000,
+  theme: 'light',
+  closeOnClick: true,
 }
 
 export default toastOption
