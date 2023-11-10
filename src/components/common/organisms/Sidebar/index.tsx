@@ -1,12 +1,11 @@
-import * as S from './style'
-import Link from 'next/link'
 import * as I from 'asset/svg'
-import SidebarList from 'components/common/molecules/SidebarList'
-import ProfileBoard from 'components/common/molecules/ProfileBoard'
 import LogoutBtn from 'components/common/atoms/LogoutBtn'
-import { roleType } from 'recoilAtoms'
+import ProfileBoard from 'components/common/molecules/ProfileBoard'
+import SidebarList from 'components/common/molecules/SidebarList'
+import Link from 'next/link'
 import { useRecoilValue } from 'recoil'
-import { Palette } from 'style/global'
+import { roleType } from 'recoilAtoms'
+import * as S from './style'
 
 const Sidebar = () => {
   const role = useRecoilValue(roleType)
