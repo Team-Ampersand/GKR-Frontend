@@ -15,6 +15,22 @@ export const OptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 2px solid #d9d9d9;
+    border-radius: 5px;
+    resize: none;
+    min-height: 90px;
+    ::placeholder {
+      color: #bebdbd;
+    }
+  }
+  textarea:focus {
+    border: 2px solid #865dff;
+  }
 `
 
 export const Title = styled.div`
