@@ -5,6 +5,7 @@ import { filterState, roleType } from 'recoilAtoms'
 import { getEquipment } from 'utils/apis/equipment'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
+import { useEffect } from 'react'
 const RentalList = () => {
   const role = useRecoilValue(roleType)
   const params = useRecoilValue(filterState)
@@ -18,15 +19,24 @@ const RentalList = () => {
     }
   }
   const url = generateUrl()
-  const { data } = useQuery(['equipment', url], () => {
-    let queryParams = {}
-    if (!params.equipmentType && params.equipmentStatus) {
-      queryParams = { equipmentStatus: params.equipmentStatus }
-    } else if (params.equipmentType && !params.equipmentStatus) {
-      queryParams = { equipmentType: params.equipmentType }
-    }
-    return getEquipment(url, queryParams)
-  })
+  const { data, refetch } = useQuery(
+    ['equipment', url],
+    () => {
+      let queryParams = {}
+      if (!params.equipmentType && params.equipmentStatus) {
+        queryParams = { equipmentStatus: params.equipmentStatus }
+      } else if (params.equipmentType && !params.equipmentStatus) {
+        queryParams = { equipmentType: params.equipmentType }
+      }
+      return getEquipment(url, queryParams)
+    },
+    {
+      enabled: false,
+    },
+  )
+  useEffect(() => {
+    refetch()
+  }, [params, refetch])
   const equipmentList = data?.data?.equipmentList
   return (
     <S.RentalListWrapper>
