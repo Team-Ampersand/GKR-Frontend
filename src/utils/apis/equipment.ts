@@ -6,7 +6,10 @@ type paramsObj = {
   equipmentType?: string
 }
 
-export const getEquipment = async (url: string, params?: paramsObj) => {
+export const getEquipment = async (
+  url: string | undefined,
+  params?: paramsObj,
+) => {
   try {
     let config = {}
 
@@ -23,7 +26,7 @@ export const getEquipment = async (url: string, params?: paramsObj) => {
         },
       }
     }
-    const { data } = await apiClient.get(url, config)
+    const { data } = await apiClient.get(url || '', config)
     return { data }
   } catch (error) {
     toast.error('알수없는 에러가 발생했습니다.')
