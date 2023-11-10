@@ -13,7 +13,7 @@ export const tokenReissue = async (
       {},
       {
         headers: {
-          refreshToken,
+          'Refresh-Token': `Bearer ${refreshToken}`,
         },
       },
     )
