@@ -1,9 +1,8 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { TokensType } from 'types/apis/TokenManager'
-import useFetch from './useFetch'
-import { toast } from 'react-toastify'
 import { setToken } from 'utils/libs/setToken'
+import useFetch from './useFetch'
 
 const useLogin = () => {
   const router = useRouter()
