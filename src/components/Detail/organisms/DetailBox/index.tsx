@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useRecoilState } from 'recoil'
 import { roleType } from 'recoilAtoms'
-import { getDetail } from 'utils/apis/equipment'
+import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
 interface getNameFromValuePropstype {
@@ -38,7 +38,7 @@ export default function DetailBox({}) {
   const { data } = useQuery(
     ['equipment', url],
     () => {
-      return getDetail(url)
+      return getData(url)
     },
     {
       enabled: !!url,

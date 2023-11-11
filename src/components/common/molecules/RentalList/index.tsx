@@ -2,11 +2,11 @@ import RentalItem from 'components/common/atoms/RentalItem'
 import { useQuery } from 'react-query'
 import { useRecoilValue } from 'recoil'
 import { filterState, roleType } from 'recoilAtoms'
-import { getEquipment } from 'utils/apis/equipment'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
+import { getData } from 'utils/apis/data'
 const handleInvalidCondition = () => {
   toast.error('잘못된 필터 조건입니다. 동시에 선택 불가능 합니다.')
 }
@@ -35,7 +35,7 @@ const RentalList = () => {
           : params.equipmentType && !params.equipmentStatus
           ? { equipmentType: params.equipmentType }
           : {}
-      return getEquipment(url, queryParams)
+      return getData(url, queryParams)
     },
     {
       enabled: !!url,
@@ -47,7 +47,6 @@ const RentalList = () => {
   }, [url, refetch, params])
   const equipmentList = data?.data?.equipmentList
   return (
-    
     <S.RentalListWrapper>
       {equipmentList &&
         [...equipmentList].map((equipment) => (

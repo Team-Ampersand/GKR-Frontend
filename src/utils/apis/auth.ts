@@ -27,7 +27,7 @@ export const tokenReissue = async (
   } catch (e: any) {}
 }
 
-export const useLogin = () => {
+export const Login = () => {
   const router = useRouter()
   const params = useSearchParams()
   const gauthCode = params.get('code')
