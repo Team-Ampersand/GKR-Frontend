@@ -7,3 +7,11 @@ export const EquipmentController = {
 export const ViolationController = {
   getViolation: () => `/violation`,
 }
+
+export const NoticeController = {
+  getNotice: () => `/notice`,
+  getNoticeDetail: (id: string) => `/notice/${id}`,
+  postNoticeWrite: () => `/notice/create`,
+  editNotice: (id: string) => `/notice/edit/${id}`,
+  deleteNotice: (id: string) => `/notice/delete/${id}`,
+}
