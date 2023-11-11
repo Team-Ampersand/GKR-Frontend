@@ -1,18 +1,23 @@
 import { NoticeDetailDummy } from 'asset/dummy/NoticeDetailDummy'
 import DetailBox from 'components/common/molecules/DetailBox'
 import { useState } from 'react'
-import TopBox from '../../../common/molecules/TopBox'
+
 import * as S from './style'
+import { useParams } from 'next/navigation'
 
-interface Props {
-  id: string | undefined
-}
-
-const NoticeDetail = ({ id }: Props) => {
-  const [dummy, setDummy] = useState(NoticeDetailDummy.NoticeDetailDummy)
+const NoticeDetail = () => {
+  const params = useParams()
   return (
     <S.Wrapper>
-      <DetailBox dummy={dummy} />
+      <DetailBox
+        id={params.id}
+        title={'서비스 오픈 베타 공지'}
+        createNoticeDate={'2022.06.26 - 06:23'}
+        content={
+          ' 오늘 서비스 오픈 시작하는 지케이알이빈다오늘 서비스 오픈 시작하는 지케이알이빈다오늘 서비스 오픈 시작하는 지케이알이빈다\n오늘 서비스 오픈 시작하는 지케이알이빈다오늘 서비스 오픈 시작하는 지케이알이빈다오늘 서비스 오픈 시작하는 지케이알이빈다'
+        }
+        imageUrl={null}
+      />
     </S.Wrapper>
   )
 }

@@ -10,3 +10,8 @@ export const NoticeTemplate = styled(MainTemplates)`
   padding: 24px 80px;
   overflow-y: scroll;
 `
+export const NoticeDetailTemplate = styled(MainTemplates)`
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+`
