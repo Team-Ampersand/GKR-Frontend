@@ -3,11 +3,11 @@ import { gauthUrl } from 'utils/libs/gauthUrl'
 import GauthLoginButton from '../atom/GauthLoginButton'
 import Header from '../atom/Header'
 import { Wrapper } from './style'
-import { Login } from 'utils/apis/auth'
+import { useLogin } from 'utils/apis/auth'
 
 const Promotion = () => {
   const router = useRouter()
-  Login()
+  useLogin()
   return (
     <Wrapper>
       <Header />
