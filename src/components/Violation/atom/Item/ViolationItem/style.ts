@@ -21,9 +21,9 @@ export const Top = styled.div`
 `
 
 export const Title = styled.p`
-  width: 60px;
+  width: 70px;
   color: #000;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   line-height: normal;
 `
@@ -31,7 +31,7 @@ export const Title = styled.p`
 export const Date = styled.p`
   color: #818198;
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: normal;
 `
 
