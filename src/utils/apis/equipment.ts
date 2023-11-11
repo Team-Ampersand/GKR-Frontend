@@ -33,3 +33,13 @@ export const getEquipment = async (
     throw error
   }
 }
+
+export const getDetail = async (url: string) => {
+  try {
+    const { data } = await apiClient.get(url)
+    return { data }
+  } catch (error) {
+    toast.error('현재 글을 가져올 수 없습니다.')
+    throw error
+  }
+}

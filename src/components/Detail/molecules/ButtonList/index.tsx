@@ -59,9 +59,11 @@ export default function ButtonList({
 
   return (
     <S.ButtonListWrapper>
-      {role === 'admin'
-        ? changeAdminButton()[equipmentStatus]()
-        : changeMemberButton({ isRenter: renter })[equipmentStatus]()}
+      {equipmentStatus
+        ? role === 'admin'
+          ? changeAdminButton()[equipmentStatus]()
+          : changeMemberButton({ isRenter: renter })[equipmentStatus]()
+        : null}
     </S.ButtonListWrapper>
   )
 }

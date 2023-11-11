@@ -47,6 +47,7 @@ const RentalList = () => {
   }, [url, refetch, params])
   const equipmentList = data?.data?.equipmentList
   return (
+    
     <S.RentalListWrapper>
       {equipmentList &&
         [...equipmentList].map((equipment) => (

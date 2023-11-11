@@ -1,38 +1,61 @@
 'use client'
 
-import * as S from './style'
-import { useState } from 'react'
-import ImageFrame from 'components/Detail/molecules/ImageFrame'
-import Tag from 'components/common/atoms/Tag'
-import ButtonList from 'components/Detail/molecules/ButtonList'
-import { useRecoilState } from 'recoil'
-import { roleType } from 'recoilAtoms'
-import { useParams } from 'next/navigation'
-import { Detaildummy } from 'asset/dummy/Detaildummy'
 import { FilterListData } from 'asset/data/FilterListData'
 import * as I from 'asset/svg'
+import ButtonList from 'components/Detail/molecules/ButtonList'
+import ImageFrame from 'components/Detail/molecules/ImageFrame'
+import Tag from 'components/common/atoms/Tag'
+import { useParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { useQuery } from 'react-query'
+import { useRecoilState } from 'recoil'
+import { roleType } from 'recoilAtoms'
+import { getDetail } from 'utils/apis/equipment'
+import { EquipmentController } from 'utils/libs/requestUrls'
+import * as S from './style'
 interface getNameFromValuePropstype {
   list: {
     name: string
     value: string
     color?: string
   }[]
-  valueToFind: string
+  valueToFind: string | undefined
+}
+interface DetailProps {
+  id: string
+  name: string
+  imageUrl: string
+  description: string
+  userId: any
+  equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING'
+  equipmentType: string
 }
 
 export default function DetailBox({}) {
-  // const router = useRouter();
   const [role, setRole] = useRecoilState(roleType)
-  const [path, setPath] = useState()
-  const [data, setData] = useState(Detaildummy)
+  const params = useParams()
+  const url = EquipmentController.getDetail(params.detail)
+  const { data } = useQuery(
+    ['equipment', url],
+    () => {
+      return getDetail(url)
+    },
+    {
+      enabled: !!url,
+      refetchOnWindowFocus: false,
+    },
+  )
+  const [detailData, setData] = useState<DetailProps>()
+
+  useEffect(() => {
+    if (data?.data) {
+      setData(data.data)
+    }
+  }, [data])
   const Loading = {
     name: '로딩중',
     value: 'Loading',
   }
-
-  const { name, id, imageUrl, description, equipmentStatus, equipmentType } =
-    data
-
   const getNameFromValue = ({
     list,
     valueToFind,
@@ -43,20 +66,20 @@ export default function DetailBox({}) {
 
   const equipmentTypeName = getNameFromValue({
     list: FilterListData.equipmentType,
-    valueToFind: equipmentType,
+    valueToFind: detailData?.equipmentType,
   })
 
   const equipmentStatusName = getNameFromValue({
     list: FilterListData.equipmentStatusList,
-    valueToFind: equipmentStatus,
+    valueToFind: detailData?.equipmentStatus,
   })
 
   return (
     <S.DetailWrapper>
-      <ImageFrame url={'d'} />
+      <ImageFrame url={detailData?.imageUrl} />
       <S.TitleWrapper>
         <S.TopTitleWrapper>
-          <S.Title>{name}</S.Title>
+          <S.Title>{detailData?.name}</S.Title>
           {role === 'admin' ? (
             <S.EditButton>
               <I.Edit_Outline />
@@ -69,8 +92,12 @@ export default function DetailBox({}) {
           <Tag data={equipmentTypeName} role={role} />
         </S.TagListWrapper>
       </S.TitleWrapper>
-      <S.ContentsWrapper>{description}</S.ContentsWrapper>
-      <ButtonList equipmentStatus={'NOT_RENT'} renter={true} role={role} />
+      <S.ContentsWrapper>{detailData?.description}</S.ContentsWrapper>
+      <ButtonList
+        equipmentStatus={detailData?.equipmentStatus}
+        renter={true}
+        role={role}
+      />
     </S.DetailWrapper>
   )
 }

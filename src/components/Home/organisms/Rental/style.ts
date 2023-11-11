@@ -3,8 +3,7 @@ import { Palette } from 'style/global'
 
 export const RentalWrapper = styled.div`
   width: 100%;
-  height: 100vh;
-  overflow-y: auto;
+  height: fit-content;
   ::-webkit-scrollbar {
     width: 6px;
     background: ${Palette.NATURAL_N2};
