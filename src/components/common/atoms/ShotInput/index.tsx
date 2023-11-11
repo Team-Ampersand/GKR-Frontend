@@ -1,6 +1,7 @@
 import { ShotInputPropsType } from 'types/components/common/ShotInputType'
 import * as S from './style'
 import { useState } from 'react'
+import Button from '../Button'
 
 export default function ShotInput({
   value,
@@ -22,6 +23,7 @@ export default function ShotInput({
         placeholder={placeholder}
       />
       <S.Line backgroundColor={color} />
+      <Button text="작성완료" onclick={() => {}} width="100%" height="45px" />
     </S.ShotInputWrapper>
   )
 }
