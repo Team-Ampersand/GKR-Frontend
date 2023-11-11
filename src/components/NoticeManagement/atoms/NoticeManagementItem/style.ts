@@ -30,7 +30,7 @@ export const TitleContent = styled.p`
   margin: 0;
 `
 
-export const Title = styled.p`
+export const Title = styled.div`
   display: flex;
   color: #000;
   font-size: 16px;
