@@ -59,6 +59,10 @@ export const Title = styled.div`
   width: 100%;
   font-weight: 600;
   font-size: 1.125rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 `
 export const TitleWrapper = styled.div`
   width: 100%;
@@ -69,6 +73,10 @@ export const TitleWrapper = styled.div`
 `
 export const descriptionWrapper = styled.div`
   font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
   color: #999;
 `
 export const ContentBox = styled.div`

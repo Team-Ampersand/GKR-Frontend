@@ -1,5 +1,5 @@
 export interface ButtonListPropsType {
-  equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING'
+  equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING' | undefined
   renter: boolean
   role: 'admin' | 'member'
 }

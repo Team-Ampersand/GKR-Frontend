@@ -61,7 +61,7 @@ export const AdminOutlineButtonWrapper = styled.div`
   border-radius: 5px;
   height: 44px;
   width: 180px;
-  color: #ff6000;
+  color: #865dff;
   font-size: 16px;
   font-style: normal;
   font-weight: 00;

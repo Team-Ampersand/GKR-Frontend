@@ -2,11 +2,12 @@
 
 import { FilterListData } from 'asset/data/FilterListData'
 import Tag from 'components/common/atoms/Tag'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
-import * as S from './style'
 import { useRecoilState } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
+import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
+import * as S from './style'
 
 interface getNameFromValuePropstype {
   list: {
@@ -57,32 +58,46 @@ function RentalItem({
       }
     }
   }
-  return (
-    <S.Layer onClick={() => {}}>
-      <S.CheckWrapper>
-        {isProductManagementPage && (
-          <S.Check
-            type="checkbox"
-            checked={deleteIds.includes(id)}
-            onChange={handleCheckboxChange}
-          />
-        )}
-      </S.CheckWrapper>
-      <S.imageFrameWrapper>
-        <img src={imageUrl} alt="기자재 사진" />
-      </S.imageFrameWrapper>
-      <S.ContentBox>
-        <S.TitleWrapper>
-          <S.Title>{title}</S.Title>
-          <S.descriptionWrapper>{description}</S.descriptionWrapper>
-        </S.TitleWrapper>
-        <S.TagListWrapper>
-          <Tag data={equipmentStatusName} role={role} />
-          <Tag data={equipmentTypeName} role={role} />
-        </S.TagListWrapper>
-      </S.ContentBox>
-    </S.Layer>
-  )
+  const LinkBox = () => {
+    if (isProductManagementPage) {
+      return <Layer />
+    } else if (!isProductManagementPage) {
+      return (
+        <Link href={`/home/${id}`}>
+          <Layer />
+        </Link>
+      )
+    }
+  }
+  const Layer = () => {
+    return (
+      <S.Layer onClick={() => {}}>
+        <S.CheckWrapper>
+          {isProductManagementPage && (
+            <S.Check
+              type="checkbox"
+              checked={deleteIds.includes(id)}
+              onChange={handleCheckboxChange}
+            />
+          )}
+        </S.CheckWrapper>
+        <S.imageFrameWrapper>
+          <img src={imageUrl} alt="기자재 사진" />
+        </S.imageFrameWrapper>
+        <S.ContentBox>
+          <S.TitleWrapper>
+            <S.Title>{title}</S.Title>
+            <S.descriptionWrapper>{description}</S.descriptionWrapper>
+          </S.TitleWrapper>
+          <S.TagListWrapper>
+            <Tag data={equipmentStatusName} role={role} />
+            <Tag data={equipmentTypeName} role={role} />
+          </S.TagListWrapper>
+        </S.ContentBox>
+      </S.Layer>
+    )
+  }
+  return <LinkBox />
 }
 
 export default RentalItem
