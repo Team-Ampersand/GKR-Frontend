@@ -2,12 +2,12 @@
 
 import { FilterListData } from 'asset/data/FilterListData'
 import Tag from 'components/common/atoms/Tag'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
-import * as S from './style'
 import { useRecoilState } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
-import Link from 'next/link'
+import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
+import * as S from './style'
 
 interface getNameFromValuePropstype {
   list: {
@@ -58,8 +58,19 @@ function RentalItem({
       }
     }
   }
-  return (
-    <Link href={`/home/${id}`}>
+  const LinkBox = () => {
+    if (isProductManagementPage) {
+      return <Layer />
+    } else if (!isProductManagementPage) {
+      return (
+        <Link href={`/home/${id}`}>
+          <Layer />
+        </Link>
+      )
+    }
+  }
+  const Layer = () => {
+    return (
       <S.Layer onClick={() => {}}>
         <S.CheckWrapper>
           {isProductManagementPage && (
@@ -84,8 +95,9 @@ function RentalItem({
           </S.TagListWrapper>
         </S.ContentBox>
       </S.Layer>
-    </Link>
-  )
+    )
+  }
+  return <LinkBox />
 }
 
 export default RentalItem
