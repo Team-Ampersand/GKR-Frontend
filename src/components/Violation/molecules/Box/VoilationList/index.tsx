@@ -14,7 +14,6 @@ const ViolationList = () => {
       refetchOnWindowFocus: false,
     },
   )
-  console.log(data)
 
   return <></>
 }

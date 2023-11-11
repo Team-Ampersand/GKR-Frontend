@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify'
 import { apiClient } from 'utils/libs/apiClient'
+import toastOption from 'utils/libs/toastOption'
 
 type paramsObj = {
   equipmentStatus?: string
@@ -25,8 +26,8 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
     }
     const { data } = await apiClient.get(url || '', config)
     return { data }
-  } catch (error) {
-    toast.error('알수없는 에러가 발생했습니다.')
-    throw error
+  } catch (e: any) {
+    toast.error('에러가 발생했습니다.', toastOption)
+    throw e
   }
 }
