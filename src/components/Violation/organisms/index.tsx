@@ -1,5 +1,5 @@
 import TopBox from '../../common/molecules/TopBox'
-import ViolationList from '../molecules/Box/VoilationListBox'
+import ViolationList from '../molecules/Box/VoilationList'
 import * as S from './style'
 
 const Violation = () => {
