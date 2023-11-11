@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const ViolationItemWrapper = styled.div`
+export const NoticeItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -22,7 +22,7 @@ export const Top = styled.div`
 `
 
 export const Title = styled.p`
-  width: 60px;
+  width: 260px;
   color: #000;
   font-size: 14px;
   font-weight: 700;
