@@ -27,7 +27,7 @@ interface DetailProps {
   imageUrl: string
   description: string
   userId: any
-  equipmentStatus: string
+  equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING'
   equipmentType: string
 }
 
@@ -45,7 +45,7 @@ export default function DetailBox({}) {
       refetchOnWindowFocus: false,
     },
   )
-  const [detailData, setData] = useState<DetailProps | undefined>()
+  const [detailData, setData] = useState<DetailProps>()
 
   useEffect(() => {
     if (data?.data) {
@@ -93,7 +93,11 @@ export default function DetailBox({}) {
         </S.TagListWrapper>
       </S.TitleWrapper>
       <S.ContentsWrapper>{detailData?.description}</S.ContentsWrapper>
-      <ButtonList equipmentStatus={'NOT_RENT'} renter={true} role={role} />
+      <ButtonList
+        equipmentStatus={detailData?.equipmentStatus}
+        renter={true}
+        role={role}
+      />
     </S.DetailWrapper>
   )
 }
