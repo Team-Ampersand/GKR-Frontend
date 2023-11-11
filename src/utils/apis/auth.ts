@@ -29,10 +29,8 @@ export const tokenReissue = async (
 
 export const useLogin = () => {
   const router = useRouter()
-
   const params = useSearchParams()
   const gauthCode = params.get('code')
-
   const fetch = async (data: { code: string }) => {
     try {
       const { data: tokens } = await apiClient.post<TokensType>('auth', data)
@@ -44,7 +42,6 @@ export const useLogin = () => {
       toast.error('로그인 실패')
     }
   }
-
   useEffect(() => {
     if (!gauthCode) return
     fetch({ code: gauthCode })

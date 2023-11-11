@@ -8,7 +8,6 @@ import { useLogin } from 'utils/apis/auth'
 const Promotion = () => {
   const router = useRouter()
   useLogin()
-
   return (
     <Wrapper>
       <Header />
@@ -16,5 +15,4 @@ const Promotion = () => {
     </Wrapper>
   )
 }
-
 export default Promotion
