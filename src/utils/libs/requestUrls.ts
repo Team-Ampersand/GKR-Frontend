@@ -10,7 +10,7 @@ export const ViolationController = {
 
 export const NoticeController = {
   getNotice: () => `/notice`,
-  getNoticeDetail: (id: string) => `/notice/${id}`,
+  getNoticeDetail: (id: string | string[]) => `/notice/${id}`,
   postNoticeWrite: () => `/notice/create`,
   editNotice: (id: string) => `/notice/edit/${id}`,
   deleteNotice: (id: string) => `/notice/delete/${id}`,
