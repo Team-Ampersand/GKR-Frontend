@@ -30,7 +30,7 @@ export const Title = styled.p`
 
 export const Date = styled.p`
   color: #818198;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
   line-height: normal;
 `
