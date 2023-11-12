@@ -1,10 +1,11 @@
 import NoticeManagementItem from 'components/NoticeManagement/atoms/NoticeManagementItem'
 import * as S from './style'
-import { NoticeListDummy } from 'asset/dummy/NoticeListdummy'
-export default function NoticeManagementList() {
+import { NoticeListPropsType } from 'types/components/NoticeManagement/NoticManagementType'
+
+export default function NoticeManagementList({ data }: NoticeListPropsType) {
   return (
     <S.NoticeListWrapper>
-      {NoticeListDummy.noticeList.map((i) => (
+      {data?.noticeList.map((i) => (
         <NoticeManagementItem
           key={i.id}
           id={i.id}
