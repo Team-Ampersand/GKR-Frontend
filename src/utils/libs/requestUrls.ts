@@ -7,3 +7,8 @@ export const EquipmentController = {
 export const ViolationController = {
   getViolation: () => `/violation`,
 }
+
+export const orderController = {
+  getNowRentalList: () => `/order/now`,
+  getNoReturnRentalList: () => `/orger/noreturn`,
+}
