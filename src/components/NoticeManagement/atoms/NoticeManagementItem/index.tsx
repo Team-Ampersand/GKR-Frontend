@@ -9,6 +9,7 @@ export default function NoticeManagementItem({
   imageUrl,
   createNoticeDate,
 }: NoticeManagementItemPropsType) {
+  const date = createNoticeDate.split('T')[0].replace(/-/g, '.')
   return (
     <S.ViolationItemWrapper>
       <Link href={`/notice/${id}`}>
@@ -17,7 +18,7 @@ export default function NoticeManagementItem({
             <S.Title>
               [<S.TitleContent>{title}</S.TitleContent>]
             </S.Title>
-            <S.Date>{createNoticeDate}</S.Date>
+            <S.Date>{date}</S.Date>
           </S.TitleWrapper>
           <S.Content>{content}</S.Content>
         </S.ContentWrapper>
