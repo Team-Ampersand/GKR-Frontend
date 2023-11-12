@@ -11,8 +11,8 @@ export interface NoReturnData {
     classNum: number
     stuNum: number
     reason: string
-    rentalStartDate: Date
-    rentalEndDate: Date
+    rentalStartDate: string
+    rentalEndDate: string
   }[]
 }
 
