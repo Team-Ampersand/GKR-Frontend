@@ -1,9 +1,11 @@
-import { ViolationItemPropsType } from 'types/components/ViolationManagement/ViolationType'
-import * as S from './style'
 import * as I from 'asset/svg'
+import { toast } from 'react-toastify'
+import { ViolationItemPropsType } from 'types/components/ViolationManagement/ViolationType'
 import { patchData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
-import { toast } from 'react-toastify'
+import toastOption from 'utils/libs/toastOption'
+import * as S from './style'
+import { useMutation } from 'react-query'
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
   const year = date.getFullYear().toString().slice(2)
@@ -19,15 +21,24 @@ export default function ViolationItem({
 }: ViolationItemPropsType) {
   const formattedStartDate = formatDate(violationStartDate)
   const formattedEndDate = formatDate(violationEndDate)
+  const url = ViolationController.violation()
+
+  const { mutate } = useMutation(
+    ['violation', url],
+    () => {
+      return patchData(url, { email: 's22066@gsm.hs.kr' })
+    },
+    {
+      onSuccess: () => {
+        toast.success('제재 취소되었습니다.', toastOption)
+      },
+      onError: () => {
+        toast.error('제재 취소에 실패하였습니다.', toastOption)
+      },
+    },
+  )
   const deleteViolation = () => {
-    try {
-      patchData(ViolationController.violation(), {
-        email: 's22066@gsm.hs.kr',
-      })
-      toast.success('제재가 취소되었습니다.')
-    } catch (e) {
-      toast.error('제재 취소에 실패했습니다.')
-    }
+    mutate()
   }
   return (
     <S.ViolationItemWrapper>

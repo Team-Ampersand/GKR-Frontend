@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { apiClient } from 'utils/libs/apiClient'
 import toastOption from 'utils/libs/toastOption'
@@ -32,11 +33,18 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
   }
 }
 
+export const postData = async (url: string, data: any) => {
+  try {
+    await apiClient.post(url || '', data)
+  } catch (e: any) {
+    throw e
+  }
+}
+
 export const patchData = async (url: string, data: any) => {
   try {
     await apiClient.patch(url || '', data)
   } catch (e: any) {
-    toast.error('에러가 발생했습니다.', toastOption)
     throw e
   }
 }
