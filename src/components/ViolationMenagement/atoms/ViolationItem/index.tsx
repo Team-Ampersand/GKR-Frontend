@@ -1,6 +1,9 @@
 import { ViolationItemPropsType } from 'types/components/ViolationManagement/ViolationType'
 import * as S from './style'
 import * as I from 'asset/svg'
+import { patchData } from 'utils/apis/data'
+import { ViolationController } from 'utils/libs/requestUrls'
+import { toast } from 'react-toastify'
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
   const year = date.getFullYear().toString().slice(2)
@@ -16,6 +19,16 @@ export default function ViolationItem({
 }: ViolationItemPropsType) {
   const formattedStartDate = formatDate(violationStartDate)
   const formattedEndDate = formatDate(violationEndDate)
+  const deleteViolation = () => {
+    try {
+      patchData(ViolationController.getViolation(), {
+        email: 's22066@gsm.hs.kr',
+      })
+      toast.success('제재가 취소되었습니다.')
+    } catch (e) {
+      toast.error('제재 취소에 실패했습니다.')
+    }
+  }
   return (
     <S.ViolationItemWrapper>
       <S.ContentWrapper>
@@ -26,7 +39,7 @@ export default function ViolationItem({
         </S.TitleWrapper>
         <S.Content>{violationReason}</S.Content>
       </S.ContentWrapper>
-      <S.MinusButtonWrapper onClick={() => {}}>
+      <S.MinusButtonWrapper onClick={deleteViolation}>
         <I.Minus />
         제재취소
       </S.MinusButtonWrapper>
