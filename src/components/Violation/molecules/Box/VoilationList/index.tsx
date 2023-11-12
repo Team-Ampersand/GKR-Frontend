@@ -4,7 +4,7 @@ import { getData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 
 const ViolationList = () => {
-  const url = ViolationController.getViolation()
+  const url = ViolationController.violation()
   const { data } = useQuery(
     ['violation', url],
     () => {

@@ -21,7 +21,7 @@ export default function ViolationItem({
   const formattedEndDate = formatDate(violationEndDate)
   const deleteViolation = () => {
     try {
-      patchData(ViolationController.getViolation(), {
+      patchData(ViolationController.violation(), {
         email: 's22066@gsm.hs.kr',
       })
       toast.success('제재가 취소되었습니다.')

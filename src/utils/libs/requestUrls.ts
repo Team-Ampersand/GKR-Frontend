@@ -5,6 +5,6 @@ export const EquipmentController = {
 }
 
 export const ViolationController = {
-  getViolation: () => `/violation`,
+  violation: () => `/violation`,
   getViolationAll: () => `/violation/all`,
 }
