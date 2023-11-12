@@ -1,12 +1,12 @@
 import Button from 'components/common/atoms/Button'
 import ShotInput from 'components/common/atoms/ShotInput'
 import { useState } from 'react'
+import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import { postData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
-import { isError, useMutation } from 'react-query'
 
 export default function AddViolation() {
   const [email, setEmail] = useState('')
@@ -22,11 +22,11 @@ export default function AddViolation() {
       return postData(url, body)
     },
     {
-      onError: () => {
-        toast.error('제재에 실패하였습니다.', toastOption)
-      },
       onSuccess: () => {
         toast.success('제재에 성공하였습니다.', toastOption)
+      },
+      onError: () => {
+        toast.error('제재에 실패하였습니다.', toastOption)
       },
     },
   )
