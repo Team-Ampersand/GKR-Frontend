@@ -22,9 +22,7 @@ export default function NoticeMangement() {
     },
   )
   console.log(data)
-  useEffect(() => {
-    refetch()
-  }, [refetch])
+  refetch()
 
   return (
     <S.NoticeManagementWrapper>
@@ -36,7 +34,7 @@ export default function NoticeMangement() {
       {pageState === '공지 목록' ? (
         <NoticeManagementList data={data?.data} />
       ) : (
-        <AddNotice />
+        <AddNotice setPage={setPageState} />
       )}
     </S.NoticeManagementWrapper>
   )

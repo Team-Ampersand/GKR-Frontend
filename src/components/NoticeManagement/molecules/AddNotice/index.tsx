@@ -8,7 +8,10 @@ import { NoticeController } from 'utils/libs/requestUrls'
 import { postFormData } from 'utils/apis/data'
 import * as I from 'asset/svg'
 import { toast } from 'react-toastify'
-export default function AddNotice() {
+interface AddNoticePropsType {
+  setPage: React.Dispatch<React.SetStateAction<string>>
+}
+export default function AddNotice({ setPage }: AddNoticePropsType) {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [file, setFile] = useState<File | undefined>(undefined)
@@ -21,10 +24,11 @@ export default function AddNotice() {
     },
     {
       onSuccess: () => {
-        toast.success('성공')
+        toast.success('공지사항 업로드 성공')
+        setPage('공지 목록')
       },
       onError: () => {
-        toast.error('에러')
+        toast.error('알수없는 문제가 발생했습니다.')
       },
     },
   )
