@@ -4,9 +4,9 @@ export const EquipmentController = {
   getDetail: (id: string | string[]) => `/equipment/${id}`,
   deleteEquipment: (id: number[]) => {
     if (id.length === 1) {
-      return `/delete/${id}`
+      return `/equipment/delete/${id}`
     } else {
-      return `/delete`
+      return `/equipment/delete`
     }
   },
 }
