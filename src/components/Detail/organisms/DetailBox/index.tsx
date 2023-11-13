@@ -13,6 +13,7 @@ import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
+
 interface getNameFromValuePropstype {
   list: {
     name: string
