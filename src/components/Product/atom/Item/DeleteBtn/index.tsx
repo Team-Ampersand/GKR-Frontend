@@ -6,8 +6,11 @@ import { DeleteChoice } from 'recoilAtoms'
 import { ModalPropsType } from 'types/components/Home/FilterTypes'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
+interface DeleteBtnPropsType {
+  setModal: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const DeleteBtn = ({ setModal }: ModalPropsType) => {
+const DeleteBtn = ({ setModal }: DeleteBtnPropsType) => {
   const DeleteIds = useRecoilValue(DeleteChoice)
   const [color, setColor] = useState('')
   const openModal = () => {
