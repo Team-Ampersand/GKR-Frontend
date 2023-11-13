@@ -8,3 +8,9 @@ export const ViolationController = {
   violation: () => `/violation`,
   getViolationAll: () => `/violation/all`,
 }
+
+export const UserController = {
+  user: () => `/user`,
+  allUser: () => `/user/all`,
+  rentalUser: () => `user/rental`,
+}
