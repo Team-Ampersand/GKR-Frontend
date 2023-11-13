@@ -1,4 +1,5 @@
 import * as I from 'asset/svg'
+import { useRouter } from 'next/navigation'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import { ViolationItemPropsType } from 'types/components/ViolationManagement/ViolationType'
@@ -6,7 +7,6 @@ import { patchData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
-import { useRouter } from 'next/navigation'
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
   const year = date.getFullYear().toString().slice(2)
@@ -33,7 +33,6 @@ export default function ViolationItem({
     },
     {
       onSuccess: () => {
-        router.refresh()
         toast.success('제재 취소되었습니다.', toastOption)
       },
       onError: (error: any) => {
@@ -42,6 +41,7 @@ export default function ViolationItem({
     },
   )
   const deleteViolation = () => {
+    router.refresh()
     mutate()
   }
   return (

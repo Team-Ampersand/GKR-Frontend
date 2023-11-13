@@ -1,5 +1,6 @@
 import Button from 'components/common/atoms/Button'
 import ShotInput from 'components/common/atoms/ShotInput'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
@@ -7,7 +8,6 @@ import { postData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
-import { useRouter } from 'next/navigation'
 
 export default function AddViolation() {
   const [email, setEmail] = useState('')
@@ -25,7 +25,6 @@ export default function AddViolation() {
     },
     {
       onSuccess: () => {
-        router.push('/allviolation')
         toast.success('제재에 성공하였습니다.', toastOption)
       },
       onError: (error: any) => {
@@ -34,6 +33,7 @@ export default function AddViolation() {
     },
   )
   const postViolation = () => {
+    router.push('/allviolation')
     mutate()
   }
   return (

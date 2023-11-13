@@ -1,5 +1,4 @@
 'use client'
-
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
 import { AllViolationTemplate } from 'components/ViolationMenagement/templates/style'
