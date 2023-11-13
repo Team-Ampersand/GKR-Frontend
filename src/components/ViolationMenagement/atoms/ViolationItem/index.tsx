@@ -29,7 +29,7 @@ export default function ViolationItem({
   const { mutate } = useMutation(
     ['violation', url],
     () => {
-      return patchData(url, { email: 's22066@gsm.hs.kr' })
+      return patchData(url, { id: id })
     },
     {
       onSuccess: () => {
