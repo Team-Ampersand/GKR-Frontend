@@ -28,7 +28,7 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
     const { data } = await apiClient.get(url || '', config)
     return { data }
   } catch (e: any) {
-    toast.error('에러가 발생했습니다.', toastOption)
+    toast.error(e.response.data.message, toastOption)
     throw e
   }
 }

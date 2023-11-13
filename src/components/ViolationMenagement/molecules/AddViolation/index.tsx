@@ -29,7 +29,7 @@ export default function AddViolation() {
         toast.success('제재에 성공하였습니다.', toastOption)
       },
       onError: (error: any) => {
-        toast.error(error?.response?.data?.message, toastOption)
+        toast.error(error.response.data.message, toastOption)
       },
     },
   )

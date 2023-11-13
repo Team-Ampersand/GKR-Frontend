@@ -37,7 +37,7 @@ export default function ViolationItem({
         toast.success('제재 취소되었습니다.', toastOption)
       },
       onError: (error: any) => {
-        toast.error(error?.response?.data?.message, toastOption)
+        toast.error(error.response.data.message, toastOption)
       },
     },
   )
