@@ -6,6 +6,7 @@ import { patchData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
+import { useRouter } from 'next/navigation'
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
   const year = date.getFullYear().toString().slice(2)
@@ -15,13 +16,16 @@ const formatDate = (dateString: string): string => {
 }
 export default function ViolationItem({
   userName,
+  id,
   violationReason,
   violationStartDate,
   violationEndDate,
+  canceled,
 }: ViolationItemPropsType) {
   const formattedStartDate = formatDate(violationStartDate)
   const formattedEndDate = formatDate(violationEndDate)
   const url = ViolationController.violation()
+  const router = useRouter()
   const { mutate } = useMutation(
     ['violation', url],
     () => {
@@ -29,11 +33,11 @@ export default function ViolationItem({
     },
     {
       onSuccess: () => {
+        router.refresh()
         toast.success('제재 취소되었습니다.', toastOption)
-        window.location.reload()
       },
-      onError: () => {
-        toast.error('제재 취소에 실패하였습니다.', toastOption)
+      onError: (error: any) => {
+        toast.error(error?.response?.data?.message, toastOption)
       },
     },
   )

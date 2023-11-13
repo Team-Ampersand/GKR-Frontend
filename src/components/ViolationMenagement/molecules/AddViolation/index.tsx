@@ -7,11 +7,13 @@ import { postData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
+import { useRouter } from 'next/navigation'
 
 export default function AddViolation() {
   const [email, setEmail] = useState('')
   const [reason, setReason] = useState('')
   const url = ViolationController.violation()
+  const router = useRouter()
   const { mutate } = useMutation(
     ['violation', url],
     () => {
@@ -23,10 +25,11 @@ export default function AddViolation() {
     },
     {
       onSuccess: () => {
+        router.push('/allviolation')
         toast.success('제재에 성공하였습니다.', toastOption)
       },
-      onError: () => {
-        toast.error('제재에 실패하였습니다.', toastOption)
+      onError: (error: any) => {
+        toast.error(error?.response?.data?.message, toastOption)
       },
     },
   )
