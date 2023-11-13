@@ -11,7 +11,7 @@ export default function RentalList({ data, periodColor }: RentalListPropsType) {
           thumbnail={i.imageUrl}
           tag={i.orderType}
           title={i.name}
-          period={'2'}
+          period={i.rentalEndDate}
           id={i.id}
           student={i.userName}
           tagVisible={true}

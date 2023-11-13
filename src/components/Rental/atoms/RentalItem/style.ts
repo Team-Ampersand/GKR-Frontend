@@ -41,11 +41,12 @@ export const thumbnailWrapper = styled.div`
 `
 export const Title = styled.p`
   color: #000;
-  text-align: center;
+  text-align: start;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  width: 230px;
 `
 
 export const tag = styled.div<tagPropsType>`
