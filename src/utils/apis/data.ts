@@ -48,3 +48,11 @@ export const patchData = async (url: string, data?: any) => {
     throw e
   }
 }
+
+export const deleteData = async (url: string, data?: any) => {
+  try {
+    await apiClient.delete(url || '', data)
+  } catch (e: any) {
+    throw e
+  }
+}
