@@ -1,17 +1,21 @@
-import { People } from 'asset/svg';
-import * as S from './style';
+import { People } from 'asset/svg'
+import * as S from './style'
+import { GetUser } from 'utils/apis/user'
 
 const ProfileBoard = () => {
+  const { user } = GetUser()
   return (
     <S.Wrapper>
       <People />
       <S.InfoBox>
-        손정민
+        {user?.data?.name}
         <br />
-        <p>3학년1반12번</p>
+        <p>
+          {user?.data?.grade}학년{user?.data?.classNum}반{user?.data?.stuNum}번
+        </p>
       </S.InfoBox>
     </S.Wrapper>
-  );
-};
+  )
+}
 
-export default ProfileBoard;
+export default ProfileBoard
