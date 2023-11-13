@@ -2,6 +2,13 @@ export const EquipmentController = {
   getEquipment: (filter?: string) =>
     filter ? `/equipment/${filter}` : '/equipment',
   getDetail: (id: string | string[]) => `/equipment/${id}`,
+  deleteEquipment: (id: number[]) => {
+    if (id.length === 1) {
+      return `/delete/${id}`
+    } else {
+      return `/delete`
+    }
+  },
 }
 
 export const ViolationController = {
