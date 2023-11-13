@@ -14,3 +14,8 @@ export const UserController = {
   allUser: () => `/user/all`,
   rentalUser: () => `user/rental`,
 }
+
+export const orderController = {
+  getNowRentalList: () => `/order/now`,
+  getNoReturnRentalList: () => `/order/noreturn`,
+}

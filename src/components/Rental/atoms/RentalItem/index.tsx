@@ -18,7 +18,8 @@ export default function RentalItem({
   title,
   tag,
   student,
-  period,
+  rentalStartDate,
+  rentalEndDate,
   tagVisible,
   id,
   periodColor,
@@ -28,7 +29,9 @@ export default function RentalItem({
     value: 'Loading',
     color: '#C2C2C2',
   }
-
+  const replaceDate = (date: string): string => {
+    return date.split('T')[0].replace(/-/g, '.')
+  }
   const getNameFromValue = ({
     list,
     valueToFind,
@@ -54,7 +57,9 @@ export default function RentalItem({
         </S.TitleWrapper>
         <S.informationWrapper>
           <S.studentWrapper>대여 학생: {student}</S.studentWrapper>
-          <S.periodWrapper periodColor={periodColor}>{period}</S.periodWrapper>
+          <S.periodWrapper periodColor={periodColor}>
+            {replaceDate(rentalStartDate) + ' ~ ' + replaceDate(rentalEndDate)}
+          </S.periodWrapper>
         </S.informationWrapper>
       </S.ListItemWrapper>
     </Link>
