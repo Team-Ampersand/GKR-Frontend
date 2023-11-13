@@ -7,23 +7,27 @@ import { useMutation } from 'react-query'
 import { NoticeController } from 'utils/libs/requestUrls'
 import { postFormData } from 'utils/apis/data'
 import * as I from 'asset/svg'
+import { toast } from 'react-toastify'
 export default function AddNotice() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [file, setFile] = useState<File | undefined>(undefined)
   const url = NoticeController.postNoticeWrite()
-  const { data, mutate } = useMutation(['Notice', url], () => {
-    const formData = new FormData()
-    // formData.append('file', )
-    formData.append(
-      'notice',
-      JSON.stringify({
-        title: title,
-        content: content,
-      }),
-    )
-    return postFormData(url, formData)
-  })
+
+  const { data, mutate } = useMutation(
+    ['Notice', url],
+    (data: any) => {
+      return postFormData(url, data)
+    },
+    {
+      onSuccess: () => {
+        toast.success('성공')
+      },
+      onError: () => {
+        toast.error('에러')
+      },
+    },
+  )
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.currentTarget.files?.item(0)
@@ -31,7 +35,28 @@ export default function AddNotice() {
   }
 
   const postNotice = () => {
-    mutate()
+    const formData = new FormData()
+
+    if (file) {
+      const imageFile = new File([file], 'noticeImage.png', {
+        type: 'image/png',
+      })
+      formData.append('file', imageFile)
+    }
+
+    formData.append(
+      'notice',
+      new Blob(
+        [
+          JSON.stringify({
+            title: title,
+            content: content,
+          }),
+        ],
+        { type: 'application/json' },
+      ),
+    )
+    mutate(formData)
   }
 
   return (
@@ -54,19 +79,22 @@ export default function AddNotice() {
           />
         </S.OptionWrapper>
         <S.OptionWrapper>
-          <S.subTitle>이미지</S.subTitle>
           <S.ImageInput type="file" id="fileInput" onChange={handleChange} />
           <S.PreviewWrapper htmlFor="fileInput">
-            {file && (
+            {file ? (
               <S.PreviewImage src={URL.createObjectURL(file)} alt="미리보기" />
+            ) : (
+              <S.defaultImage>
+                <I.Camera />
+                이미지 업로드
+              </S.defaultImage>
             )}
-            {}
           </S.PreviewWrapper>
         </S.OptionWrapper>
       </S.OptionWrapper>
       <Button
         text="작성완료"
-        onclick={() => {}}
+        onclick={postNotice}
         width="100%"
         height="45px"
         color="#fff"

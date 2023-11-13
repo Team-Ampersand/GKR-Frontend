@@ -72,4 +72,12 @@ export const defaultImage = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #c2c2c2;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  justify-content: center;
 `
