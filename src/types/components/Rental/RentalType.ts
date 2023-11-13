@@ -56,7 +56,8 @@ export interface RentalItemPropsType {
   title: string
   tag: string
   student: string
-  period: string
+  rentalStartDate: string
+  rentalEndDate: string
   tagVisible: boolean
   id: number
   periodColor?: string
