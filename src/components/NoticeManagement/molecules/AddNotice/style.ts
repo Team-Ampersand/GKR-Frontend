@@ -48,3 +48,28 @@ export const subTitle = styled.div`
   font-weight: 500;
   line-height: normal;
 `
+export const ImageInput = styled.input`
+  display: none;
+`
+
+export const PreviewWrapper = styled.label`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+`
+
+export const PreviewImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
+
+export const defaultImage = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+`
