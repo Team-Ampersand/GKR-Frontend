@@ -8,8 +8,7 @@ import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
 import { useRecoilValue } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
-
-const DeleteModal = ({ setModal }: ModalPropsType) => {
+const DeleteModal = ({ setModal, setPage }: ModalPropsType) => {
   const closeModal = () => {
     setModal((prev) => !prev)
   }
@@ -31,6 +30,7 @@ const DeleteModal = ({ setModal }: ModalPropsType) => {
     },
     {
       onSuccess: () => {
+        setPage('물품 등록하기')
         toast.success('삭제에 성공하였습니다.', toastOption)
       },
       onError: (error: any) => {

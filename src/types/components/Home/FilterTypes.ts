@@ -1,5 +1,6 @@
 export interface ModalPropsType {
   setModal: React.Dispatch<React.SetStateAction<boolean>>
+  setPage: React.Dispatch<React.SetStateAction<string>>
 }
 
 export interface FilterList {

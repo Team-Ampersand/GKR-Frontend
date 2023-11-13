@@ -4,7 +4,10 @@ import Filter from 'components/Home/molecules/Filter'
 import DeleteBtn from 'components/Product/atom/Item/DeleteBtn'
 import { useState } from 'react'
 import DeleteModal from 'components/Product/atom/modal/DeleteModal'
-export default function DeleteBox() {
+interface DeleteBoxPropsType {
+  setPage: React.Dispatch<React.SetStateAction<string>>
+}
+export default function DeleteBox({ setPage }: DeleteBoxPropsType) {
   const [modal, setModal] = useState(false)
   return (
     <S.RentalWrapper>
@@ -14,7 +17,7 @@ export default function DeleteBox() {
       </S.ToolBox>
       <S.LineWrapper />
       <RentalList />
-      {modal ? <DeleteModal setModal={setModal} /> : null}
+      {modal ? <DeleteModal setPage={setPage} setModal={setModal} /> : null}
     </S.RentalWrapper>
   )
 }
