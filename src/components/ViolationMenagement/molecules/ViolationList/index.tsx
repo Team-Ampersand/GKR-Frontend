@@ -23,10 +23,12 @@ export default function ViolationList() {
         [...violationList].map((equipment) => (
           <ViolationItem
             key={equipment.id}
+            id={equipment.id}
             userName={equipment.userName}
             violationReason={equipment.violationReason}
             violationEndDate={equipment.violationEndDate}
             violationStartDate={equipment.violationStartDate}
+            canceled={equipment.canceled}
           />
         ))}
     </S.ViolationListWrapper>
