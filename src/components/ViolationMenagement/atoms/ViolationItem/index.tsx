@@ -24,12 +24,12 @@ export default function ViolationItem({
 }: ViolationItemPropsType) {
   const formattedStartDate = formatDate(violationStartDate)
   const formattedEndDate = formatDate(violationEndDate)
-  const url = ViolationController.violation()
+  const url = ViolationController.cancelViolation(id)
   const router = useRouter()
   const { mutate } = useMutation(
     ['violation', url],
     () => {
-      return patchData(url, { id: id })
+      return patchData(url)
     },
     {
       onSuccess: () => {

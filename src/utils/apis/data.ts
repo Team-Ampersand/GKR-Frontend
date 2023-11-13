@@ -41,7 +41,7 @@ export const postData = async (url: string, data: any) => {
   }
 }
 
-export const patchData = async (url: string, data: any) => {
+export const patchData = async (url: string, data?: any) => {
   try {
     await apiClient.patch(url || '', data)
   } catch (e: any) {
