@@ -32,6 +32,12 @@ export const thumbnailWrapper = styled.div`
   width: 100px;
   background-color: darkblue;
   border-radius: 5px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `
 export const Title = styled.p`
   color: #000;
