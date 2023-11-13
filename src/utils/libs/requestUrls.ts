@@ -5,7 +5,14 @@ export const EquipmentController = {
 }
 
 export const ViolationController = {
-  getViolation: () => `/violation`,
+  violation: () => `/violation`,
+  getViolationAll: () => `/violation/all`,
+  cancelViolation: (id: number) => `/violation/${id}`,
+}
+
+export const orderController = {
+  getNowRentalList: () => `/order/now`,
+  getNoReturnRentalList: () => `/order/noreturn`,
 }
 
 export const NoticeController = {

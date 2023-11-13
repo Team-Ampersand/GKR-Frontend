@@ -32,14 +32,21 @@ export const thumbnailWrapper = styled.div`
   width: 100px;
   background-color: darkblue;
   border-radius: 5px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `
 export const Title = styled.p`
   color: #000;
-  text-align: center;
+  text-align: start;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  width: 230px;
 `
 
 export const tag = styled.div<tagPropsType>`

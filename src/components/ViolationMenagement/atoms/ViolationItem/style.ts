@@ -6,7 +6,7 @@ export const ViolationItemWrapper = styled.div`
   background-color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `
 

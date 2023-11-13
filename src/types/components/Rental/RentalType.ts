@@ -11,8 +11,8 @@ export interface NoReturnData {
     classNum: number
     stuNum: number
     reason: string
-    rentalStartDate: Date
-    rentalEndDate: Date
+    rentalStartDate: string
+    rentalEndDate: string
   }[]
 }
 
@@ -56,7 +56,8 @@ export interface RentalItemPropsType {
   title: string
   tag: string
   student: string
-  period: string
+  rentalStartDate: string
+  rentalEndDate: string
   tagVisible: boolean
   id: number
   periodColor?: string

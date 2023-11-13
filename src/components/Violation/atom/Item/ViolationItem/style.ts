@@ -10,7 +10,6 @@ export const ViolationItemWrapper = styled.div`
   margin-bottom: 14px;
   padding: 15px 24px;
   gap: 10px;
-  cursor: pointer;
 `
 
 export const Top = styled.div`
@@ -22,17 +21,17 @@ export const Top = styled.div`
 `
 
 export const Title = styled.p`
-  width: 60px;
+  width: 70px;
   color: #000;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   line-height: normal;
 `
 
 export const Date = styled.p`
   color: #818198;
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 15px;
+  font-weight: 500;
   line-height: normal;
 `
 
