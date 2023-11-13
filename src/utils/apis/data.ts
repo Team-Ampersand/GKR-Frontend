@@ -48,10 +48,9 @@ export const patchData = async (url: string, data?: any) => {
   }
 }
 
-export const deleteData = async (url: string, body?: any) => {
-  console.log(body)
+export const deleteData = async (url: string, params?: any) => {
   try {
-    await apiClient.delete(url || '', body)
+    await apiClient.delete(url || '', { params })
   } catch (e: any) {
     toast.error(e.response.data.message, toastOption)
     throw e

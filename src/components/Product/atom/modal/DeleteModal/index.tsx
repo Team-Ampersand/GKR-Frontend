@@ -19,15 +19,15 @@ const DeleteModal = ({ setModal }: ModalPropsType) => {
   const { mutate } = useMutation(
     ['delete', url],
     () => {
-      let body = {}
+      let params = {}
       if (DeleteIds.length > 1) {
-        body = { 
+        params = {
           equipmentIdList: DeleteIds.map((equipmentId) => ({ equipmentId })),
         }
       } else {
-        body = {}
+        params = {}
       }
-      return deleteData(url, body)
+      return deleteData(url, params)
     },
     {
       onSuccess: () => {
