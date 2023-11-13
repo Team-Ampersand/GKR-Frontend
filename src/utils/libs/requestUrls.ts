@@ -10,5 +10,5 @@ export const ViolationController = {
 
 export const orderController = {
   getNowRentalList: () => `/order/now`,
-  getNoReturnRentalList: () => `/orger/noreturn`,
+  getNoReturnRentalList: () => `/order/noreturn`,
 }
