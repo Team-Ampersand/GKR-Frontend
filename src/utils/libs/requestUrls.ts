@@ -7,6 +7,7 @@ export const EquipmentController = {
 export const ViolationController = {
   violation: () => `/violation`,
   getViolationAll: () => `/violation/all`,
+  cancelViolation: (id: number) => `/violation/${id}`,
 }
 
 export const orderController = {
