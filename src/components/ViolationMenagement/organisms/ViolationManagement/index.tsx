@@ -12,7 +12,11 @@ export default function ViolationManagement() {
         value={pageState}
         setValue={setPageState}
       />
-      {pageState === '제재 목록' ? <ViolationList /> : <AddViolation />}
+      {pageState === '제재 목록' ? (
+        <ViolationList />
+      ) : (
+        <AddViolation setPage={setPageState} />
+      )}
     </S.AllViolationWrapper>
   )
 }
