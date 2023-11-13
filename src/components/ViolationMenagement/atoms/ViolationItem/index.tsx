@@ -7,6 +7,7 @@ import { patchData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
+
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
   const year = date.getFullYear().toString().slice(2)
@@ -34,6 +35,7 @@ export default function ViolationItem({
     {
       onSuccess: () => {
         toast.success('제재 취소되었습니다.', toastOption)
+        router.refresh()
       },
       onError: (error: any) => {
         toast.error(error.response.data.message, toastOption)
