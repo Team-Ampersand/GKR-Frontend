@@ -14,14 +14,15 @@ const DeleteModal = ({ setModal, setPage }: ModalPropsType) => {
   }
   const DeleteIds = useRecoilValue(DeleteChoice)
   const url = EquipmentController.deleteEquipment(DeleteIds)
-  console.log(url)
   const { mutate } = useMutation(
     ['delete', url],
     () => {
       let params = {}
       if (DeleteIds.length > 1) {
         params = {
-          equipmentIdList: DeleteIds.map((equipmentId) => ({ equipmentId })),
+          equipmentIdList: DeleteIds.map((equipmentId) => equipmentId).join(
+            ',',
+          ),
         }
       } else {
         params = {}
