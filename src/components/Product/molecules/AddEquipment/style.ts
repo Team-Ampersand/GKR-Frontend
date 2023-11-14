@@ -28,3 +28,6 @@ export const TypeListWrapper = styled.div`
   flex-wrap: wrap;
   gap: 8px 11px;
 `
+export const ButtonWrapper = styled.div`
+  margin-top: 60px;
+`

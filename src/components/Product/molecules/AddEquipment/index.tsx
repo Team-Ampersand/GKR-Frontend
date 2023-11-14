@@ -4,6 +4,7 @@ import * as S from './style'
 import { useState } from 'react'
 import { FilterListData } from 'asset/data/FilterListData'
 import ListItem from 'components/Product/atom/Item/ListItem'
+import Button from 'components/common/atoms/Button'
 
 export default function AddEquipment() {
   const [title, setTitle] = useState('')
@@ -28,13 +29,20 @@ export default function AddEquipment() {
         <InputItem
           title="기자재 이름"
           placeholder="기자재의 이름을 입력해주세요"
+          value={title}
+          setValue={setTitle}
         />
         <InputItem
           title="기자재 설명"
           placeholder="기자재의 설명을 입력해주세요"
+          value={content}
+          setValue={setContent}
         />
       </S.InputWrapper>
       <ImgBox imageValue={file} setImageValue={setFile} />
+      <S.ButtonWrapper>
+        <Button text="등록하기" height="40px" onclick={() => {}} />
+      </S.ButtonWrapper>
     </S.AddEquipmentWrapper>
   )
 }

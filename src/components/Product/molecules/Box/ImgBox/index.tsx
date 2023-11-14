@@ -1,6 +1,5 @@
 import * as I from 'asset/svg'
 import * as S from './style'
-import { useForm } from 'react-hook-form'
 import { ChangeEvent } from 'react'
 interface ImgBoxPropsType {
   imageValue: File | undefined
@@ -8,8 +7,6 @@ interface ImgBoxPropsType {
 }
 
 const ImgBox = ({ imageValue, setImageValue }: ImgBoxPropsType) => {
-  const { register } = useForm({})
-
   const onChangeImg = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.currentTarget.files?.item(0)
     if (selectedFile !== null) setImageValue(selectedFile)

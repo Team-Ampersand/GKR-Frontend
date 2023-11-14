@@ -3,7 +3,7 @@ import * as S from './style'
 import TextareaAutosize from 'react-textarea-autosize'
 import { InputItemProps } from 'types/Product/ProductTypes'
 
-const InputItem = ({ title, placeholder }: InputItemProps) => {
+const InputItem = ({ title, placeholder, value, setValue }: InputItemProps) => {
   const [content, setContent] = useState('')
 
   return (
