@@ -5,11 +5,62 @@ import { useState } from 'react'
 import { FilterListData } from 'asset/data/FilterListData'
 import ListItem from 'components/Product/atom/Item/ListItem'
 import Button from 'components/common/atoms/Button'
+import { useMutation } from 'react-query'
+import { postFormData } from 'utils/apis/data'
+import { EquipmentController } from 'utils/libs/requestUrls'
+import { toast } from 'react-toastify'
+import { useRecoilValue } from 'recoil'
+import { ProductList } from 'recoilAtoms'
 
 export default function AddEquipment() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [file, setFile] = useState<File | undefined>(undefined)
+  const url = EquipmentController.createEquipment()
+  const equipmentType = useRecoilValue(ProductList)
+  const { mutate } = useMutation(
+    ['equipment', url],
+    (data: any) => {
+      return postFormData(url, data)
+    },
+    {
+      onSuccess: () => {
+        toast.success('기자재 추가 성공')
+      },
+    },
+  )
+
+  const addEquipment = () => {
+    const formData = new FormData()
+    const Type = FilterListData.equipmentType.filter(
+      (i) => i.name == equipmentType,
+    )[0].value
+    console.log(Type, title, content)
+    if (file) {
+      const imageFile = new File([file], 'noticeImage.png', {
+        type: 'image/png',
+      })
+      formData.append('file', imageFile)
+    } else {
+      toast.error('이미지를 추가해주세요')
+      return
+    }
+
+    formData.append(
+      'equipment',
+      new Blob(
+        [
+          JSON.stringify({
+            name: title,
+            description: content,
+            equipmentType: Type,
+          }),
+        ],
+        { type: 'application/json' },
+      ),
+    )
+    mutate(formData)
+  }
 
   return (
     <S.AddEquipmentWrapper>
@@ -41,7 +92,7 @@ export default function AddEquipment() {
       </S.InputWrapper>
       <ImgBox imageValue={file} setImageValue={setFile} />
       <S.ButtonWrapper>
-        <Button text="등록하기" height="40px" onclick={() => {}} />
+        <Button text="등록하기" height="40px" onclick={addEquipment} />
       </S.ButtonWrapper>
     </S.AddEquipmentWrapper>
   )
