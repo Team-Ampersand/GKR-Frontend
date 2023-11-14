@@ -1,10 +1,46 @@
 import { ModalPropsType } from 'types/components/Home/FilterTypes'
 import * as S from './style'
 import Button from 'components/common/atoms/Button'
-
-const DeleteModal = ({ setModal }: ModalPropsType) => {
+import { EquipmentController } from 'utils/libs/requestUrls'
+import { deleteData } from 'utils/apis/data'
+import { useMutation } from 'react-query'
+import { toast } from 'react-toastify'
+import toastOption from 'utils/libs/toastOption'
+import { useRecoilValue } from 'recoil'
+import { DeleteChoice } from 'recoilAtoms'
+const DeleteModal = ({ setModal, setPage }: ModalPropsType) => {
   const closeModal = () => {
     setModal((prev) => !prev)
+  }
+  const DeleteIds = useRecoilValue(DeleteChoice)
+  const url = EquipmentController.deleteEquipment(DeleteIds)
+  const { mutate } = useMutation(
+    ['delete', url],
+    () => {
+      let params = {}
+      if (DeleteIds.length > 1) {
+        params = {
+          equipmentIdList: DeleteIds.map((equipmentId) => equipmentId).join(
+            ',',
+          ),
+        }
+      } else {
+        params = {}
+      }
+      return deleteData(url, params)
+    },
+    {
+      onSuccess: () => {
+        setPage('물품 등록하기')
+        toast.success('삭제에 성공하였습니다.', toastOption)
+      },
+      onError: (error: any) => {
+        toast.error(error.response.data.message, toastOption)
+      },
+    },
+  )
+  const deleteEquipment = () => {
+    mutate()
   }
   return (
     <S.ModalWrapper>
@@ -22,6 +58,7 @@ const DeleteModal = ({ setModal }: ModalPropsType) => {
             width="150"
             height="36"
             fontweight="800"
+            onclick={deleteEquipment}
           />
           <Button
             text="취소"
