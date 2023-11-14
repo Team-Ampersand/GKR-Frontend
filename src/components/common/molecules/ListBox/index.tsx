@@ -1,14 +1,12 @@
-import { NoticeListDummy } from 'asset/dummy/NoticeListdummy'
 import NoticeItem from 'components/common/atoms/NoticeItem'
 import { useState } from 'react'
 import * as S from './style'
+import { NoticeListPropsType } from 'types/components/NoticeManagement/NoticManagementType'
 
-const ListBox = () => {
-  const [dummy, setDummy] = useState(NoticeListDummy.noticeList)
-
+const ListBox = ({ data }: NoticeListPropsType) => {
   return (
     <S.NoticeListWrapper>
-      {dummy.map((i) => (
+      {data.noticeList.map((i) => (
         <NoticeItem
           title={i.title}
           id={i.id}

@@ -1,5 +1,9 @@
 import styled from '@emotion/styled'
 
+interface LinePropstype {
+  backgroundColor: string
+}
+
 export const ShotInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,8 +19,8 @@ export const Input = styled.input`
   }
 `
 
-export const Line = styled.div`
+export const Line = styled.div<LinePropstype>`
   width: 100%;
   height: 2px;
-  background-color: #d9d9d9;
+  background-color: ${(props) => props.backgroundColor};
 `
