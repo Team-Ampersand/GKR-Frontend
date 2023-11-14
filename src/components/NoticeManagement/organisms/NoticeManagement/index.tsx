@@ -21,9 +21,9 @@ export default function NoticeMangement() {
       refetchOnWindowFocus: false,
     },
   )
-  console.log(data)
-  refetch()
-
+  useEffect(() => {
+    refetch()
+  }, [refetch, url])
   return (
     <S.NoticeManagementWrapper>
       <ChoiceBox
