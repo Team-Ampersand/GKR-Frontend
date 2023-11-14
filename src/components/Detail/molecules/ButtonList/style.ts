@@ -19,6 +19,7 @@ export const FillButtonWrapper = styled.div`
   font-weight: 700;
   line-height: normal;
   cursor: pointer;
+  margin-right: 10px;
 `
 
 export const OutlineButtonWrapper = styled.div`
