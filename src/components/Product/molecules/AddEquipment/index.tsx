@@ -1,12 +1,15 @@
 import InputItem from 'components/Product/atom/Item/InputItem'
 import ImgBox from '../Box/ImgBox'
-import InputBox from '../Box/InputBox'
-import ListBox from '../Box/ListBox'
 import * as S from './style'
+import { useState } from 'react'
 import { FilterListData } from 'asset/data/FilterListData'
 import ListItem from 'components/Product/atom/Item/ListItem'
 
 export default function AddEquipment() {
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+  const [file, setFile] = useState<File | undefined>(undefined)
+
   return (
     <S.AddEquipmentWrapper>
       <S.TypeWrapper>
@@ -31,7 +34,7 @@ export default function AddEquipment() {
           placeholder="기자재의 설명을 입력해주세요"
         />
       </S.InputWrapper>
-      <ImgBox />
+      <ImgBox imageValue={file} setImageValue={setFile} />
     </S.AddEquipmentWrapper>
   )
 }

@@ -50,3 +50,9 @@ export const Caution = styled.div`
     margin-left: 6px;
   }
 `
+
+export const PreviewImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
