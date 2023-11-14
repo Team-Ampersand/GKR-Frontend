@@ -1,4 +1,5 @@
 import * as I from 'asset/svg'
+import { useRouter } from 'next/navigation'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import { ViolationItemPropsType } from 'types/components/ViolationManagement/ViolationType'
@@ -6,6 +7,7 @@ import { patchData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
+
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
   const year = date.getFullYear().toString().slice(2)
@@ -15,29 +17,33 @@ const formatDate = (dateString: string): string => {
 }
 export default function ViolationItem({
   userName,
+  id,
   violationReason,
   violationStartDate,
   violationEndDate,
+  canceled,
 }: ViolationItemPropsType) {
   const formattedStartDate = formatDate(violationStartDate)
   const formattedEndDate = formatDate(violationEndDate)
-  const url = ViolationController.violation()
+  const url = ViolationController.cancelViolation(id)
+  const router = useRouter()
   const { mutate } = useMutation(
     ['violation', url],
     () => {
-      return patchData(url, { email: 's22066@gsm.hs.kr' })
+      return patchData(url)
     },
     {
       onSuccess: () => {
         toast.success('제재 취소되었습니다.', toastOption)
-        window.location.reload()
+        router.refresh()
       },
-      onError: () => {
-        toast.error('제재 취소에 실패하였습니다.', toastOption)
+      onError: (error: any) => {
+        toast.error(error.response.data.message, toastOption)
       },
     },
   )
   const deleteViolation = () => {
+    router.refresh()
     mutate()
   }
   return (
