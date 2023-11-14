@@ -32,7 +32,7 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
   }
 }
 
-export const postData = async (url: string, body: any) => {
+export const postData = async (url: string, body?: any) => {
   try {
     const { data } = await apiClient.post(url || '', body)
   } catch (e: any) {
