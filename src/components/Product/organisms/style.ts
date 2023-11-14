@@ -11,4 +11,3 @@ export const BtnBox = styled.div`
   width: 320px;
   margin-top: 60px;
 `
-export const DeleteWrapper = styled.div``
