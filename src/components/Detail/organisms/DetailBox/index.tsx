@@ -35,7 +35,8 @@ interface DetailProps {
 export default function DetailBox({}) {
   const [role, setRole] = useRecoilState(roleType)
   const params = useParams()
-  const url = EquipmentController.getDetail(params.detail)
+  const id = params.detail
+  const url = EquipmentController.getDetail(id)
   const { data } = useQuery(
     ['equipment', url],
     () => {
@@ -98,6 +99,7 @@ export default function DetailBox({}) {
         equipmentStatus={detailData?.equipmentStatus}
         renter={true}
         role={role}
+        id={id}
       />
     </S.DetailWrapper>
   )

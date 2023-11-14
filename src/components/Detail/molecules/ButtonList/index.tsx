@@ -9,6 +9,7 @@ export default function ButtonList({
   equipmentStatus,
   renter,
   role,
+  id,
 }: ButtonListPropsType) {
   const changeMemberButton = ({ isRenter }: changeButtonPropsType) => {
     return {
