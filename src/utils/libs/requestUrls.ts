@@ -17,6 +17,12 @@ export const ViolationController = {
   cancelViolation: (id: number) => `/violation/${id}`,
 }
 
+export const UserController = {
+  user: () => `/user`,
+  allUser: () => `/user/all`,
+  rentalUser: () => `user/rental`,
+}
+
 export const orderController = {
   getNowRentalList: () => `/order/now`,
   getNoReturnRentalList: () => `/order/noreturn`,
