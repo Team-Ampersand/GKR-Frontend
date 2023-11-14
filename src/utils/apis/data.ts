@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { apiClient } from 'utils/libs/apiClient'
 import toastOption from 'utils/libs/toastOption'
@@ -57,6 +56,15 @@ export const patchData = async (url: string, data?: any) => {
   try {
     await apiClient.patch(url || '', data)
   } catch (e: any) {
+    throw e
+  }
+}
+
+export const deleteData = async (url: string, params?: any) => {
+  try {
+    await apiClient.delete(url || '', { params })
+  } catch (e: any) {
+    toast.error(e.response.data.message, toastOption)
     throw e
   }
 }

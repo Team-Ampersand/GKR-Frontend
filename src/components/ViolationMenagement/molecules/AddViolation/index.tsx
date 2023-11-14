@@ -1,6 +1,5 @@
 import Button from 'components/common/atoms/Button'
 import ShotInput from 'components/common/atoms/ShotInput'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
@@ -17,7 +16,6 @@ export default function AddViolation({ setPage }: AddViolationPropsType) {
   const [email, setEmail] = useState('')
   const [reason, setReason] = useState('')
   const url = ViolationController.violation()
-  const router = useRouter()
   const { mutate } = useMutation(
     ['violation', url],
     () => {
