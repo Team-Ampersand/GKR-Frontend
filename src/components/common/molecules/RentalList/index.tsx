@@ -7,6 +7,7 @@ import * as S from './style'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { getData } from 'utils/apis/data'
+
 const handleInvalidCondition = () => {
   toast.error('잘못된 필터 조건입니다. 동시에 선택 불가능 합니다.')
 }
