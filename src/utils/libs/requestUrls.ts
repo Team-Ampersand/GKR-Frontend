@@ -35,3 +35,7 @@ export const NoticeController = {
   editNotice: (id: string) => `/notice/edit/${id}`,
   deleteNotice: (id: number) => `/notice/delete/${id}`,
 }
+
+export const OrderController = {
+  rentalOrder: (url: string, id: string | string[]) => `/order/${url}/${id}`,
+}
