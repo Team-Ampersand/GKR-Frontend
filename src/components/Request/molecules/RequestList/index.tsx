@@ -1,6 +1,25 @@
+import { OrderController } from 'utils/libs/requestUrls'
 import * as S from './style'
 import MGMTListItem from 'components/Request/atoms/RequestItem'
+import { useQuery } from 'react-query'
+import { getData } from 'utils/apis/data'
+import { useEffect } from 'react'
 export default function RequestList() {
+  const url = OrderController.waitOrder()
+  const { data, refetch } = useQuery(
+    ['order', url],
+    () => {
+      return getData(url)
+    },
+    {
+      enabled: !!url,
+      refetchOnWindowFocus: false,
+    },
+  )
+  useEffect(() => {
+    if (url) refetch()
+  }, [url, refetch])
+  const applicationList = data?.data?.applicationList
   return (
     <S.RequestListWrapper>
       <MGMTListItem
