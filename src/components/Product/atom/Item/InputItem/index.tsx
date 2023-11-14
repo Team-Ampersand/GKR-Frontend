@@ -4,8 +4,6 @@ import TextareaAutosize from 'react-textarea-autosize'
 import { InputItemProps } from 'types/Product/ProductTypes'
 
 const InputItem = ({ title, placeholder, value, setValue }: InputItemProps) => {
-  const [content, setContent] = useState('')
-
   return (
     <S.Wrapper>
       <S.Title>{title}</S.Title>
@@ -13,8 +11,8 @@ const InputItem = ({ title, placeholder, value, setValue }: InputItemProps) => {
         <TextareaAutosize
           cacheMeasurements
           placeholder={placeholder}
-          value={content}
-          onChange={(e: any) => setContent(e.target.value)}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
       </S.Input>
     </S.Wrapper>
