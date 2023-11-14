@@ -17,7 +17,21 @@ export const ViolationController = {
   cancelViolation: (id: number) => `/violation/${id}`,
 }
 
+export const UserController = {
+  user: () => `/user`,
+  allUser: () => `/user/all`,
+  rentalUser: () => `user/rental`,
+}
+
 export const orderController = {
   getNowRentalList: () => `/order/now`,
   getNoReturnRentalList: () => `/order/noreturn`,
+}
+
+export const NoticeController = {
+  getNotice: () => `/notice`,
+  getNoticeDetail: (id: string | string[]) => `/notice/${id}`,
+  postNoticeWrite: () => `/notice/create`,
+  editNotice: (id: string) => `/notice/edit/${id}`,
+  deleteNotice: (id: number) => `/notice/delete/${id}`,
 }

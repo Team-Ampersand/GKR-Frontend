@@ -1,7 +1,7 @@
 'use client'
-import Rental from 'components/Home/organisms/Rental'
 import { HomeTemplate } from 'components/Home/template/style'
-import AdminRental from 'components/Rental/organisms/Rental'
+import AdminRental from 'components/Rental/organisms/AdminRental'
+import UserRental from 'components/Rental/organisms/UserRental'
 import { RentalTemplate } from 'components/Rental/template/style'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
@@ -19,7 +19,7 @@ const RentalList = () => {
         </RentalTemplate>
       ) : (
         <HomeTemplate>
-          <Rental />
+          <UserRental />
         </HomeTemplate>
       )}
     </CommonTemplate>

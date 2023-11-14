@@ -32,9 +32,21 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
   }
 }
 
-export const postData = async (url: string, data: any) => {
+export const postData = async (url: string, body: any) => {
   try {
-    await apiClient.post(url || '', data)
+    const { data } = await apiClient.post(url || '', body)
+  } catch (e: any) {
+    throw e
+  }
+}
+
+export const postFormData = async (url: string, data: any) => {
+  try {
+    await apiClient.post(url || '', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
   } catch (e: any) {
     throw e
   }

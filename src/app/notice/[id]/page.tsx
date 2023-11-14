@@ -2,21 +2,15 @@
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
 import NoticeDetail from 'components/Notice/organisms/NoticeDetail'
-import { NoticeTemplate } from 'components/Notice/templates/style'
-import { usePathname } from 'next/navigation'
+import { NoticeDetailTemplate } from 'components/Notice/templates/style'
 
 const NoticeDetailPage = () => {
-  const pathname = usePathname()
-
-  const id = pathname.split('/').pop()
-
-  console.log(id)
   return (
     <CommonTemplate>
       <Sidebar />
-      <NoticeTemplate>
-        <NoticeDetail id={id} />
-      </NoticeTemplate>
+      <NoticeDetailTemplate>
+        <NoticeDetail />
+      </NoticeDetailTemplate>
     </CommonTemplate>
   )
 }

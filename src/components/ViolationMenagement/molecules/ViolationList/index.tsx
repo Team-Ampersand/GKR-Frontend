@@ -17,7 +17,9 @@ export default function ViolationList() {
       refetchOnWindowFocus: false,
     },
   )
-  refetch()
+  useEffect(() => {
+    if (url) refetch()
+  }, [url, refetch])
   const violationList = data?.data?.violationList
   return (
     <S.ViolationListWrapper>

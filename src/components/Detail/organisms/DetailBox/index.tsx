@@ -84,7 +84,7 @@ export default function DetailBox({}) {
           <S.Title>{detailData?.name}</S.Title>
           {role === 'admin' ? (
             <S.EditButton>
-              <I.Edit_Outline />
+              <I.Edit_Outline stroke="#865DFF" />
               수정하기
             </S.EditButton>
           ) : null}
