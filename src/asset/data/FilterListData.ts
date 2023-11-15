@@ -25,6 +25,16 @@ export const FilterListData = {
       value: 'REPAIRING',
       color: '#FF5642',
     },
+    {
+      name: '연장중',
+      value: 'EXTENSION',
+      color: '#FF5642',
+    },
+    {
+      name: '대여중',
+      value: 'RENTAL',
+      color: '#C2C2C2',
+    },
   ],
   equipmentType: [
     {

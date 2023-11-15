@@ -61,4 +61,5 @@ export interface RentalItemPropsType {
   tagVisible: boolean
   id: number
   periodColor?: string
+  orderType?: string
 }

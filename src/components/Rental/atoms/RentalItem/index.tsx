@@ -21,6 +21,7 @@ export default function RentalItem({
   rentalStartDate,
   rentalEndDate,
   tagVisible,
+  orderType,
   id,
   periodColor,
 }: RentalItemPropsType) {
