@@ -13,13 +13,19 @@ interface DetailProps {
   imageUrl: string
   description: string
   userName: string
-  orderType: 'RENTAL' | 'RETURN' | 'EXTENSION'
+  orderType: 'RENTAL' | 'RETURN' | 'EXTENSION' | undefined
   grade: number
   classNum: string
   stuNum: string
   reason: string
-  rentalStartDate: string
-  rentalEndDate: string
+  rentalStartDate: any
+  rentalEndDate: any
+}
+function formatDate(date: any) {
+  const year = date.getFullYear()
+  const month = `0${date.getMonth() + 1}`.slice(-2)
+  const day = `0${date.getDate()}`.slice(-2)
+  return `${year}.${month}.${day}`
 }
 export default function RequestDetail() {
   const params = useParams()
@@ -36,9 +42,13 @@ export default function RequestDetail() {
       setData(data.data)
     }
   }, [data])
+  const startDate = new Date(detailData?.rentalStartDate)
+  const endDate = new Date(detailData?.rentalEndDate)
+  const formattedStartDate = formatDate(startDate)
+  const formattedEndDate = formatDate(endDate)
   return (
     <S.DetailWrapper>
-      <ImageFrame url={'d'} />
+      <ImageFrame url={detailData?.imageUrl} />
       <S.Title>{detailData?.name}</S.Title>
       <S.ContentsWrapper>{detailData?.description}</S.ContentsWrapper>
       <S.Line />
@@ -50,15 +60,11 @@ export default function RequestDetail() {
         />
         <RequestDetailItem
           title="대여한 기간"
-          content="2023.05.26 ~ 2023.06.26"
+          content={`${formattedStartDate} ~ ${formattedEndDate}`}
         />
-        <RequestDetailItem
-          title="사유"
-          content="이 라즈베리 파이로 말할거같으면 1도 아니고 무려 4인 놀라운 성능을 지닌 라즈베리 파이다.
-사양은 112에서 234한 236이다."
-        />
+        <RequestDetailItem title="사유" content={detailData?.reason} />
       </S.RequestContentList>
-      <RequsetButtonList id={1} orderType={'RENTAL'} />
+      <RequsetButtonList id={1} orderType={detailData?.orderType} />
     </S.DetailWrapper>
   )
 }

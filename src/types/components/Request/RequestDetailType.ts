@@ -5,5 +5,5 @@ export interface RequestDetailItemPropsType {
 
 export interface RequestButtonList {
   id: number
-  orderType: 'RENTAL' | 'RETURN' | 'EXTENSION'
+  orderType: 'RENTAL' | 'RETURN' | 'EXTENSION' | undefined
 }

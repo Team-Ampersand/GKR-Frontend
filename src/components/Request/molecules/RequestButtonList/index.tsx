@@ -2,7 +2,7 @@ import { RequestButtonList } from 'types/components/Request/RequestDetailType'
 import * as S from './style'
 
 export default function RequsetButtonList({
-  orderType,
+  orderType = 'RENTAL',
   id,
 }: RequestButtonList) {
   const changeButton = () => {
