@@ -24,10 +24,15 @@ export const TitleWrapper = styled.div`
 `
 
 export const thumbnailWrapper = styled.div`
-  height: 60px;
-  width: 100px;
   background-color: darkblue;
   border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `
 export const Title = styled.p`
   color: #000;
