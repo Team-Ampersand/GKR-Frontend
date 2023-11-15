@@ -8,7 +8,7 @@ import { useQuery } from 'react-query'
 import { getData } from 'utils/apis/data'
 import { useEffect, useState } from 'react'
 interface DetailProps {
-  id: number
+  applicationId: string
   name: string
   imageUrl: string
   description: string
@@ -68,7 +68,7 @@ export default function RequestDetail() {
         <RequestDetailItem title="사유" content={detailData?.reason} />
       </S.RequestContentList>
       <RequsetButtonList
-        id={detailData?.id}
+        id={detailData?.applicationId}
         orderType={detailData?.orderType}
       />
     </S.DetailWrapper>
