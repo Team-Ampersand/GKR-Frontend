@@ -11,6 +11,8 @@ import { EquipmentController } from 'utils/libs/requestUrls'
 import { toast } from 'react-toastify'
 import { useRecoilValue } from 'recoil'
 import { ProductList } from 'recoilAtoms'
+import toastOption from 'utils/libs/toastOption'
+import { useRouter } from 'next/navigation'
 
 export default function AddEquipment() {
   const [title, setTitle] = useState('')
@@ -18,6 +20,7 @@ export default function AddEquipment() {
   const [file, setFile] = useState<File | undefined>(undefined)
   const url = EquipmentController.createEquipment()
   const equipmentType = useRecoilValue(ProductList)
+  const router = useRouter()
   const { mutate } = useMutation(
     ['equipment', url],
     (data: any) => {
@@ -25,7 +28,11 @@ export default function AddEquipment() {
     },
     {
       onSuccess: () => {
-        toast.success('기자재 추가 성공')
+        toast.success('기자재 추가 성공', toastOption)
+        router.push('/home')
+      },
+      onError: (error: any) => {
+        toast.error(error.response.data.message, toastOption)
       },
     },
   )
