@@ -17,7 +17,7 @@ export const MenuData: menuListProps[] = [
   {
     icon: Profile,
     routerName: '/rentallist',
-    title: '대여목록',
+    title: '내 기자재',
     show: ['admin','member'],
   },
   {
