@@ -24,11 +24,9 @@ export const TitleWrapper = styled.div`
 `
 
 export const thumbnailWrapper = styled.div`
-  width: 100%;
-  height: fit-content auto;
-  background-color: darkblue;
+  height: 60px;
+  width: 100px;
   border-radius: 5px;
-  overflow: hidden;
   img {
     width: 100%;
     height: 100%;

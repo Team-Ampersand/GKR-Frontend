@@ -36,7 +36,6 @@ export default function RequestDetail() {
     refetchOnWindowFocus: false,
   })
   const [detailData, setData] = useState<DetailProps>()
-
   useEffect(() => {
     if (data?.data) {
       setData(data.data)
@@ -48,7 +47,6 @@ export default function RequestDetail() {
   const endDate = detailData?.rentalEndDate
     ? new Date(detailData?.rentalEndDate)
     : null
-
   const formattedStartDate = startDate ? formatDate(startDate) : '대기중'
   const formattedEndDate = endDate ? formatDate(endDate) : '대기중'
   return (
