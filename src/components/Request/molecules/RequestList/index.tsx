@@ -37,14 +37,14 @@ export default function RequestList() {
           const formattedEndDate = endDate ? formatDate(endDate) : '대기중'
           return (
             <MGMTListItem
-              key={application.id}
+              key={application.applicantId}
               thumbnail={application.imageUrl}
               title={application.name}
               tag={application.orderType}
               tagVisible={true}
               student={application.userName}
               period={`${formattedStartDate} ~ ${formattedEndDate}`}
-              id={application.id}
+              id={application.applicationId}
             />
           )
         })}
