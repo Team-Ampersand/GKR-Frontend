@@ -2,8 +2,11 @@ import ImageFrame from 'components/Detail/molecules/ImageFrame'
 import * as S from './style'
 import RequestDetailItem from 'components/Request/molecules/RequestDetailItem'
 import RequsetButtonList from 'components/Request/molecules/RequestButtonList'
+import { useParams } from 'next/navigation'
 
 export default function RequestDetail() {
+  const params = useParams()
+  const id = params.id
   return (
     <S.DetailWrapper>
       <ImageFrame url={'d'} />

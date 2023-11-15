@@ -39,4 +39,5 @@ export const NoticeController = {
 export const OrderController = {
   waitOrder: () => `/order/wait`,
   rentalOrder: (url: string, id: string | string[]) => `/order/${url}/${id}`,
+  detailOrder:(id:string | string[])=>`/order/detail/${id}`,
 }
