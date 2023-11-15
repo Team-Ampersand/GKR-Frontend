@@ -37,7 +37,7 @@ export default function RequestList() {
               tagVisible={true}
               student={application.userName}
               period={`${formattedStartDate} ~ ${formattedEndDate}`}
-              id={1}
+              id={application.id}
             />
           )
         })}
