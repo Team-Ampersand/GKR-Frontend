@@ -67,7 +67,10 @@ export default function RequestDetail() {
         />
         <RequestDetailItem title="사유" content={detailData?.reason} />
       </S.RequestContentList>
-      <RequsetButtonList id={1} orderType={detailData?.orderType} />
+      <RequsetButtonList
+        id={detailData?.id}
+        orderType={detailData?.orderType}
+      />
     </S.DetailWrapper>
   )
 }
