@@ -38,8 +38,12 @@ export const NoticeController = {
 
 export const OrderController = {
   waitOrder: () => `/order/wait`,
-  rentalOrder: (url: string, id: string | string[]) => `/order/${url}/${id}`,
-  detailOrder: (id: string | string[]) => `/order/detail/${id}`,
-  acceptOrder: (id: string | undefined) => `/order/accept/${id}`,
-  rejectOrder: (id: string | undefined) => `/order/reject/${id}`,
+  rentalOrder: (url: string, equipmentId: string | string[]) =>
+    `/order/${url}/${equipmentId}`,
+  detailOrder: (applicationId: string | string[]) =>
+    `/order/detail/${applicationId}`,
+  acceptOrder: (applicationId: string | undefined) =>
+    `/order/accept/${applicationId}`,
+  rejectOrder: (applicationId: string | undefined) =>
+    `/order/reject/${applicationId}`,
 }
