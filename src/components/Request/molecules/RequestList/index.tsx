@@ -24,10 +24,17 @@ export default function RequestList() {
     <S.RequestListWrapper>
       {applicationList &&
         [...applicationList].map((application) => {
-          const startDate = new Date(application.rentalStartDate)
-          const endDate = new Date(application.rentalEndDate)
-          const formattedStartDate = formatDate(startDate)
-          const formattedEndDate = formatDate(endDate)
+          const startDate = application.rentalStartDate
+            ? new Date(application.rentalStartDate)
+            : null
+          const endDate = application.rentalEndDate
+            ? new Date(application.rentalEndDate)
+            : null
+
+          const formattedStartDate = startDate
+            ? formatDate(startDate)
+            : '대기중'
+          const formattedEndDate = endDate ? formatDate(endDate) : '대기중'
           return (
             <MGMTListItem
               key={application.id}

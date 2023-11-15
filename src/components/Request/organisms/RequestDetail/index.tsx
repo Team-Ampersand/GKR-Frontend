@@ -42,10 +42,15 @@ export default function RequestDetail() {
       setData(data.data)
     }
   }, [data])
-  const startDate = new Date(detailData?.rentalStartDate)
-  const endDate = new Date(detailData?.rentalEndDate)
-  const formattedStartDate = formatDate(startDate)
-  const formattedEndDate = formatDate(endDate)
+  const startDate = detailData?.rentalStartDate
+    ? new Date(detailData?.rentalStartDate)
+    : null
+  const endDate = detailData?.rentalEndDate
+    ? new Date(detailData?.rentalEndDate)
+    : null
+
+  const formattedStartDate = startDate ? formatDate(startDate) : '대기중'
+  const formattedEndDate = endDate ? formatDate(endDate) : '대기중'
   return (
     <S.DetailWrapper>
       <ImageFrame url={detailData?.imageUrl} />
