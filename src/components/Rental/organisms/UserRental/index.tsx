@@ -1,6 +1,5 @@
 import UserRentalList from 'components/Rental/molecules/UserRentalList'
 import ChoiceBox from 'components/common/molecules/ChoiceBox'
-import TopBox from 'components/common/molecules/TopBox'
 import { useState } from 'react'
 import * as S from './style'
 
