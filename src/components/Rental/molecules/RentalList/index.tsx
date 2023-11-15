@@ -13,7 +13,7 @@ export default function RentalList({ data, periodColor }: RentalListPropsType) {
           title={i.name}
           rentalStartDate={i.rentalStartDate}
           rentalEndDate={i.rentalEndDate}
-          id={i.id}
+          id={i.equipmentId}
           student={i.userName}
           tagVisible={true}
           periodColor={periodColor}
