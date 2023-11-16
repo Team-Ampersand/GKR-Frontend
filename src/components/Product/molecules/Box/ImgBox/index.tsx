@@ -1,29 +1,33 @@
 import * as I from 'asset/svg'
 import * as S from './style'
-import { useForm } from 'react-hook-form'
+import { ChangeEvent } from 'react'
+interface ImgBoxPropsType {
+  imageValue: File | undefined
+  setImageValue: React.Dispatch<React.SetStateAction<File | undefined>>
+}
 
-const ImgBox = () => {
-  const { register } = useForm({})
-
-  const onChangeImg = () => {}
+const ImgBox = ({ imageValue, setImageValue }: ImgBoxPropsType) => {
+  const onChangeImg = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.currentTarget.files?.item(0)
+    if (selectedFile !== null) setImageValue(selectedFile)
+  }
 
   return (
     <>
       <S.Wrapper>
-        <S.ImgInput
-          type="file"
-          id="imgInput"
-          {...register('img', {
-            onChange: () => {
-              onChangeImg()
-            },
-          })}
-        />
+        <S.ImgInput type="file" id="imgInput" onChange={onChangeImg} />
         <S.ImgLabel htmlFor="imgInput">
-          <S.Icon>
-            <I.Camera />
-            <p>이미지 업로드</p>
-          </S.Icon>
+          {imageValue ? (
+            <S.PreviewImage
+              src={URL.createObjectURL(imageValue)}
+              alt="미리보기"
+            />
+          ) : (
+            <S.Icon>
+              <I.Camera />
+              <p>이미지 업로드</p>
+            </S.Icon>
+          )}
         </S.ImgLabel>
       </S.Wrapper>
       <S.Caution>

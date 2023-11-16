@@ -9,6 +9,7 @@ export const EquipmentController = {
       return `/equipment/delete`
     }
   },
+  createEquipment: () => `/equipment/create`,
 }
 
 export const ViolationController = {
