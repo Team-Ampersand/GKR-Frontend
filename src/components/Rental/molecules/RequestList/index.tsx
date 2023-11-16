@@ -41,8 +41,8 @@ const RequestList = () => {
             title={orderEquipment.name}
             imageUrl={orderEquipment.imageUrl}
             description={orderEquipment.description}
-            equipmentStatus={orderEquipment.equipmentStatus}
-            equipmentType={orderEquipment.equipmentType}
+            equipmentStatus={orderEquipment.orderStatus}
+            equipmentType={orderEquipment.orderType}
             role={role}
           />
         ))}

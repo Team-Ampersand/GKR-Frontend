@@ -20,6 +20,7 @@ interface getNameFromValuePropstype {
 
 function RentalItem({
   id,
+  applicationId,
   title,
   imageUrl,
   description,
@@ -69,6 +70,7 @@ function RentalItem({
       )
     }
   }
+  console.log(applicationId)
   const Layer = () => {
     return (
       <S.Layer onClick={() => {}}>

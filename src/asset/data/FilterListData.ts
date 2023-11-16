@@ -69,5 +69,17 @@ export const FilterListData = {
       name: '기타',
       value: 'ETC',
     },
+    {
+      name: '대여',
+      value: 'RENTAL',
+    },
+    {
+      name: '반납',
+      value: 'RETURN',
+    },
+    {
+      name: '연장',
+      value: 'EXTENSION',
+    },
   ],
 }
