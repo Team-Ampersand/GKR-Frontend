@@ -6,6 +6,7 @@ import { useMutation } from 'react-query'
 import { postData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
+import { useRouter } from 'next/navigation'
 
 export interface changeButtonPropsType {
   isRenter: boolean
@@ -21,6 +22,7 @@ export default function ButtonList({
     const [reason, setReason] = useState<string>('')
     const [inUrl, setUrl] = useState<string>('')
     const url = OrderController.rentalOrder(inUrl, id)
+    const router = useRouter()
     const { mutate } = useMutation(
       ['order', url],
       () => {
@@ -41,6 +43,7 @@ export default function ButtonList({
       {
         onSuccess: () => {
           toast.success('요청되었습니다.', toastOption)
+          router.push('/home')
         },
         onError: (error: any) => {
           toast.error(error.response.data.message, toastOption)

@@ -12,7 +12,7 @@ const UserRental = () => {
         value={page}
         setValue={setPage}
       />
-      <UserRentalList />
+      {page === '대여 목록' ? <UserRentalList /> : <UserRentalList />}
     </S.Wrapper>
   )
 }

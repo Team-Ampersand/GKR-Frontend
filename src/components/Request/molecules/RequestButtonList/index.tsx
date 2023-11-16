@@ -6,6 +6,7 @@ import { patchData } from 'utils/apis/data'
 import { OrderController } from 'utils/libs/requestUrls'
 import toastOption from 'utils/libs/toastOption'
 import * as S from './style'
+import { useRouter } from 'next/navigation'
 
 export default function RequsetButtonList({
   orderType = 'RENTAL',
@@ -14,6 +15,7 @@ export default function RequsetButtonList({
   const acceptUrl = OrderController.acceptOrder(id)
   const rejectUrl = OrderController.rejectOrder(id)
   const [url, setUrl] = useState('')
+  const router = useRouter()
   const { mutate } = useMutation<void, any, { url: string }>(
     ['order', acceptUrl, rejectUrl],
     ({ url }) => {
@@ -21,7 +23,8 @@ export default function RequsetButtonList({
     },
     {
       onSuccess: () => {
-        toast.success('승인되었습니다.', toastOption)
+        router.push('/request')
+        toast.success('확인되었습니다.', toastOption)
       },
       onError: (error: any) => {
         toast.error(error.response.data.message, toastOption)
