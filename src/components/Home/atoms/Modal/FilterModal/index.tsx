@@ -7,6 +7,7 @@ export default function FilterModal({ setModal }: ModalPropsType) {
   function closeModal() {
     setModal((prev) => !prev)
   }
+
   return (
     <>
       <S.Wrapper onClick={closeModal}></S.Wrapper>
@@ -25,14 +26,16 @@ export default function FilterModal({ setModal }: ModalPropsType) {
         </S.filterListWrapper>
         <S.subTitle>상태</S.subTitle>
         <S.filterListWrapper onClick={(e) => e.stopPropagation()}>
-          {FilterListData.equipmentStatusList.map((i) => (
-            <FilterItem
-              name={i.name}
-              value={i.value}
-              type={false}
-              key={i.value}
-            />
-          ))}
+          {FilterListData.equipmentStatusList
+            .filter((item) => item.value !== 'ETC')
+            .map((i) => (
+              <FilterItem
+                name={i.name}
+                value={i.value}
+                type={false}
+                key={i.value}
+              />
+            ))}
         </S.filterListWrapper>
       </S.FilterModalWrapper>
     </>
