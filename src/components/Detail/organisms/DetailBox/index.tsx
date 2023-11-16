@@ -7,7 +7,7 @@ import { useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import {  roleType } from 'recoilAtoms'
+import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
@@ -31,7 +31,7 @@ interface DetailProps {
   equipmentType: string
 }
 
-export default function DetailBox({}: any) {
+export default function DetailBox({}) {
   const [role, setRole] = useRecoilState(roleType)
   const params = useParams()
   const id = params.detail
