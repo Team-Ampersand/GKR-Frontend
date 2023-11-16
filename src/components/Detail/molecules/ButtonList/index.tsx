@@ -16,25 +16,30 @@ export default function ButtonList({
   renter,
   role,
   id,
+  apid,
 }: ButtonListPropsType) {
   const ChangeMemberButton = ({ isRenter }: changeButtonPropsType) => {
     const [reason, setReason] = useState<string>('')
     const [inUrl, setUrl] = useState<string>('')
-    const url = OrderController.rentalOrder(inUrl, id)
+    const rentalUrl = OrderController.rentalOrder(id)
+    const unionUrl = OrderController.extensionOrder(inUrl, apid)
     const router = useRouter()
     const { mutate } = useMutation(
-      ['order', url],
+      ['order', rentalUrl, unionUrl],
       () => {
         const body = {
           reason: reason,
         }
         switch (inUrl) {
           case 'rental':
+            return postData(rentalUrl, body)
           case 'extension':
-            return postData(url, body)
+            return postData(unionUrl, body)
           case 'return':
+            return postData(unionUrl)
           case 'cancel':
-            return postData(url)
+            return postData(unionUrl)
+
           default:
             throw new Error('잘못된 요청입니다.')
         }
