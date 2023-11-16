@@ -23,7 +23,6 @@ export default function RentalItem({
   tagVisible,
   id,
   periodColor,
-  applicationId
 }: RentalItemPropsType) {
   const Loading = {
     name: '로딩중',

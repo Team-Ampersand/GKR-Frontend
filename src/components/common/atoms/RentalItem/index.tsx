@@ -8,7 +8,6 @@ import { useRecoilState } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
 import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
 import * as S from './style'
-import ApplicationId from 'utils/ApplicationId'
 
 interface getNameFromValuePropstype {
   list: {
@@ -29,8 +28,6 @@ function RentalItem({
   equipmentStatus,
   role,
 }: RentalItemPropsType) {
-  console.log('applicationId', applicationId)
-  ApplicationId(applicationId)
   const Loading = {
     name: '로딩중',
     value: 'Loading',

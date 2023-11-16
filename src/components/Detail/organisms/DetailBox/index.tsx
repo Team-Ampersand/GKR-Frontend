@@ -7,7 +7,7 @@ import { useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { applicationId, roleType } from 'recoilAtoms'
+import {  roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
@@ -35,7 +35,6 @@ export default function DetailBox({}: any) {
   const [role, setRole] = useRecoilState(roleType)
   const params = useParams()
   const id = params.detail
-  const apid = useRecoilValue(applicationId)
   const url = EquipmentController.getDetail(id)
   const { data } = useQuery(
     ['equipment', url],
@@ -110,7 +109,7 @@ export default function DetailBox({}: any) {
         renter={true}
         role={role}
         id={id}
-        apid={apid}
+        apid={1}
       />
     </S.DetailWrapper>
   )
