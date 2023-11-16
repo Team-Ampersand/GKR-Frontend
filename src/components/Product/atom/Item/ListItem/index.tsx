@@ -9,7 +9,6 @@ const ListItem = ({ name, width }: ListItemProps) => {
   return (
     <S.Wrapper>
       <S.Button
-        width={width}
         onClick={() => {
           setProductName(name)
         }}

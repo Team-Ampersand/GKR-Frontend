@@ -1,19 +1,17 @@
 import styled from '@emotion/styled'
 
 interface ButtonProps {
-  width: string | undefined
   active: boolean
 }
 
 export const Wrapper = styled.div``
 
 export const Button = styled.button<ButtonProps>`
-  width: ${({ width }) => (width ? width + 'px' : '85px')};
   height: 36px;
   background: ${(props: ButtonProps) => (props.active ? '#865DFF' : '#fff')};
   border: solid 1px #d9d9d9;
   border-radius: 5px;
-
+  padding: 0 18px;
   color: ${(props: ButtonProps) => (props.active ? '#fff' : '#c2c2c2')};
   font-size: 14px;
   font-weight: 500;
