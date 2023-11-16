@@ -72,16 +72,14 @@ export default function AddEquipment() {
   return (
     <S.AddEquipmentWrapper>
       <S.TypeWrapper>
-        <S.TypeWrapper>
-          <S.Title>기자재 종류</S.Title>
-          <S.TypeListWrapper>
-            {FilterListData.equipmentType
-              .filter((i) => i.name !== '전체')
-              .map((i) => (
-                <ListItem name={i.name} key={i.name} />
-              ))}
-          </S.TypeListWrapper>
-        </S.TypeWrapper>
+        <S.Title>기자재 종류</S.Title>
+        <S.TypeListWrapper>
+          {FilterListData.equipmentType
+            .filter((i) => i.name !== '전체')
+            .map((i) => (
+              <ListItem name={i.name} key={i.name} />
+            ))}
+        </S.TypeListWrapper>
       </S.TypeWrapper>
       <S.InputWrapper>
         <InputItem

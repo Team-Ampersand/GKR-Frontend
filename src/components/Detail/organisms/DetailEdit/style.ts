@@ -19,3 +19,19 @@ export const InputListWrapper = styled.div`
   flex-direction: column;
   gap: 8px;
 `
+
+export const TypeListWrapper = styled.div`
+  display: flex;
+  width: 377px;
+  height: fit-content auto;
+  flex-wrap: wrap;
+  gap: 8px 11px;
+`
+
+export const Title = styled.p`
+  color: #616161;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+`

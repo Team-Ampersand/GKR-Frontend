@@ -35,7 +35,7 @@ export const ProductChoice = atom({
 
 export const ProductList = atom({
   key: 'ProductList',
-  default: '노트북',
+  default: '모니터',
 })
 
 export const DeleteChoice = atom<number[]>({
