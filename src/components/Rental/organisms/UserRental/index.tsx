@@ -2,6 +2,7 @@ import UserRentalList from 'components/Rental/molecules/UserRentalList'
 import ChoiceBox from 'components/common/molecules/ChoiceBox'
 import { useState } from 'react'
 import * as S from './style'
+import RequestList from 'components/Rental/molecules/RequestList'
 
 const UserRental = () => {
   const [page, setPage] = useState<string>('대여 목록')
@@ -12,7 +13,7 @@ const UserRental = () => {
         value={page}
         setValue={setPage}
       />
-      {page === '대여 목록' ? <UserRentalList /> : <UserRentalList />}
+      {page === '대여 목록' ? <UserRentalList /> : <RequestList />}
     </S.Wrapper>
   )
 }

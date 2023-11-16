@@ -11,7 +11,6 @@ import { useRouter } from 'next/navigation'
 export interface changeButtonPropsType {
   isRenter: boolean
 }
-
 export default function ButtonList({
   equipmentStatus,
   renter,
