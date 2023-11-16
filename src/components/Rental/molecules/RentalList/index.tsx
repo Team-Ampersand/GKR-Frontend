@@ -14,6 +14,7 @@ export default function RentalList({ data, periodColor }: RentalListPropsType) {
           rentalStartDate={i.rentalStartDate}
           rentalEndDate={i.rentalEndDate}
           id={i.equipmentId}
+          applicationId={i.applicationId}
           student={i.userName}
           tagVisible={true}
           periodColor={periodColor}

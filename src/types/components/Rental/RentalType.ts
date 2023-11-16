@@ -14,6 +14,7 @@ export interface NoReturnData {
     rentalStartDate: string
     rentalEndDate: string
     equipmentId: string
+    applicationId?: number
   }[]
 }
 
@@ -33,6 +34,7 @@ export interface rentalData {
     rentalStartDate: string
     rentalEndDate: string
     equipmentId: string
+    applicationId?: number
   }[]
 }
 
@@ -52,6 +54,7 @@ export interface RentalListPropsType {
   data: rentalData | NoReturnData
   periodColor?: string
   equipmentId?: string
+  applicationId?: number
 }
 
 export interface RentalItemPropsType {
@@ -66,4 +69,5 @@ export interface RentalItemPropsType {
   periodColor?: string
   orderType?: string
   equipmentId?: string
+  applicationId?: number
 }

@@ -6,6 +6,7 @@ import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { OrderController } from 'utils/libs/requestUrls'
 import * as S from './style'
+import ApplicationId from 'utils/ApplicationId'
 const state = {
   WAITING: 'WAITING',
   ACCEPT: 'ACCEPT',
@@ -33,19 +34,21 @@ const RequestList = () => {
   return (
     <S.RentalListWrapper>
       {orderEquipmentList &&
-        [...orderEquipmentList].map((orderEquipment) => (
-          <RentalItem
-            key={orderEquipment.equipmentid}
-            id={orderEquipment.equipmentId}
-            applicationId={orderEquipment.applicationId}
-            title={orderEquipment.name}
-            imageUrl={orderEquipment.imageUrl}
-            description={orderEquipment.description}
-            equipmentStatus={orderEquipment.orderStatus}
-            equipmentType={orderEquipment.orderType}
-            role={role}
-          />
-        ))}
+        [...orderEquipmentList].map((orderEquipment) => {
+          return (
+            <RentalItem
+              key={orderEquipment.equipmentid}
+              id={orderEquipment.equipmentId}
+              applicationId={orderEquipment.applicationId}
+              title={orderEquipment.name}
+              imageUrl={orderEquipment.imageUrl}
+              description={orderEquipment.description}
+              equipmentStatus={orderEquipment.orderStatus}
+              equipmentType={orderEquipment.orderType}
+              role={role}
+            />
+          )
+        })}
     </S.RentalListWrapper>
   )
 }
