@@ -35,7 +35,7 @@ const RequestList = () => {
       {orderEquipmentList &&
         [...orderEquipmentList].map((orderEquipment) => (
           <RentalItem
-            key={orderEquipment.id}
+            key={orderEquipment.equipmentid}
             id={orderEquipment.equipmentId}
             applicationId={orderEquipment.applicationId}
             title={orderEquipment.name}
