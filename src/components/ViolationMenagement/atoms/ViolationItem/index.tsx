@@ -34,8 +34,8 @@ export default function ViolationItem({
     },
     {
       onSuccess: () => {
+        router.push('/home')
         toast.success('제재 취소되었습니다.', toastOption)
-        router.refresh()
       },
       onError: (error: any) => {
         toast.error(error.response.data.message, toastOption)

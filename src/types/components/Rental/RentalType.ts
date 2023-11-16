@@ -13,6 +13,8 @@ export interface NoReturnData {
     reason: string
     rentalStartDate: string
     rentalEndDate: string
+    equipmentId: string
+    applicationId?: string
   }[]
 }
 
@@ -31,6 +33,8 @@ export interface rentalData {
     reason: string // 신청 사유
     rentalStartDate: string
     rentalEndDate: string
+    equipmentId: string
+    applicationId?: string
   }[]
 }
 
@@ -49,6 +53,8 @@ export interface ChiceBoxPropsType {
 export interface RentalListPropsType {
   data: rentalData | NoReturnData
   periodColor?: string
+  equipmentId?: string
+  applicationId?: string
 }
 
 export interface RentalItemPropsType {
@@ -59,6 +65,9 @@ export interface RentalItemPropsType {
   rentalStartDate: string
   rentalEndDate: string
   tagVisible: boolean
-  id: number
+  id: string
   periodColor?: string
+  orderType?: string
+  equipmentId?: string
+  applicationId?: string
 }

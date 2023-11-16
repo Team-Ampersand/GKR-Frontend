@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
 
 interface ChoiceProps {
-  active: boolean | undefined
+  active: boolean
+  admin: boolean
 }
 
 export const Wrapper = styled.div`
@@ -9,11 +10,12 @@ export const Wrapper = styled.div`
   height: fit-content auto;
 `
 
-export const Item = styled.button`
-  color: ${(props: ChoiceProps) => (props.active ? '#865dff' : '#c2c2c2')};
+export const Item = styled.button<ChoiceProps>`
+  color: ${(props: ChoiceProps) =>
+    props.active ? (props.admin ? '#865dff' : '#FF6000') : '#c2c2c2'};
   border: none;
   border-bottom: ${(props: ChoiceProps) =>
-    props.active ? '2px solid #865dff' : 'none'};
+    props.active ? `2px solid ${props.admin ? '#865dff' : '#FF6000'}` : 'none'};
   font-size: 20px;
   font-style: normal;
   font-weight: 700;

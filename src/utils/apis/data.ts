@@ -5,6 +5,7 @@ import toastOption from 'utils/libs/toastOption'
 type paramsObj = {
   equipmentStatus?: string
   equipmentType?: string
+  orderStatus?: string
 }
 
 export const getData = async (url: string | undefined, params?: paramsObj) => {
@@ -23,6 +24,12 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
           equipmentType: params.equipmentType,
         },
       }
+    } else if (params && params.orderStatus) {
+      config = {
+        params: {
+          orderStatus: params.orderStatus,
+        },
+      }
     }
     const { data } = await apiClient.get(url || '', config)
     return { data }
@@ -32,7 +39,7 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
   }
 }
 
-export const postData = async (url: string, body: any) => {
+export const postData = async (url: string, body?: any) => {
   try {
     const { data } = await apiClient.post(url || '', body)
   } catch (e: any) {

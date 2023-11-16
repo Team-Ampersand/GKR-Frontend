@@ -36,3 +36,18 @@ export const NoticeController = {
   editNotice: (id: string) => `/notice/edit/${id}`,
   deleteNotice: (id: number) => `/notice/delete/${id}`,
 }
+
+export const OrderController = {
+  stateOrder: () => `order/state`,
+  waitOrder: () => `/order/wait`,
+  rentalOrder: (equipmentId: string | string[]) =>
+    `/order/rental/${equipmentId}`,
+  extensionOrder: (url: string, applicationId: number) =>
+    `/order/${url}/${applicationId}`,
+  detailOrder: (applicationId: string | string[]) =>
+    `/order/detail/${applicationId}`,
+  acceptOrder: (applicationId: string | undefined) =>
+    `/order/accept/${applicationId}`,
+  rejectOrder: (applicationId: string | undefined) =>
+    `/order/reject/${applicationId}`,
+}

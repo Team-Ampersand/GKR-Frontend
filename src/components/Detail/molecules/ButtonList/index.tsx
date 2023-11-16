@@ -1,23 +1,84 @@
 import { ButtonListPropsType } from 'types/components/Detail/ButtonListType'
 import * as S from './style'
+import { useEffect, useState } from 'react'
+import { OrderController } from 'utils/libs/requestUrls'
+import { useMutation } from 'react-query'
+import { postData } from 'utils/apis/data'
+import { toast } from 'react-toastify'
+import toastOption from 'utils/libs/toastOption'
+import { useRouter } from 'next/navigation'
 
 export interface changeButtonPropsType {
   isRenter: boolean
 }
-
 export default function ButtonList({
   equipmentStatus,
   renter,
   role,
+  id,
+  apid,
 }: ButtonListPropsType) {
-  const changeMemberButton = ({ isRenter }: changeButtonPropsType) => {
+  const ChangeMemberButton = ({ isRenter }: changeButtonPropsType) => {
+    const [reason, setReason] = useState<string>('')
+    const [inUrl, setUrl] = useState<string>('')
+    const rentalUrl = OrderController.rentalOrder(id)
+    const unionUrl = OrderController.extensionOrder(inUrl, apid)
+    const router = useRouter()
+    const { mutate } = useMutation(
+      ['order', rentalUrl, unionUrl],
+      () => {
+        const body = {
+          reason: reason,
+        }
+        switch (inUrl) {
+          case 'rental':
+            return postData(rentalUrl, body)
+          case 'extension':
+            return postData(unionUrl, body)
+          case 'return':
+            return postData(unionUrl)
+          case 'cancel':
+            return postData(unionUrl)
+
+          default:
+            throw new Error('잘못된 요청입니다.')
+        }
+      },
+      {
+        onSuccess: () => {
+          toast.success('요청되었습니다.', toastOption)
+          router.push('/home')
+        },
+        onError: (error: any) => {
+          toast.error(error.response.data.message, toastOption)
+        },
+      },
+    )
+    useEffect(() => {
+      if (inUrl) mutate()
+    }, [inUrl])
+
     return {
       NOT_RENT() {
-        return <S.FillButtonWrapper>대여하기</S.FillButtonWrapper>
+        return (
+          <S.FillButtonWrapper
+            onClick={() => {
+              setUrl('rental')
+            }}
+          >
+            대여하기
+          </S.FillButtonWrapper>
+        )
       },
       WAITING() {
         return isRenter ? (
-          <S.OutlineButtonWrapper>취소하기</S.OutlineButtonWrapper>
+          <S.OutlineButtonWrapper
+            onClick={() => {
+              setUrl('cancel')
+            }}
+          >
+            취소하기
+          </S.OutlineButtonWrapper>
         ) : (
           <></>
         )
@@ -25,8 +86,20 @@ export default function ButtonList({
       RENTING() {
         return isRenter ? (
           <>
-            <S.FillButtonWrapper>반납하기</S.FillButtonWrapper>
-            <S.OutlineButtonWrapper>연장하기</S.OutlineButtonWrapper>
+            <S.FillButtonWrapper
+              onClick={() => {
+                setUrl('return')
+              }}
+            >
+              반납하기
+            </S.FillButtonWrapper>
+            <S.OutlineButtonWrapper
+              onClick={() => {
+                setUrl('extension')
+              }}
+            >
+              연장하기
+            </S.OutlineButtonWrapper>
           </>
         ) : (
           <></>
@@ -38,7 +111,7 @@ export default function ButtonList({
     }
   }
 
-  const changeAdminButton = () => {
+  const ChangeAdminButton = () => {
     return {
       NOT_RENT() {
         return <S.AdminFillButtonWrapper>수리등록</S.AdminFillButtonWrapper>
@@ -61,8 +134,8 @@ export default function ButtonList({
     <S.ButtonListWrapper>
       {equipmentStatus
         ? role === 'admin'
-          ? changeAdminButton()[equipmentStatus]()
-          : changeMemberButton({ isRenter: renter })[equipmentStatus]()
+          ? ChangeAdminButton()[equipmentStatus]()
+          : ChangeMemberButton({ isRenter: renter })[equipmentStatus]()
         : null}
     </S.ButtonListWrapper>
   )

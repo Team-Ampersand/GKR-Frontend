@@ -1,9 +1,9 @@
 export interface RequestDetailItemPropsType {
-  title: string
-  content: string
+  title: string | undefined
+  content: string | undefined
 }
 
 export interface RequestButtonList {
-  id: number
-  orderType: 'RENTAL' | 'RETURN' | 'EXTENSION'
+  id: string | undefined
+  orderType: 'RENTAL' | 'RETURN' | 'EXTENSION' | undefined
 }
