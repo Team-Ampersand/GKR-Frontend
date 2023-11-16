@@ -1,4 +1,5 @@
 export interface RentalItemPropsType {
+  applicationId?: number
   id: number
   title: string
   imageUrl: string

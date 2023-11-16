@@ -36,7 +36,8 @@ const RequestList = () => {
         [...orderEquipmentList].map((orderEquipment) => (
           <RentalItem
             key={orderEquipment.id}
-            id={orderEquipment.id}
+            id={orderEquipment.equipmentId}
+            applicationId={orderEquipment.applicationId}
             title={orderEquipment.name}
             imageUrl={orderEquipment.imageUrl}
             description={orderEquipment.description}
