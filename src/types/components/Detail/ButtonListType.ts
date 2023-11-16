@@ -3,4 +3,5 @@ export interface ButtonListPropsType {
   renter: boolean
   role: 'admin' | 'member'
   id: string | string[]
+  apid: number
 }

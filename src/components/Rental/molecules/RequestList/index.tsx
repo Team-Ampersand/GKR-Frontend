@@ -6,7 +6,6 @@ import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { OrderController } from 'utils/libs/requestUrls'
 import * as S from './style'
-import ApplicationId from 'utils/ApplicationId'
 const state = {
   WAITING: 'WAITING',
   ACCEPT: 'ACCEPT',
