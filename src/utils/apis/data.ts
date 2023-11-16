@@ -5,6 +5,7 @@ import toastOption from 'utils/libs/toastOption'
 type paramsObj = {
   equipmentStatus?: string
   equipmentType?: string
+  orderStatus?: string
 }
 
 export const getData = async (url: string | undefined, params?: paramsObj) => {
@@ -21,6 +22,12 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
       config = {
         params: {
           equipmentType: params.equipmentType,
+        },
+      }
+    } else if (params && params.orderStatus) {
+      config = {
+        params: {
+          orderStatus: params.orderStatus,
         },
       }
     }
