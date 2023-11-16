@@ -40,8 +40,10 @@ export const NoticeController = {
 export const OrderController = {
   stateOrder: () => `order/state`,
   waitOrder: () => `/order/wait`,
-  rentalOrder: (url: string, equipmentId: string | string[]) =>
-    `/order/${url}/${equipmentId}`,
+  rentalOrder: (equipmentId: string | string[]) =>
+    `/order/rental/${equipmentId}`,
+  extensionOrder: (url: string, applicationId: number) =>
+    `/order/${url}/${applicationId}`,
   detailOrder: (applicationId: string | string[]) =>
     `/order/detail/${applicationId}`,
   acceptOrder: (applicationId: string | undefined) =>
