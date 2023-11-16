@@ -15,7 +15,12 @@ const ImgBox = ({ imageValue, setImageValue }: ImgBoxPropsType) => {
   return (
     <>
       <S.Wrapper>
-        <S.ImgInput type="file" id="imgInput" onChange={onChangeImg} />
+        <S.ImgInput
+          type="file"
+          id="imgInput"
+          onChange={onChangeImg}
+          accept="image/png, image/jpeg"
+        />
         <S.ImgLabel htmlFor="imgInput">
           {imageValue ? (
             <S.PreviewImage
