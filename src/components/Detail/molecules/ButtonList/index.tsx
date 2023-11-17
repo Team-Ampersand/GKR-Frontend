@@ -50,7 +50,8 @@ export default function ButtonList({
           router.push('/home')
         },
         onError: (error: any) => {
-          toast.error(error.response.data.message, toastOption)
+          if (error) toast.error(error.response.data.message, toastOption)
+          else toast.error('요청에 실패했습니다.', toastOption)
         },
       },
     )

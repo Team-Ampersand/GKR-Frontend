@@ -42,7 +42,7 @@ export const OrderController = {
   waitOrder: () => `/order/wait`,
   rentalOrder: (equipmentId: string | string[]) =>
     `/order/rental/${equipmentId}`,
-  extensionOrder: (url: string, applicationId: number) =>
+  extensionOrder: (url: string, applicationId?: number) =>
     `/order/${url}/${applicationId}`,
   detailOrder: (applicationId: string | string[]) =>
     `/order/detail/${applicationId}`,
