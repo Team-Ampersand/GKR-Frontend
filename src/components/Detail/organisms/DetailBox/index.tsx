@@ -29,6 +29,7 @@ interface DetailProps {
   userId: any
   equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING'
   equipmentType: string
+  applicationId?: number
 }
 
 export default function DetailBox({}) {
@@ -109,7 +110,7 @@ export default function DetailBox({}) {
         renter={true}
         role={role}
         id={id}
-        apid={1}
+        apid={detailData?.applicationId}
       />
     </S.DetailWrapper>
   )
