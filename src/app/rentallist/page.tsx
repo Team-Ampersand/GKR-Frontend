@@ -18,9 +18,9 @@ const RentalList = () => {
           <AdminRental />
         </RentalTemplate>
       ) : (
-        <HomeTemplate>
+        <RentalTemplate>
           <UserRental />
-        </HomeTemplate>
+        </RentalTemplate>
       )}
     </CommonTemplate>
   )

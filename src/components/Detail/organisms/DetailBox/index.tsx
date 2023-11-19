@@ -1,14 +1,12 @@
-'use client'
-
 import { FilterListData } from 'asset/data/FilterListData'
 import * as I from 'asset/svg'
 import ButtonList from 'components/Detail/molecules/ButtonList'
 import ImageFrame from 'components/Detail/molecules/ImageFrame'
 import Tag from 'components/common/atoms/Tag'
 import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
@@ -22,6 +20,7 @@ interface getNameFromValuePropstype {
   }[]
   valueToFind: string | undefined
 }
+
 interface DetailProps {
   id: string
   name: string
@@ -30,12 +29,14 @@ interface DetailProps {
   userId: any
   equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING'
   equipmentType: string
+  applicationId?: number
 }
 
 export default function DetailBox({}) {
   const [role, setRole] = useRecoilState(roleType)
   const params = useParams()
-  const url = EquipmentController.getDetail(params.detail)
+  const id = params.detail
+  const url = EquipmentController.getDetail(id)
   const { data } = useQuery(
     ['equipment', url],
     () => {
@@ -53,10 +54,12 @@ export default function DetailBox({}) {
       setData(data.data)
     }
   }, [data])
+
   const Loading = {
     name: '로딩중',
     value: 'Loading',
   }
+
   const getNameFromValue = ({
     list,
     valueToFind,
@@ -65,15 +68,23 @@ export default function DetailBox({}) {
     return item ? item : Loading
   }
 
-  const equipmentTypeName = getNameFromValue({
-    list: FilterListData.equipmentType,
-    valueToFind: detailData?.equipmentType,
-  })
+  const equipmentTypeName = useMemo(
+    () =>
+      getNameFromValue({
+        list: FilterListData.equipmentType,
+        valueToFind: detailData?.equipmentType,
+      }),
+    [detailData?.equipmentType],
+  )
 
-  const equipmentStatusName = getNameFromValue({
-    list: FilterListData.equipmentStatusList,
-    valueToFind: detailData?.equipmentStatus,
-  })
+  const equipmentStatusName = useMemo(
+    () =>
+      getNameFromValue({
+        list: FilterListData.equipmentStatusList,
+        valueToFind: detailData?.equipmentStatus,
+      }),
+    [detailData?.equipmentStatus],
+  )
 
   return (
     <S.DetailWrapper>
@@ -98,6 +109,8 @@ export default function DetailBox({}) {
         equipmentStatus={detailData?.equipmentStatus}
         renter={true}
         role={role}
+        id={id}
+        apid={detailData?.applicationId}
       />
     </S.DetailWrapper>
   )

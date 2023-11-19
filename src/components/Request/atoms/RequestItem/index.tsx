@@ -2,7 +2,6 @@ import { MGMTListItemPropsType } from 'types/components/common/MGMTListType'
 import * as S from './style'
 import { RequestData } from 'asset/data/RequestData'
 import Link from 'next/link'
-
 interface getNameFromValuePropstype {
   list: {
     name: string
@@ -11,7 +10,6 @@ interface getNameFromValuePropstype {
   }[]
   valueToFind: string
 }
-
 export default function MGMTListItem({
   thumbnail,
   title,
@@ -26,7 +24,6 @@ export default function MGMTListItem({
     value: 'Loading',
     color: '#C2C2C2',
   }
-
   const getNameFromValue = ({
     list,
     valueToFind,
@@ -34,7 +31,6 @@ export default function MGMTListItem({
     const item = list.find((item) => item.value === valueToFind)
     return item ? item : Loading
   }
-
   return (
     <Link href={`request/${id}`}>
       <S.ListItemWrapper>

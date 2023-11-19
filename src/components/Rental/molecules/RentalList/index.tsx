@@ -9,11 +9,12 @@ export default function RentalList({ data, periodColor }: RentalListPropsType) {
         <RentalItem
           key={i.id}
           thumbnail={i.imageUrl}
-          tag={'RENTING'}
+          tag={i.orderType}
           title={i.name}
           rentalStartDate={i.rentalStartDate}
           rentalEndDate={i.rentalEndDate}
-          id={i.id}
+          id={i.equipmentId}
+          applicationId={i.applicationId}
           student={i.userName}
           tagVisible={true}
           periodColor={periodColor}

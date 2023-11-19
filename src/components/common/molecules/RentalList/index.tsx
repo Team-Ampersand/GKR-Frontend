@@ -52,8 +52,8 @@ const RentalList = () => {
       {equipmentList &&
         [...equipmentList].map((equipment) => (
           <RentalItem
-            key={equipment.id}
-            id={equipment.id}
+            key={equipment.equipmentId}
+            id={equipment.equipmentId}
             title={equipment.name}
             imageUrl={equipment.imageUrl}
             description={equipment.description}

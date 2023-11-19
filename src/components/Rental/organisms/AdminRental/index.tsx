@@ -1,9 +1,8 @@
-import ChoiceBox from 'components/common/molecules/ChoiceBox'
-import * as S from './style'
-import { useState } from 'react'
-import RentalList from 'components/Rental/molecules/RentalList'
 import NoRetureList from 'components/Rental/molecules/NoReturnList'
 import RentingList from 'components/Rental/molecules/RentingList'
+import ChoiceBox from 'components/common/molecules/ChoiceBox'
+import { useState } from 'react'
+import * as S from './style'
 
 export default function Rental() {
   const [pageState, setPageState] = useState('대여중인 자재')
