@@ -11,10 +11,9 @@ const SearchField = () => {
   const [inputValue, setInputValue] = useState('')
   const url = EquipmentController.serachEquipment()
   const { data, refetch } = useQuery(
-    ['search', url],
+    ['search', url, { name: inputValue }],
     () => {
-      const queryParams = { name: inputValue }
-      return getData(url, queryParams)
+      return getData(url, { name: inputValue })
     },
     {
       enabled: !!url,
@@ -23,12 +22,9 @@ const SearchField = () => {
   )
   const [list, setList] = useRecoilState(searchState)
   useEffect(() => {
-    const timer = setTimeout(() => {
-      refetch()
-      if (data) setList(data?.data?.equipmentList)
-    }, 500)
-    return () => clearTimeout(timer)
-  }, [inputValue, refetch, setList, data])
+    refetch()
+    if (data) setList(data?.data?.equipmentList)
+  }, [inputValue, refetch, data, setList])
   const handleInputChange = (e: any) => {
     setInputValue(e.target.value)
   }
