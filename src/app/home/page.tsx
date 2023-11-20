@@ -10,7 +10,6 @@ const HomePage = () => {
     <CommonTemplate>
       <Sidebar />
       <HomeTemplate>
-        <SearchField />
         <Rental />
       </HomeTemplate>
     </CommonTemplate>
