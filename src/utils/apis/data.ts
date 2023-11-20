@@ -6,6 +6,7 @@ type paramsObj = {
   equipmentStatus?: string
   equipmentType?: string
   orderStatus?: string
+  name?: string
 }
 
 export const getData = async (url: string | undefined, params?: paramsObj) => {
@@ -28,6 +29,12 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
       config = {
         params: {
           orderStatus: params.orderStatus,
+        },
+      }
+    } else if (params && params.name) {
+      config = {
+        params: {
+          name: params.name,
         },
       }
     }
