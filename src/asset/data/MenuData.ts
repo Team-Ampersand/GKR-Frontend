@@ -1,4 +1,4 @@
-import { Folder, Profile, Bell, Cution, Letter, Box } from 'asset/svg'
+import { Folder, Profile, Bell, Cution, Letter, Box, Magnifier } from 'asset/svg'
 
 interface menuListProps {
   icon: any
@@ -48,6 +48,12 @@ export const MenuData: menuListProps[] = [
     icon: Bell,
     routerName: '/notice',
     title: '공지사항',
+    show: ['admin', 'member'],
+  },
+  {
+    icon: Magnifier,
+    routerName: '/search',
+    title: '검색하기',
     show: ['admin', 'member'],
   },
 ]
