@@ -10,6 +10,7 @@ export const EquipmentController = {
     }
   },
   createEquipment: () => `/equipment/create`,
+  serachEquipment:()=>`/equipment/search`,
 }
 
 export const ViolationController = {
