@@ -2,7 +2,7 @@ import * as I from 'asset/svg'
 import * as S from './style'
 import { ChangeEvent } from 'react'
 interface ImgBoxPropsType {
-  imageValue: File | undefined
+  imageValue: File | undefined | string
   setImageValue: React.Dispatch<React.SetStateAction<File | undefined>>
 }
 
@@ -15,13 +15,22 @@ const ImgBox = ({ imageValue, setImageValue }: ImgBoxPropsType) => {
   return (
     <>
       <S.Wrapper>
-        <S.ImgInput type="file" id="imgInput" onChange={onChangeImg} />
+        <S.ImgInput
+          type="file"
+          id="imgInput"
+          onChange={onChangeImg}
+          accept="image/png, image/jpeg"
+        />
         <S.ImgLabel htmlFor="imgInput">
           {imageValue ? (
-            <S.PreviewImage
-              src={URL.createObjectURL(imageValue)}
-              alt="미리보기"
-            />
+            typeof imageValue === 'string' ? (
+              <S.PreviewImage src={imageValue} alt="미리보기" />
+            ) : (
+              <S.PreviewImage
+                src={URL.createObjectURL(imageValue)}
+                alt="미리보기"
+              />
+            )
           ) : (
             <S.Icon>
               <I.Camera />

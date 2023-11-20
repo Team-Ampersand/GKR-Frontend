@@ -1,5 +1,5 @@
-import InputItem from 'components/Product/atom/Item/InputItem'
-import ImgBox from '../Box/ImgBox'
+import InputItem from 'components/common/atoms/InputItem'
+import ImgBox from '../../../common/ImgBox'
 import * as S from './style'
 import { useState } from 'react'
 import { FilterListData } from 'asset/data/FilterListData'
@@ -72,16 +72,14 @@ export default function AddEquipment() {
   return (
     <S.AddEquipmentWrapper>
       <S.TypeWrapper>
-        <S.TypeWrapper>
-          <S.Title>기자재 종류</S.Title>
-          <S.TypeListWrapper>
-            {FilterListData.equipmentType
-              .filter((i) => i.name !== '전체')
-              .map((i) => (
-                <ListItem name={i.name} key={i.name} />
-              ))}
-          </S.TypeListWrapper>
-        </S.TypeWrapper>
+        <S.Title>기자재 종류</S.Title>
+        <S.TypeListWrapper>
+          {FilterListData.equipmentType
+            .filter((i) => i.name !== '전체')
+            .map((i) => (
+              <ListItem name={i.name} key={i.name} />
+            ))}
+        </S.TypeListWrapper>
       </S.TypeWrapper>
       <S.InputWrapper>
         <InputItem

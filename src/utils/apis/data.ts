@@ -59,6 +59,18 @@ export const postFormData = async (url: string, data: any) => {
   }
 }
 
+export const patchFormData = async (url: string, data: any) => {
+  try {
+    await apiClient.patch(url || '', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+  } catch (e: any) {
+    throw e
+  }
+}
+
 export const patchData = async (url: string, data?: any) => {
   try {
     await apiClient.patch(url || '', data)

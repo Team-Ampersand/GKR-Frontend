@@ -10,6 +10,7 @@ export const EquipmentController = {
     }
   },
   createEquipment: () => `/equipment/create`,
+  editEquipment: (id: string | string[]) => `/equipment/edit/${id}`,
 }
 
 export const ViolationController = {

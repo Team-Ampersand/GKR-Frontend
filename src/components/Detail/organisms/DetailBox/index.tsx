@@ -3,7 +3,7 @@ import * as I from 'asset/svg'
 import ButtonList from 'components/Detail/molecules/ButtonList'
 import ImageFrame from 'components/Detail/molecules/ImageFrame'
 import Tag from 'components/common/atoms/Tag'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useRecoilState, useRecoilValue } from 'recoil'
@@ -35,6 +35,7 @@ interface DetailProps {
 export default function DetailBox({}) {
   const [role, setRole] = useRecoilState(roleType)
   const params = useParams()
+  const router = useRouter()
   const id = params.detail
   const url = EquipmentController.getDetail(id)
   const { data } = useQuery(
@@ -93,7 +94,11 @@ export default function DetailBox({}) {
         <S.TopTitleWrapper>
           <S.Title>{detailData?.name}</S.Title>
           {role === 'admin' ? (
-            <S.EditButton>
+            <S.EditButton
+              onClick={() => {
+                router.push(`${id}/edit`)
+              }}
+            >
               <I.Edit_Outline stroke="#865DFF" />
               수정하기
             </S.EditButton>
