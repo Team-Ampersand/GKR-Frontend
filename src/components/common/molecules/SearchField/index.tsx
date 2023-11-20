@@ -8,7 +8,11 @@ const SearchField = () => {
   const [inputValue, setInputValue] = useState('')
 
   useEffect(() => {
-    
+    const timer = setTimeout(() => {
+      console.log('Delayed search:', inputValue)
+    }, 500)
+
+    return () => clearTimeout(timer)
   }, [inputValue])
 
   const handleInputChange = (e: any) => {
