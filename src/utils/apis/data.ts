@@ -31,6 +31,12 @@ export const getData = async (url: string | undefined, params?: paramsObj) => {
           orderStatus: params.orderStatus,
         },
       }
+    } else if (params && params.name) {
+      config = {
+        params: {
+          name: params.name,
+        },
+      }
     }
     const { data } = await apiClient.get(url || '', config)
     return { data }
