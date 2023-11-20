@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
-import * as S from './style'
-import { useRecoilValue } from 'recoil'
-import { roleType } from 'recoilAtoms'
+import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
-import { EquipmentController } from 'utils/libs/requestUrls'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { roleType, searchState } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
+import { EquipmentController } from 'utils/libs/requestUrls'
+import * as S from './style'
 
 const SearchField = () => {
   const role = useRecoilValue(roleType)
@@ -21,20 +21,17 @@ const SearchField = () => {
       refetchOnWindowFocus: false,
     },
   )
-  const searchList = data?.data?.equipmentList
-  console.log(searchList)
+  const [list, setList] = useRecoilState(searchState)
   useEffect(() => {
     const timer = setTimeout(() => {
       refetch()
+      if (data) setList(data?.data?.equipmentList)
     }, 500)
-
     return () => clearTimeout(timer)
-  }, [inputValue, refetch])
-
+  }, [inputValue, refetch, setList, data])
   const handleInputChange = (e: any) => {
     setInputValue(e.target.value)
   }
-
   return (
     <>
       <S.Label>
