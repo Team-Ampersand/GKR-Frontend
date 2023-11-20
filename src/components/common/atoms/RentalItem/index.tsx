@@ -20,7 +20,6 @@ interface getNameFromValuePropstype {
 
 function RentalItem({
   id,
-  applicationId,
   title,
   imageUrl,
   description,
