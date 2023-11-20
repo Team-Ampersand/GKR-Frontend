@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
 
 export const SearchListWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px 0;
 `
