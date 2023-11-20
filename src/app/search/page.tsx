@@ -1,7 +1,6 @@
 'use client'
-import Rental from 'components/Home/organisms/Rental'
 import { HomeTemplate } from 'components/Home/template/style'
-import SearchField from 'components/common/molecules/SearchField'
+import Search from 'components/Search'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
 
@@ -10,8 +9,7 @@ const SearchPage = () => {
     <CommonTemplate>
       <Sidebar />
       <HomeTemplate>
-        <SearchField />
-        <Rental />
+        <Search />
       </HomeTemplate>
     </CommonTemplate>
   )
