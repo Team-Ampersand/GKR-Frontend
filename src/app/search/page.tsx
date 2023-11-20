@@ -5,7 +5,7 @@ import SearchField from 'components/common/molecules/SearchField'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
 
-const HomePage = () => {
+const SearchPage = () => {
   return (
     <CommonTemplate>
       <Sidebar />
@@ -16,4 +16,4 @@ const HomePage = () => {
     </CommonTemplate>
   )
 }
-export default HomePage
+export default SearchPage
