@@ -11,6 +11,7 @@ export const EquipmentController = {
   },
   createEquipment: () => `/equipment/create`,
   serachEquipment:()=>`/equipment/search`,
+  editEquipment: (id: string | string[]) => `/equipment/edit/${id}`,
 }
 
 export const ViolationController = {
