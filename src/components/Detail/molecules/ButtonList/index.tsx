@@ -1,9 +1,9 @@
 import { ButtonListPropsType } from 'types/components/Detail/ButtonListType'
 import * as S from './style'
 import { useEffect, useState } from 'react'
-import { OrderController } from 'utils/libs/requestUrls'
+import { EquipmentController, OrderController } from 'utils/libs/requestUrls'
 import { useMutation } from 'react-query'
-import { postData } from 'utils/apis/data'
+import { patchData, postData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
 import { useRouter } from 'next/navigation'
@@ -18,47 +18,52 @@ export default function ButtonList({
   id,
   apid,
 }: ButtonListPropsType) {
+  const [reason, setReason] = useState<string>('')
+  const [inUrl, setUrl] = useState<string>('')
+  const rentalUrl = OrderController.rentalOrder(id)
+  const unionUrl = OrderController.extensionOrder(inUrl, apid)
+  const repairUrl = EquipmentController.repairEquipment(id)
+  const cancelRepairUrl = EquipmentController.cancelRepairEquipment(id)
+  const router = useRouter()
+  const { mutate } = useMutation(
+    ['order', rentalUrl, unionUrl],
+    () => {
+      const body = {
+        reason: reason,
+      }
+      switch (inUrl) {
+        case 'rental':
+          return postData(rentalUrl, body)
+        case 'extension':
+          return postData(unionUrl, body)
+        case 'return':
+          return postData(unionUrl)
+        case 'cancel':
+          return postData(unionUrl)
+        case 'repair':
+          return patchData(repairUrl)
+        case `cancelRepair`:
+          return patchData(cancelRepairUrl)
+          return
+        default:
+          throw new Error('잘못된 요청입니다.')
+      }
+    },
+    {
+      onSuccess: () => {
+        toast.success('요청되었습니다.', toastOption)
+        router.push('/home')
+      },
+      onError: (error: any) => {
+        if (error) toast.error(error.response.data.message, toastOption)
+        else toast.error('요청에 실패했습니다.', toastOption)
+      },
+    },
+  )
+  useEffect(() => {
+    if (inUrl) mutate()
+  }, [inUrl])
   const ChangeMemberButton = ({ isRenter }: changeButtonPropsType) => {
-    const [reason, setReason] = useState<string>('')
-    const [inUrl, setUrl] = useState<string>('')
-    const rentalUrl = OrderController.rentalOrder(id)
-    const unionUrl = OrderController.extensionOrder(inUrl, apid)
-    const router = useRouter()
-    const { mutate } = useMutation(
-      ['order', rentalUrl, unionUrl],
-      () => {
-        const body = {
-          reason: reason,
-        }
-        switch (inUrl) {
-          case 'rental':
-            return postData(rentalUrl, body)
-          case 'extension':
-            return postData(unionUrl, body)
-          case 'return':
-            return postData(unionUrl)
-          case 'cancel':
-            return postData(unionUrl)
-
-          default:
-            throw new Error('잘못된 요청입니다.')
-        }
-      },
-      {
-        onSuccess: () => {
-          toast.success('요청되었습니다.', toastOption)
-          router.push('/home')
-        },
-        onError: (error: any) => {
-          if (error) toast.error(error.response.data.message, toastOption)
-          else toast.error('요청에 실패했습니다.', toastOption)
-        },
-      },
-    )
-    useEffect(() => {
-      if (inUrl) mutate()
-    }, [inUrl])
-
     return {
       NOT_RENT() {
         return (
@@ -115,7 +120,15 @@ export default function ButtonList({
   const ChangeAdminButton = () => {
     return {
       NOT_RENT() {
-        return <S.AdminFillButtonWrapper>수리등록</S.AdminFillButtonWrapper>
+        return (
+          <S.AdminFillButtonWrapper
+            onClick={() => {
+              setUrl('repair')
+            }}
+          >
+            수리등록
+          </S.AdminFillButtonWrapper>
+        )
       },
       WAITING() {
         return <></>
@@ -125,7 +138,13 @@ export default function ButtonList({
       },
       REPAIRING() {
         return (
-          <S.AdminOutlineButtonWrapper>수리취소</S.AdminOutlineButtonWrapper>
+          <S.AdminOutlineButtonWrapper
+            onClick={() => {
+              setUrl('cancelRepair')
+            }}
+          >
+            수리취소
+          </S.AdminOutlineButtonWrapper>
         )
       },
     }
