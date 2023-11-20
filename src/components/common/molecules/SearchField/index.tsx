@@ -25,7 +25,7 @@ const SearchField = () => {
         <S.Input
           role={role}
           type="text"
-          placeholder="검색어를 입력해주세요"
+          placeholder="찾고 싶은 기자재를 입력해주세요"
           value={inputValue}
           onChange={handleInputChange}
         />
