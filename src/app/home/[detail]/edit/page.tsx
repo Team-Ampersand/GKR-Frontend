@@ -1,5 +1,4 @@
 'use client'
-import DetailBox from 'components/Detail/organisms/DetailBox'
 import DetailEdit from 'components/Detail/organisms/DetailEdit/inex'
 import { DetailTemplate } from 'components/Detail/template/style'
 import SearchField from 'components/common/molecules/SearchField'
