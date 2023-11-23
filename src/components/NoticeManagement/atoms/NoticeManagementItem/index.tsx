@@ -6,6 +6,8 @@ import { useMutation } from 'react-query'
 import { NoticeController } from 'utils/libs/requestUrls'
 import { deleteData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
+import { useRecoilState } from 'recoil'
+import { noticeEditModal } from 'recoilAtoms'
 export default function NoticeManagementItem({
   id,
   title,
@@ -15,6 +17,7 @@ export default function NoticeManagementItem({
 }: NoticeManagementItemPropsType) {
   const date = createNoticeDate.split('T')[0].replace(/-/g, '.')
   const url = NoticeController.deleteNotice(id)
+  const [EditModal, setEditModal] = useRecoilState(noticeEditModal)
   const { data, mutate } = useMutation(
     ['notice', url],
     () => {
@@ -31,6 +34,8 @@ export default function NoticeManagementItem({
     mutate()
   }
 
+  const editNotice = () => [setEditModal({ ...EditModal, state: true, id: id })]
+
   return (
     <S.ViolationItemWrapper>
       <Link href={`/notice/${id}`}>
@@ -45,7 +50,7 @@ export default function NoticeManagementItem({
         </S.ContentWrapper>
       </Link>
       <S.ButtonListWrapper>
-        <S.ButtonWrapper onClick={() => {}}>
+        <S.ButtonWrapper onClick={editNotice}>
           <I.Edit_Outline stroke="#000000" width="24px" height="24px" />
         </S.ButtonWrapper>
         <S.ButtonWrapper onClick={deleteNotice}>
