@@ -64,7 +64,9 @@ export default function EditNotice() {
 
   return (
     <S.EditNoticeWrapper>
-      <S.closeModalWrapper onClick={() => setEditModal(false)} />
+      <S.closeModalWrapper
+        onClick={() => setEditModal({ ...editModal, state: false })}
+      />
       <S.ModalWrapper>
         <S.Title>공지사항 수정</S.Title>
         <S.OptionWrapper>
