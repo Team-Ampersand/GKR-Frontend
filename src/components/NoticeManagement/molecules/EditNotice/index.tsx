@@ -47,12 +47,12 @@ export default function EditNotice() {
     }
 
     formData.append(
-      'equipment',
+      'notice',
       new Blob(
         [
           JSON.stringify({
-            name: title,
-            description: content,
+            title: title,
+            content: content,
           }),
         ],
         { type: 'application/json' },
