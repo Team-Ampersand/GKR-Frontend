@@ -7,9 +7,13 @@ import AddNotice from 'components/NoticeManagement/molecules/AddNotice'
 import { NoticeController } from 'utils/libs/requestUrls'
 import { getData } from 'utils/apis/data'
 import { useQuery } from 'react-query'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { noticeEditModal } from 'recoilAtoms'
+import EditNotice from 'components/NoticeManagement/molecules/EditNotice'
 
 export default function NoticeMangement() {
   const [pageState, setPageState] = useState('공지 목록')
+  const editModalstate = useRecoilValue(noticeEditModal)
   const url = NoticeController.getNotice()
   const { data, refetch } = useQuery(
     ['noticeList', url],
@@ -36,6 +40,7 @@ export default function NoticeMangement() {
       ) : (
         <AddNotice setPage={setPageState} />
       )}
+      {editModalstate.state ? <EditNotice /> : null}
     </S.NoticeManagementWrapper>
   )
 }

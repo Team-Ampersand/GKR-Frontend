@@ -10,7 +10,7 @@ export const EquipmentController = {
     }
   },
   createEquipment: () => `/equipment/create`,
-  serachEquipment:()=>`/equipment/search`,
+  serachEquipment: () => `/equipment/search`,
   editEquipment: (id: string | string[]) => `/equipment/edit/${id}`,
 }
 
@@ -35,7 +35,7 @@ export const NoticeController = {
   getNotice: () => `/notice`,
   getNoticeDetail: (id: string | string[]) => `/notice/${id}`,
   postNoticeWrite: () => `/notice/create`,
-  editNotice: (id: string) => `/notice/edit/${id}`,
+  editNotice: (id: number) => `/notice/edit/${id}`,
   deleteNotice: (id: number) => `/notice/delete/${id}`,
 }
 
