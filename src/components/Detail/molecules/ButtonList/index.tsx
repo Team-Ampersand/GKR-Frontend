@@ -1,9 +1,13 @@
 import { ButtonListPropsType } from 'types/components/Detail/ButtonListType'
 import * as S from './style'
 import { useEffect, useState } from 'react'
-import { EquipmentController, OrderController } from 'utils/libs/requestUrls'
-import { useMutation } from 'react-query'
-import { patchData, postData } from 'utils/apis/data'
+import {
+  EquipmentController,
+  OrderController,
+  UserController,
+} from 'utils/libs/requestUrls'
+import { useMutation, useQuery } from 'react-query'
+import { getData, patchData, postData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
 import { useRouter } from 'next/navigation'
@@ -13,7 +17,6 @@ export interface changeButtonPropsType {
 }
 export default function ButtonList({
   equipmentStatus,
-  renter,
   role,
   id,
   apid,
@@ -24,7 +27,13 @@ export default function ButtonList({
   const unionUrl = OrderController.extensionOrder(inUrl, apid)
   const repairUrl = EquipmentController.repairEquipment(id)
   const cancelRepairUrl = EquipmentController.cancelRepairEquipment(id)
+  const rentalStateUrl = UserController.rentalUser()
   const router = useRouter()
+  const [renter, setRenter] = useState(false)
+  const { data, refetch } = useQuery([], () => {
+    return getData(rentalStateUrl)
+  })
+
   const { mutate } = useMutation(
     ['order', rentalUrl, unionUrl],
     () => {
@@ -44,7 +53,6 @@ export default function ButtonList({
           return patchData(repairUrl)
         case `cancelRepair`:
           return patchData(cancelRepairUrl)
-          return
         default:
           throw new Error('잘못된 요청입니다.')
       }
@@ -63,6 +71,17 @@ export default function ButtonList({
   useEffect(() => {
     if (inUrl) mutate()
   }, [inUrl])
+
+  useEffect(() => {
+    if (
+      data?.data?.equipmentList &&
+      data.data.equipmentList.filter((f: any) => f.equipmentId == Number(id))
+        .length > 0
+    )
+      setRenter(true)
+    else setRenter(false)
+  }, [data, refetch])
+
   const ChangeMemberButton = ({ isRenter }: changeButtonPropsType) => {
     return {
       NOT_RENT() {

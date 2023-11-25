@@ -112,7 +112,6 @@ export default function DetailBox({}) {
       <S.ContentsWrapper>{detailData?.description}</S.ContentsWrapper>
       <ButtonList
         equipmentStatus={detailData?.equipmentStatus}
-        renter={true}
         role={role}
         id={id}
         apid={detailData?.applicationId}
