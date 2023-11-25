@@ -42,3 +42,16 @@ export const DeleteChoice = atom<number[]>({
   key: 'DeleteChoice',
   default: [],
 })
+
+export const searchState = atom({
+  key: 'searchState',
+  default: [],
+})
+
+export const noticeEditModal = atom({
+  key: 'noticeEditModal',
+  default: {
+    state: false,
+    id: 0,
+  },
+})

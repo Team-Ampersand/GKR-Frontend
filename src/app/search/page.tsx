@@ -1,17 +1,17 @@
 'use client'
-import Rental from 'components/Home/organisms/Rental'
 import { HomeTemplate } from 'components/Home/template/style'
+import Search from 'components/Search/organisms'
 import Sidebar from 'components/common/organisms/Sidebar'
 import { CommonTemplate } from 'components/common/templates/style'
 
-const HomePage = () => {
+const SearchPage = () => {
   return (
     <CommonTemplate>
       <Sidebar />
       <HomeTemplate>
-        <Rental />
+        <Search />
       </HomeTemplate>
     </CommonTemplate>
   )
 }
-export default HomePage
+export default SearchPage
