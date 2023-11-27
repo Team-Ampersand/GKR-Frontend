@@ -11,6 +11,7 @@ import { getData, patchData, postData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
 import { useRouter } from 'next/navigation'
+import ResonModal from '../ReasonModal'
 
 export interface changeButtonPropsType {
   isRenter: boolean
@@ -22,6 +23,8 @@ export default function ButtonList({
   apid,
 }: ButtonListPropsType) {
   const [reason, setReason] = useState<string>('')
+  const [reasonModal, setReasonModal] = useState<boolean>(false)
+  const [reasonType, setReasonType] = useState<string>('')
   const [inUrl, setUrl] = useState<string>('')
   const rentalUrl = OrderController.rentalOrder(id)
   const unionUrl = OrderController.extensionOrder(inUrl, apid)
@@ -30,6 +33,7 @@ export default function ButtonList({
   const rentalStateUrl = UserController.rentalUser()
   const router = useRouter()
   const [renter, setRenter] = useState(false)
+
   const { data, refetch } = useQuery([], () => {
     return getData(rentalStateUrl)
   })
@@ -88,7 +92,8 @@ export default function ButtonList({
         return (
           <S.FillButtonWrapper
             onClick={() => {
-              setUrl('rental')
+              setReasonType('rental')
+              setReasonModal(true)
             }}
           >
             대여하기
@@ -120,7 +125,8 @@ export default function ButtonList({
             </S.FillButtonWrapper>
             <S.OutlineButtonWrapper
               onClick={() => {
-                setUrl('extension')
+                setReasonType('extension')
+                setReasonModal(true)
               }}
             >
               연장하기
@@ -170,12 +176,22 @@ export default function ButtonList({
   }
 
   return (
-    <S.ButtonListWrapper>
-      {equipmentStatus
-        ? role === 'admin'
-          ? ChangeAdminButton()[equipmentStatus]()
-          : ChangeMemberButton({ isRenter: renter })[equipmentStatus]()
-        : null}
-    </S.ButtonListWrapper>
+    <>
+      <S.ButtonListWrapper>
+        {equipmentStatus
+          ? role === 'admin'
+            ? ChangeAdminButton()[equipmentStatus]()
+            : ChangeMemberButton({ isRenter: renter })[equipmentStatus]()
+          : null}
+        {reasonModal ? (
+          <ResonModal
+            reason={reason}
+            setReason={setReason}
+            setModalState={setReasonModal}
+            onClick={() => setUrl(reasonType)}
+          />
+        ) : null}
+      </S.ButtonListWrapper>
+    </>
   )
 }
