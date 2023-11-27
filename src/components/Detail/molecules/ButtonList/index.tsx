@@ -1,70 +1,99 @@
 import { ButtonListPropsType } from 'types/components/Detail/ButtonListType'
 import * as S from './style'
 import { useEffect, useState } from 'react'
-import { OrderController } from 'utils/libs/requestUrls'
-import { useMutation } from 'react-query'
-import { postData } from 'utils/apis/data'
+import {
+  EquipmentController,
+  OrderController,
+  UserController,
+} from 'utils/libs/requestUrls'
+import { useMutation, useQuery } from 'react-query'
+import { getData, patchData, postData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
 import { useRouter } from 'next/navigation'
+import ResonModal from '../ReasonModal'
 
 export interface changeButtonPropsType {
   isRenter: boolean
 }
 export default function ButtonList({
   equipmentStatus,
-  renter,
   role,
   id,
   apid,
 }: ButtonListPropsType) {
-  const ChangeMemberButton = ({ isRenter }: changeButtonPropsType) => {
-    const [reason, setReason] = useState<string>('')
-    const [inUrl, setUrl] = useState<string>('')
-    const rentalUrl = OrderController.rentalOrder(id)
-    const unionUrl = OrderController.extensionOrder(inUrl, apid)
-    const router = useRouter()
-    const { mutate } = useMutation(
-      ['order', rentalUrl, unionUrl],
-      () => {
-        const body = {
-          reason: reason,
-        }
-        switch (inUrl) {
-          case 'rental':
-            return postData(rentalUrl, body)
-          case 'extension':
-            return postData(unionUrl, body)
-          case 'return':
-            return postData(unionUrl)
-          case 'cancel':
-            return postData(unionUrl)
+  const [reason, setReason] = useState<string>('')
+  const [reasonModal, setReasonModal] = useState<boolean>(false)
+  const [reasonType, setReasonType] = useState<string>('')
+  const [inUrl, setUrl] = useState<string>('')
+  const rentalUrl = OrderController.rentalOrder(id)
+  const unionUrl = OrderController.extensionOrder(inUrl, apid)
+  const repairUrl = EquipmentController.repairEquipment(id)
+  const cancelRepairUrl = EquipmentController.cancelRepairEquipment(id)
+  const rentalStateUrl = UserController.rentalUser()
+  const router = useRouter()
+  const [renter, setRenter] = useState(false)
 
-          default:
-            throw new Error('잘못된 요청입니다.')
-        }
+  const { data, refetch } = useQuery([], () => {
+    return getData(rentalStateUrl)
+  })
+
+  const { mutate } = useMutation(
+    ['order', rentalUrl, unionUrl],
+    () => {
+      const body = {
+        reason: reason,
+      }
+      switch (inUrl) {
+        case 'rental':
+          return postData(rentalUrl, body)
+        case 'extension':
+          return postData(unionUrl, body)
+        case 'return':
+          return postData(unionUrl)
+        case 'cancel':
+          return postData(unionUrl)
+        case 'repair':
+          return patchData(repairUrl)
+        case `cancelRepair`:
+          return patchData(cancelRepairUrl)
+        default:
+          throw new Error('잘못된 요청입니다.')
+      }
+    },
+    {
+      onSuccess: () => {
+        toast.success('요청되었습니다.', toastOption)
+        router.push('/home')
       },
-      {
-        onSuccess: () => {
-          toast.success('요청되었습니다.', toastOption)
-          router.push('/home')
-        },
-        onError: (error: any) => {
-          if (error) toast.error(error.response.data.message, toastOption)
-          else toast.error('요청에 실패했습니다.', toastOption)
-        },
+      onError: (error: any) => {
+        if (error) toast.error(error.response.data.message, toastOption)
+        else toast.error('요청에 실패했습니다.', toastOption)
       },
+    },
+  )
+  useEffect(() => {
+    if (inUrl) mutate()
+  }, [inUrl])
+
+  useEffect(() => {
+    if (
+      data?.data?.equipmentList &&
+      data.data.equipmentList.filter((f: any) => f.equipmentId == Number(id))
+        .length > 0
     )
-    useEffect(() => {
-      if (inUrl) mutate()
-    }, [inUrl])
+      setRenter(true)
+    else setRenter(false)
+  }, [data, refetch])
 
+  const ChangeMemberButton = ({ isRenter }: changeButtonPropsType) => {
     return {
       NOT_RENT() {
         return (
           <S.FillButtonWrapper
             onClick={() => {
-              setUrl('rental')
+              setReasonType('rental')
+              setReasonModal(true)
             }}
           >
             대여하기
@@ -96,7 +125,8 @@ export default function ButtonList({
             </S.FillButtonWrapper>
             <S.OutlineButtonWrapper
               onClick={() => {
-                setUrl('extension')
+                setReasonType('extension')
+                setReasonModal(true)
               }}
             >
               연장하기
@@ -115,7 +145,15 @@ export default function ButtonList({
   const ChangeAdminButton = () => {
     return {
       NOT_RENT() {
-        return <S.AdminFillButtonWrapper>수리등록</S.AdminFillButtonWrapper>
+        return (
+          <S.AdminFillButtonWrapper
+            onClick={() => {
+              setUrl('repair')
+            }}
+          >
+            수리등록
+          </S.AdminFillButtonWrapper>
+        )
       },
       WAITING() {
         return <></>
@@ -125,19 +163,35 @@ export default function ButtonList({
       },
       REPAIRING() {
         return (
-          <S.AdminOutlineButtonWrapper>수리취소</S.AdminOutlineButtonWrapper>
+          <S.AdminOutlineButtonWrapper
+            onClick={() => {
+              setUrl('cancelRepair')
+            }}
+          >
+            수리취소
+          </S.AdminOutlineButtonWrapper>
         )
       },
     }
   }
 
   return (
-    <S.ButtonListWrapper>
-      {equipmentStatus
-        ? role === 'admin'
-          ? ChangeAdminButton()[equipmentStatus]()
-          : ChangeMemberButton({ isRenter: renter })[equipmentStatus]()
-        : null}
-    </S.ButtonListWrapper>
+    <>
+      <S.ButtonListWrapper>
+        {equipmentStatus
+          ? role === 'admin'
+            ? ChangeAdminButton()[equipmentStatus]()
+            : ChangeMemberButton({ isRenter: renter })[equipmentStatus]()
+          : null}
+        {reasonModal ? (
+          <ResonModal
+            reason={reason}
+            setReason={setReason}
+            setModalState={setReasonModal}
+            onClick={() => setUrl(reasonType)}
+          />
+        ) : null}
+      </S.ButtonListWrapper>
+    </>
   )
 }

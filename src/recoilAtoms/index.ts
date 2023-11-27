@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 
 export const roleType = atom<'member' | 'admin'>({
   key: 'roleType',
-  default: 'admin',
+  default: 'member',
 })
 
 export const calendarState = atom<boolean>({

@@ -12,6 +12,9 @@ export const EquipmentController = {
   createEquipment: () => `/equipment/create`,
   serachEquipment: () => `/equipment/search`,
   editEquipment: (id: string | string[]) => `/equipment/edit/${id}`,
+  repairEquipment: (id: string | string[]) => `equipment/repair/${id}`,
+  cancelRepairEquipment: (id: string | string[]) =>
+    `equipment/repair/completion/${id}`,
 }
 
 export const ViolationController = {
