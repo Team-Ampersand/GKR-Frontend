@@ -1,8 +1,8 @@
-import { ModalPropsType } from 'types/components/Home/FilterTypes'
+import { NotPageModalPropsType } from 'types/components/Home/FilterTypes'
 import * as S from './style'
 import * as I from 'asset/svg'
 
-export default function FilterButton({ setModal }: ModalPropsType) {
+export default function FilterButton({ setModal }: NotPageModalPropsType) {
   const onClick = () => {
     setModal((prev) => !prev)
   }
