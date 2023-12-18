@@ -18,7 +18,6 @@ const Notice = () => {
       refetchOnWindowFocus: false,
     },
   )
-  console.log(data)
   useEffect(() => {
     refetch()
   }, [refetch])

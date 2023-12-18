@@ -1,9 +1,9 @@
-import { ModalPropsType } from 'types/components/Home/FilterTypes'
+import { NotPageModalPropsType } from 'types/components/Home/FilterTypes'
 import FilterItem from '../../../../common/atoms/FIlterItem'
 import * as S from './style'
 import { FilterListData } from 'asset/data/FilterListData'
 
-export default function FilterModal({ setModal }: ModalPropsType) {
+export default function FilterModal({ setModal }: NotPageModalPropsType) {
   function closeModal() {
     setModal((prev) => !prev)
   }

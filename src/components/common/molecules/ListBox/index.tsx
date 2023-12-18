@@ -6,15 +6,17 @@ import { NoticeListPropsType } from 'types/components/NoticeManagement/NoticMana
 const ListBox = ({ data }: NoticeListPropsType) => {
   return (
     <S.NoticeListWrapper>
-      {data.noticeList.map((i) => (
-        <NoticeItem
-          title={i.title}
-          id={i.id}
-          content={i.content}
-          createNoticeDate={i.createNoticeDate}
-          key={i.id}
-        />
-      ))}
+      {data
+        ? data.noticeList.map((i) => (
+            <NoticeItem
+              title={i.title}
+              id={i.id}
+              content={i.content}
+              createNoticeDate={i.createNoticeDate}
+              key={i.id}
+            />
+          ))
+        : null}
     </S.NoticeListWrapper>
   )
 }
