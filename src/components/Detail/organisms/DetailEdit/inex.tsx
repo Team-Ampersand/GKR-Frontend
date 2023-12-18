@@ -59,7 +59,6 @@ export default function DetailEdit() {
     const Type = FilterListData.equipmentType.filter(
       (i) => i.name == equipmentType,
     )[0].value
-    console.log(Type, title, content)
     if (file) {
       const imageFile = new File([file], 'PostImage.png', {
         type: 'image/png',

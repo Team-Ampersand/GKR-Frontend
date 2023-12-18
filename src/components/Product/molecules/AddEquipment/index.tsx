@@ -42,7 +42,6 @@ export default function AddEquipment() {
     const Type = FilterListData.equipmentType.filter(
       (i) => i.name == equipmentType,
     )[0].value
-    console.log(Type, title, content)
     if (file) {
       const imageFile = new File([file], 'noticeImage.png', {
         type: 'image/png',
