@@ -4,7 +4,7 @@ import GauthLoginButton from '../atom/GauthLoginButton'
 import Header from '../atom/Header'
 import { Wrapper } from './style'
 import { Login } from 'utils/apis/auth'
-import equipment from 'asset/png/equipment.jpg'
+import equipment from 'asset/png/equipment.webp'
 
 const Promotion = () => {
   const router = useRouter()
