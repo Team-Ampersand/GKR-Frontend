@@ -37,7 +37,7 @@ export const Date = styled.p`
 
 export const Content = styled.p`
   width: 70%;
-  height: 30px;
+  height: 2.2rem;
   overflow: hidden;
   color: #818198;
   font-size: 14px;
