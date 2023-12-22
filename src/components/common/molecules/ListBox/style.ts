@@ -1,3 +1,7 @@
 import styled from '@emotion/styled'
 
-export const NoticeListWrapper = styled.div``
+export const NoticeListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`

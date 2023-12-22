@@ -1,5 +1,11 @@
 import styled from '@emotion/styled'
 
+export const ViolationListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`
+
 export const NoticeItemWrapper = styled.div`
   display: flex;
   flex-direction: column;

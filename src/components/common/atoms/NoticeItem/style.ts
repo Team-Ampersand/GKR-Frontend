@@ -7,7 +7,6 @@ export const NoticeItemWrapper = styled.div`
   height: fit-content;
   border-radius: 5px;
   background: #fff;
-  margin-bottom: 14px;
   padding: 15px 24px;
   gap: 10px;
   cursor: pointer;
