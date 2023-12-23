@@ -1,20 +1,18 @@
-import styled from '@emotion/styled';
-import { Palette } from 'style/global';
+import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 interface ColorType {
-  checked?: boolean;
-  active?: boolean;
-  roleType?: 'member' | 'admin';
-  show?: boolean;
+  checked?: boolean
+  active?: boolean
+  roleType?: 'member' | 'admin'
 }
 
 export const Wrapper = styled.div<ColorType>`
-  width: 215px;
+  width: 100%;
   height: 48px;
-  display: ${(props: ColorType) => (props.show ? 'flex' : 'none')};
+
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 10px;
 
   > div {
     background: ${(props: ColorType) =>
@@ -28,7 +26,7 @@ export const Wrapper = styled.div<ColorType>`
     color: ${(props: ColorType) =>
       props.checked
         ? props.roleType === 'member'
-          ? Palette.PRIMARY_P1
+          ? Palette.PRIMARY_P2
           : '#fff'
         : ''};
   }
@@ -37,19 +35,18 @@ export const Wrapper = styled.div<ColorType>`
       fill: ${(props: ColorType) =>
         props.checked
           ? props.roleType === 'member'
-            ? Palette.PRIMARY_P1
+            ? Palette.PRIMARY_P2
             : '#fff'
           : ''};
       stroke: ${(props: ColorType) =>
         props.checked
           ? props.roleType === 'member'
-            ? Palette.PRIMARY_P1
+            ? Palette.PRIMARY_P2
             : '#fff'
           : ''};
     }
   }
-
-`;
+`
 
 export const IconBox = styled.div`
   width: 30px;
@@ -61,16 +58,16 @@ export const IconBox = styled.div`
     width: 30px;
     height: 30px;
   }
-`;
+`
 
 export const NameBox = styled.p`
   font-size: 15px;
   font-weight: 700;
   color: #999;
-`;
+`
 
 export const Content = styled.div`
-  width: 90%;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -79,9 +76,11 @@ export const Content = styled.div`
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
 
-  ${(props:ColorType) => !props.active && `
+  ${(props: ColorType) =>
+    !props.active &&
+    `
     &:hover {
       background: rgba(0, 0, 0, 0.05);
     }
   `}
-`;
+`

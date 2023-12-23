@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
-  position: absolute;
   bottom: 4%;
 `
 
