@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext } from 'next'
-import { apiClient } from 'utils/libs/apiClient'
+import { apiClient, api } from 'utils/libs/apiClient'
 import { setToken } from 'utils/libs/setToken'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
@@ -12,7 +12,7 @@ export const tokenReissue = async (
 ) => {
   let newAccessToken: string
   try {
-    const { data } = await apiClient.patch(
+    const { data } = await api.patch(
       'auth',
       {},
       {
@@ -40,7 +40,7 @@ export const Login = () => {
   const gauthCode = params.get('code')
   const fetch = async (data: { code: string }) => {
     try {
-      const { data: tokens } = await apiClient.post<TokensType>('auth', data)
+      const { data: tokens } = await api.post<TokensType>('auth', data)
       setToken(
         tokens.accessToken,
         calculateSecondExp(tokens.accessExp),

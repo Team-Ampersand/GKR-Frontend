@@ -7,4 +7,11 @@ export const apiClient = axios.create({
   withCredentials: true,
   headers: BASE_HEADER,
 })
+
+export const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
+  withCredentials: true,
+  headers: BASE_HEADER,
+})
+
 apiClient.interceptors.request.use(getRefresh)
