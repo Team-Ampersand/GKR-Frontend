@@ -7,8 +7,8 @@ export const getToken = async (ctx: GetServerSidePropsContext | null) => {
     let RefreshToken = ctx.req.cookies['RefreshToken'] || ''
     if (!RefreshToken) return {}
     else if (!AccessToken) {
-      const { newAcessToken }: any = await tokenReissue(RefreshToken, ctx)
-      AccessToken = newAcessToken
+      const { newAccessToken }: any = await tokenReissue(RefreshToken, ctx)
+      AccessToken = newAccessToken
     }
     return { AccessToken, RefreshToken }
   } else {
