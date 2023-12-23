@@ -52,7 +52,6 @@ export const Login = () => {
       toast.success('로그인 성공')
     } catch (e: any) {
       router.push('/')
-      console.log('error')
       toast.error('로그인 실패')
     }
   }
