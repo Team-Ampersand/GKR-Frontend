@@ -1,12 +1,12 @@
 import * as S from './style'
 import * as I from '../../../../asset/svg/index'
-import { logout } from 'utils/libs/logout'
 import { useRouter } from 'next/navigation'
+import { gauthUrl } from 'utils/libs/gauthUrl'
 
 const LoginButton = () => {
   const router = useRouter()
   const handleClick = () => {
-    router.push('/')
+    router.replace(gauthUrl)
   }
   return (
     <S.LoginButtonWrapper onClick={handleClick}>
