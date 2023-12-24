@@ -2,7 +2,6 @@ import { InternalAxiosRequestConfig } from 'axios'
 import { tokenReissue } from 'utils/apis/auth'
 import { getToken } from './getToken'
 export const getRefresh = async (config: InternalAxiosRequestConfig) => {
-  console.log(config)
   if (typeof window !== 'object') return config
 
   const { AccessToken, RefreshToken } = await getToken(null)
