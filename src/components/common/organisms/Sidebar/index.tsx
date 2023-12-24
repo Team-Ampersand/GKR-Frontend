@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useRecoilValue } from 'recoil'
 import { roleType } from 'recoilAtoms'
 import * as S from './style'
-import IsLogined from 'utils/IsLoggedIn'
+import IsLogined from 'utils/IsLogined'
 import { useEffect, useState } from 'react'
 import LoginButton from 'components/common/atoms/LoginButton'
 

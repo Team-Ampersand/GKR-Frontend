@@ -1,6 +1,6 @@
 import { parseCookies } from 'nookies'
 
-export default function IsLoggedIn() {
+export default function IsLogined() {
   const { RefreshToken } = parseCookies()
   return RefreshToken ? true : false
 }
