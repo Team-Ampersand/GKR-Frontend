@@ -5,7 +5,7 @@ import Header from '../atom/Header'
 import { Wrapper } from './style'
 import { Login } from 'utils/apis/auth'
 import equipment from 'asset/png/equipment.webp'
-import IsLogined from 'utils/IsLogined'
+import IsLogined from 'utils/IsLoggedIn'
 import { useEffect } from 'react'
 
 const Promotion = () => {
