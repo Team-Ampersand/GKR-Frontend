@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useRecoilValue } from 'recoil'
 import { roleType } from 'recoilAtoms'
 import * as S from './style'
-import IsLogined from 'utils/IsLogined'
+import IsLoggedIn from 'utils/IsLoggedIn'
 import { useEffect, useState } from 'react'
 import LoginButton from 'components/common/atoms/LoginButton'
 
@@ -15,7 +15,7 @@ const Sidebar = () => {
   const [login, setLogin] = useState(false)
 
   useEffect(() => {
-    setLogin(IsLogined())
+    setLogin(IsLoggedIn())
   }, [])
   return (
     <S.Wrapper>
