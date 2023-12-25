@@ -1,12 +1,12 @@
+import Link from 'next/link'
+import * as S from './style'
+
 interface NoticeItemPropsType {
   title: string
   id?: number
   createNoticeDate: string
   content: string
 }
-
-import Link from 'next/link'
-import * as S from './style'
 
 function formatDate(inputDate: string) {
   const parsedDate = new Date(inputDate)

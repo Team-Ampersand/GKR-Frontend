@@ -1,11 +1,11 @@
 import TopBox from '../../common/molecules/TopBox'
-import ViolationList from '../molecules/Box/VoilationList'
+import ViolationList from '../molecules/VoilationList'
 import * as S from './style'
 
 const Violation = () => {
   return (
     <S.Wrapper>
-      <TopBox text='제재 내역'/>
+      <TopBox text='제재 내역' />
       <ViolationList />
     </S.Wrapper>
   )

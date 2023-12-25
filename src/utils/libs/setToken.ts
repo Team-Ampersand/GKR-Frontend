@@ -1,16 +1,18 @@
 import { GetServerSidePropsContext } from 'next'
 import { setCookie } from 'nookies'
 export const setToken = (
-  AccessTokenn: string,
+  AccessToken: string,
+  AccessTokenExp: number,
   RefreshToken: string,
+  RefreshTokenExp: number,
   ctx: GetServerSidePropsContext | null,
 ): void => {
-  setCookie(ctx, 'AccessToken', `Bearer ${AccessTokenn}`, {
-    maxAge: 10800,
+  setCookie(ctx, 'AccessToken', `Bearer ${AccessToken}`, {
+    maxAge: AccessTokenExp,
     path: '/',
   }) // 3시간
   setCookie(ctx, 'RefreshToken', `Bearer ${RefreshToken}`, {
-    maxAge: 604800,
+    maxAge: RefreshTokenExp,
     path: '/',
   }) // 1주일
 }

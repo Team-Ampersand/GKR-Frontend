@@ -10,25 +10,33 @@ export const Wrapper = styled.div`
   align-items: center;
   background: #fff;
   overflow: hidden;
+  justify-content: space-between;
 `
 
 export const LogoBox = styled.div`
-  width: 107px;
+  width: fit-content;
   gap: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-top: 40%;
 `
 
 export const Top = styled.div`
   margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
 `
 
 export const Bottom = styled.div`
-  position: fixed;
-  height: 160px;
-  top: 80%;
+  display: flex;
+  width: 100%;
+  height: fit-content;
   flex-direction: column;
+  align-items: center;
+  padding: 0 0 20px 0;
+  gap: 20px;
 `

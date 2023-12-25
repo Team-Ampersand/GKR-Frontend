@@ -5,9 +5,14 @@ import Header from '../atom/Header'
 import { Wrapper } from './style'
 import { Login } from 'utils/apis/auth'
 import equipment from 'asset/png/equipment.webp'
+import IsLoggedIn from 'utils/IsLoggedIn'
+import { useEffect } from 'react'
 
 const Promotion = () => {
   const router = useRouter()
+  useEffect(() => {
+    if (IsLoggedIn()) router.push('/home')
+  }, [])
   Login()
   return (
     <Wrapper>

@@ -7,4 +7,5 @@ export const apiClient = axios.create({
   withCredentials: true,
   headers: BASE_HEADER,
 })
+
 apiClient.interceptors.request.use(getRefresh)

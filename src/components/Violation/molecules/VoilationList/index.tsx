@@ -2,6 +2,7 @@ import ViolationItem from 'components/Violation/atom/Item/ViolationItem'
 import { useQuery } from 'react-query'
 import { getData } from 'utils/apis/data'
 import { ViolationController } from 'utils/libs/requestUrls'
+import * as S from './style'
 
 const ViolationList = () => {
   const url = ViolationController.violation()
@@ -19,7 +20,7 @@ const ViolationList = () => {
   const violationList = data?.data?.violationList
 
   return (
-    <>
+    <S.ViolationListWrapper>
       {violationList &&
         [...violationList].map((violation) => (
           <ViolationItem
@@ -29,7 +30,7 @@ const ViolationList = () => {
             violationEndDate={violation.violationEndDate}
           />
         ))}
-    </>
+    </S.ViolationListWrapper>
   )
 }
 

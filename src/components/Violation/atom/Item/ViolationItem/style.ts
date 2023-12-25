@@ -7,7 +7,6 @@ export const ViolationItemWrapper = styled.div`
   height: fit-content;
   border-radius: 5px;
   background: #fff;
-  margin-bottom: 14px;
   padding: 15px 24px;
   gap: 10px;
 `
@@ -21,7 +20,7 @@ export const Top = styled.div`
 `
 
 export const Title = styled.p`
-  width: 70px;
+  width: fit-content;
   color: #000;
   font-size: 16px;
   font-weight: 700;
