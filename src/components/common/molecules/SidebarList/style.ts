@@ -1,9 +1,12 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-export const Wrapper = styled.div`
-  width: 100%;
+export const SidebarListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 24px;
-`;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  a {
+    width: 84%;
+  }
+`

@@ -1,15 +1,13 @@
 import styled from '@emotion/styled'
 import { Palette } from 'style/global'
 
-export const Wrapper = styled.div`
-  width: 215px;
+export const LoginButtonWrapper = styled.div`
+  width: 90%;
   height: 48px;
   display: flex;
   justify-content: center;
   cursor: pointer;
-  bottom: 4%;
 `
-
 export const IconBox = styled.div`
   width: 30px;
   height: 30px;
@@ -37,15 +35,19 @@ export const Content = styled.div`
   gap: 16px;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
-
+  svg {
+    path {
+      fill: ${Palette.NATURAL_N5};
+    }
+  }
   :hover {
     background: rgba(0, 0, 0, 0.05);
     p {
-      color: ${Palette.PRIMARY_P6};
+      color: #2e80cc;
     }
     svg {
       path {
-        stroke: ${Palette.PRIMARY_P6};
+        fill: #2e80cc;
       }
     }
   }

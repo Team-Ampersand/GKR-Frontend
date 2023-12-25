@@ -1,30 +1,29 @@
-import { MenuData } from 'asset/data/MenuData';
-import SidebarItem from 'components/common/atoms/SidebarItem';
-import { usePathname } from 'next/navigation';
-import * as S from './style';
-import { useRecoilValue } from 'recoil';
-import { roleType } from 'recoilAtoms';
+import { MenuData } from 'asset/data/MenuData'
+import SidebarItem from 'components/common/atoms/SidebarItem'
+import { usePathname } from 'next/navigation'
+import * as S from './style'
+import { useRecoilValue } from 'recoil'
+import { roleType } from 'recoilAtoms'
 
 const SidebarList = () => {
-  const pathname = usePathname();
-  const role = useRecoilValue(roleType);
+  const pathname = usePathname()
+  const role = useRecoilValue(roleType)
 
   return (
-      <>
-        {MenuData.map((menu, key) => {
-          return (
-            <SidebarItem
-              key={key}
-              icon={<menu.icon />}
-              name={menu.title}
-              active={pathname.includes(menu.routerName)}
-              show={menu.show.includes(role)}
-              url={menu.routerName}
-            />
-          );
-        })}
-      </>
-  );
-};
+    <S.SidebarListWrapper>
+      {MenuData.map((menu, key) => {
+        return menu.show.includes(role) ? (
+          <SidebarItem
+            key={key}
+            icon={<menu.icon />}
+            name={menu.title}
+            active={pathname.includes(menu.routerName)}
+            url={menu.routerName}
+          />
+        ) : null
+      })}
+    </S.SidebarListWrapper>
+  )
+}
 
-export default SidebarList;
+export default SidebarList

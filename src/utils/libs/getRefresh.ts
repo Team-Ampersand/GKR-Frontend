@@ -3,13 +3,13 @@ import { tokenReissue } from 'utils/apis/auth'
 import { getToken } from './getToken'
 export const getRefresh = async (config: InternalAxiosRequestConfig) => {
   if (typeof window !== 'object') return config
+
   const { AccessToken, RefreshToken } = await getToken(null)
-  if (config.headers && AccessToken)
-    config.headers['Authorization'] = AccessToken
-  else if (!AccessToken && config?.url?.includes('/auth')) {
+  if (config.headers && AccessToken !== undefined) {
+    config.headers['Authorization'] = `Bearer ${AccessToken}`
+  } else if (!AccessToken && !config.url?.includes('auth')) {
     const { AccessToken }: any = await tokenReissue(RefreshToken || '', null)
-    if (config.headers)
-      config.headers['Authorization'] = `Bearer ${AccessToken}`
+    config.headers['Authorization'] = `Bearer ${AccessToken}`
   }
   return config
 }
