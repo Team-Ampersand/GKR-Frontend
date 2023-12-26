@@ -16,6 +16,10 @@ const DetailBox = ({
   createNoticeDate,
   content,
 }: Props) => {
+  const date = createNoticeDate
+    .slice(0, 16)
+    .replace(/-/g, '.')
+    .replace(/T/g, ' - ')
   return (
     <S.Wrapper>
       <S.TitleWrapper>
@@ -23,10 +27,10 @@ const DetailBox = ({
           {'[공지사항] - '}
           {title}
         </S.Title>
-        <S.date>{createNoticeDate}</S.date>
+        <S.date>{date}</S.date>
       </S.TitleWrapper>
       {imageUrl ? <ImageFrame url={imageUrl} /> : null}
-      <S.ContentsWrapper>{content}</S.ContentsWrapper>
+      <S.ContentsWrappers>{content}</S.ContentsWrappers>
     </S.Wrapper>
   )
 }
