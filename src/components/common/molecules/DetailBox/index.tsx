@@ -30,7 +30,7 @@ const DetailBox = ({
         <S.date>{date}</S.date>
       </S.TitleWrapper>
       {imageUrl ? <ImageFrame url={imageUrl} /> : null}
-      <S.ContentsWrappers>{content}</S.ContentsWrappers>
+      <S.ContentsWrapper>{content}</S.ContentsWrapper>
     </S.Wrapper>
   )
 }
