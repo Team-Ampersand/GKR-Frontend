@@ -92,7 +92,6 @@ export default function DetailEdit() {
       const filter = FilterListData.equipmentType.filter(
         (i) => i.value == data.data.equipmentType,
       )[0].name
-      console.log(data)
       setContent(data.data.description)
       setTitle(data.data.name)
       setFile(data.data.imageUrl)
