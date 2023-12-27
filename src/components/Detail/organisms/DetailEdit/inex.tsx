@@ -6,7 +6,7 @@ import Button from 'components/common/atoms/Button'
 import { useMutation, useQuery } from 'react-query'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import { useParams } from 'next/navigation'
-import { postFormData, getData, patchFormData } from 'utils/apis/data'
+import { getData, patchFormData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
 import { FilterListData } from 'asset/data/FilterListData'
@@ -38,6 +38,14 @@ export default function DetailEdit() {
   const url = EquipmentController.editEquipment(path.detail)
   const getDetailUrl = EquipmentController.getDetail(path.detail)
   const equipmentType = useRecoilValue(ProductList)
+
+  const { data, refetch } = useQuery(
+    getDetailUrl,
+    () => {
+      return getData(getDetailUrl)
+    },
+    {},
+  )
 
   const { mutate } = useMutation(
     [`equipment`, url],
@@ -84,6 +92,16 @@ export default function DetailEdit() {
     )
     mutate(formData)
   }
+
+  useEffect(() => {
+    if (data) {
+      console.log(data)
+      setContent(data.data.description)
+      setTitle(data.data.name)
+      setFile(data.data.imageUrl)
+    }
+  }, [data])
+
   return (
     <S.DetailEditWrapper>
       <S.Title>기자재 종류</S.Title>
