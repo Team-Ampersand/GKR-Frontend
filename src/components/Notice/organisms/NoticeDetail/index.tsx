@@ -29,7 +29,7 @@ const NoticeDetail = () => {
         <DetailBox
           id={data.data.id}
           title={data.data.title}
-          createNoticeDate={'2022.06.26 - 06:23'}
+          createNoticeDate={data.data.createNoticeDate}
           content={data.data.content}
           imageUrl={data.data.imageUrl}
         />

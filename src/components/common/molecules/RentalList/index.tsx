@@ -8,34 +8,18 @@ import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { getData } from 'utils/apis/data'
 
-const handleInvalidCondition = () => {
-  toast.error('잘못된 필터 조건입니다. 동시에 선택 불가능 합니다.')
-}
-
 const RentalList = () => {
   const role = useRecoilValue(roleType)
   const params = useRecoilValue(filterState)
-  const generateUrl = () => {
-    if (!params.equipmentType && params.equipmentStatus) {
-      return EquipmentController.getEquipment('state')
-    } else if (params.equipmentType && !params.equipmentStatus) {
-      return EquipmentController.getEquipment('type')
-    } else if (params.equipmentType && params.equipmentStatus) {
-      handleInvalidCondition()
-    } else {
-      return EquipmentController.getEquipment()
-    }
-  }
-  const url = generateUrl()
+  const url = EquipmentController.filterEquipment()
   const { data, refetch } = useQuery(
     ['equipment', url],
     () => {
-      const queryParams =
-        !params.equipmentType && params.equipmentStatus
-          ? { equipmentStatus: params.equipmentStatus }
-          : params.equipmentType && !params.equipmentStatus
-          ? { equipmentType: params.equipmentType }
-          : {}
+      const queryParams = {
+        state:params.equipmentStatus,
+        type: params.equipmentType,
+      }
+
       return getData(url, queryParams)
     },
     {
