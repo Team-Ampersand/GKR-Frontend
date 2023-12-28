@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import * as S from './style'
 import InputItem from 'components/common/atoms/InputItem'
 import ImgBox from 'components/common/ImgBox'
