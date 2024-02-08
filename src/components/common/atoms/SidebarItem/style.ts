@@ -27,7 +27,7 @@ export const Wrapper = styled.div<ColorType>`
       props.checked
         ? props.roleType === 'member'
           ? Palette.PRIMARY_P2
-          : '#fff'
+          : Palette.NATURAL_N2
         : ''};
   }
   > div > div > svg {
@@ -36,13 +36,13 @@ export const Wrapper = styled.div<ColorType>`
         props.checked
           ? props.roleType === 'member'
             ? Palette.PRIMARY_P2
-            : '#fff'
+            : Palette.NATURAL_N2
           : ''};
       stroke: ${(props: ColorType) =>
         props.checked
           ? props.roleType === 'member'
             ? Palette.PRIMARY_P2
-            : '#fff'
+            : Palette.NATURAL_N2
           : ''};
     }
   }
@@ -63,7 +63,7 @@ export const IconBox = styled.div`
 export const NameBox = styled.p`
   font-size: 15px;
   font-weight: 700;
-  color: #999;
+  color: ${Palette.NATURAL_N5};
 `
 
 export const Content = styled.div`

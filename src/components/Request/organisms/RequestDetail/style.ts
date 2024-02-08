@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const DetailWrapper = styled.div`
   display: flex;
   width: 700px;
   height: fit-content;
-  background-color: #fff;
+  background-color: ${Palette.NATURAL_N2};
   border-radius: 10px;
   padding: 50px;
   flex-direction: column;
@@ -13,7 +14,7 @@ export const DetailWrapper = styled.div`
 `
 
 export const Title = styled.p`
-  color: #000;
+  color: ${Palette.NATURAL_N2};
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
@@ -30,7 +31,7 @@ export const ContentsWrapper = styled.div`
 export const Line = styled.div`
   width: 100%;
   height: 2px;
-  background-color: #d9d9d9;
+  background-color: ${Palette.NATURAL_N3};
 `
 export const RequestContentList = styled.div`
   display: flex;

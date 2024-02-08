@@ -2,6 +2,8 @@ import { MGMTListItemPropsType } from 'types/components/common/MGMTListType'
 import * as S from './style'
 import { RequestData } from 'asset/data/RequestData'
 import Link from 'next/link'
+import { Palette } from 'style/global'
+
 interface getNameFromValuePropstype {
   list: {
     name: string
@@ -22,7 +24,7 @@ export default function MGMTListItem({
   const Loading = {
     name: '로딩중',
     value: 'Loading',
-    color: '#C2C2C2',
+    color: Palette.NATURAL_N4,
   }
   const getNameFromValue = ({
     list,

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 interface TitleColorType {
   color: string
@@ -11,7 +12,7 @@ export const DeleteButtonWrapper = styled.div`
   border-radius: 5px;
   cursor: pointer;
   border: none;
-  background-color: #fff;
+  background-color: ${Palette.NATURAL_N2};
   align-items: center;
   justify-content: center;
 `

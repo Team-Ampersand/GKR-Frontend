@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const Wrapper = styled.div`
   min-height: 800px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: #fff;
+  background: ${Palette.NATURAL_N2};
   padding: 30px 50px;
   gap: 20px;
 `
@@ -18,14 +19,14 @@ export const TitleWrapper = styled.div`
 `
 export const Title = styled.p`
   width: 100%;
-  color: #000;
+  color: ${Palette.NATURAL_N1};
   font-size: 26px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 `
 export const date = styled.p`
-  color: #818198;
+  color: ${Palette.NATURAL_N7};
   font-size: 15px;
   font-style: normal;
   font-weight: 200;
@@ -33,7 +34,7 @@ export const date = styled.p`
 `
 
 export const ContentsWrapper = styled.div`
-  color: #656565;
+  color: ${Palette.NATURAL_N6};
   font-size: 16px;
   font-style: normal;
   font-weight: 200;

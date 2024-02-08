@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 interface tagPropsType {
   backgroundColor: string
@@ -11,7 +12,7 @@ interface periodPropsType {
 export const ListItemWrapper = styled.div`
   border-radius: 5px;
   border: 1px solid #e5e5e5;
-  background: #fff;
+  background: ${Palette.NATURAL_N2};
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -40,7 +41,7 @@ export const thumbnailWrapper = styled.div`
   }
 `
 export const Title = styled.p`
-  color: #000;
+  color: ${Palette.NATURAL_N1};
   text-align: start;
   font-size: 18px;
   font-style: normal;
@@ -55,7 +56,7 @@ export const tag = styled.div<tagPropsType>`
   height: fit-content;
   border-radius: 100px;
   padding: 7px 20px;
-  color: #fff;
+  color: ${Palette.NATURAL_N2};
   font-size: 10px;
   font-style: normal;
   font-weight: 900;
@@ -71,7 +72,7 @@ export const informationWrapper = styled.div`
 `
 
 export const studentWrapper = styled.div`
-  color: #999;
+  color: ${Palette.NATURAL_N5};
 
   font-size: 14px;
   font-style: normal;
@@ -79,7 +80,8 @@ export const studentWrapper = styled.div`
   line-height: normal;
 `
 export const periodWrapper = styled.div<periodPropsType>`
-  color: ${(props) => (props.periodColor ? props.periodColor : '#c2c2c2')};
+  color: ${(props) =>
+    props.periodColor ? props.periodColor : Palette.NATURAL_N4};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

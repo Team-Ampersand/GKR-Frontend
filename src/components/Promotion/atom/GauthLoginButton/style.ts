@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const Button = styled.button`
   width: 300px;
@@ -8,7 +9,7 @@ export const Button = styled.button`
   gap: 0.4rem;
   padding: 0.875rem 4.3rem;
   background: #2e80cc;
-  color: #fff;
+  color: ${Palette.NATURAL_N2};
   font-size: 1rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: none;

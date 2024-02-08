@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const ModalWrapper = styled.div`
   position: absolute;
@@ -24,7 +25,7 @@ export const ModalLayer = styled.div`
   width: 400px;
   height: 200px;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: ${Palette.NATURAL_N2};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,7 +44,7 @@ export const TextWrapper = styled.div`
   gap: 8px;
 
   p {
-    color: #999;
+    color: ${Palette.NATURAL_N5};
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
@@ -51,7 +52,7 @@ export const TextWrapper = styled.div`
 `
 
 export const Title = styled.span`
-  color: #000;
+  color: ${Palette.NATURAL_N1};
   font-size: 16px;
   font-weight: 700;
 `

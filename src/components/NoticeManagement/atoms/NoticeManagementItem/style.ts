@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const ViolationItemWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 90px;
-  background-color: #fff;
+  background-color: ${Palette.NATURAL_N2};
   padding: 10px 30px;
   border-radius: 5px;
   justify-content: space-between;
@@ -32,7 +33,7 @@ export const TitleContent = styled.p`
 
 export const Title = styled.div`
   display: flex;
-  color: #000;
+  color: ${Palette.NATURAL_N1};
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -40,7 +41,7 @@ export const Title = styled.div`
 `
 
 export const Username = styled.p`
-  color: #818198;
+  color: ${Palette.NATURAL_N7};
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -48,7 +49,7 @@ export const Username = styled.p`
 `
 
 export const Date = styled.p`
-  color: #818198;
+  color: ${Palette.NATURAL_N7};
   font-size: 15px;
   font-style: normal;
   font-weight: 200;
@@ -56,7 +57,7 @@ export const Date = styled.p`
 `
 
 export const Content = styled.p`
-  color: #818198;
+  color: ${Palette.NATURAL_N7};
   width: 70%;
   font-size: 14px;
   font-style: normal;

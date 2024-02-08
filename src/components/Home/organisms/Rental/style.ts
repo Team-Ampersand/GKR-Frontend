@@ -17,6 +17,6 @@ export const RentalWrapper = styled.div`
 export const LineWrapper = styled.div`
   width: 100%;
   height: 2px;
-  background-color: #c2c2c2;
+  background-color: ${Palette.NATURAL_N4};
   margin-bottom: 0.5rem;
 `

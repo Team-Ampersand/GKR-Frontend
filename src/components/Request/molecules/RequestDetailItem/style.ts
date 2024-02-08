@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const RequestContentItem = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const RequestContentItem = styled.div`
 `
 export const RequsetSubTitle = styled.div`
   width: 110px;
-  color: #000;
+  color: ${Palette.NATURAL_N1};
   font-size: 16px;
   font-weight: 600;
 `
