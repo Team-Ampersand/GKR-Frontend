@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: ${Palette.NATURAL_N2};
   overflow: hidden;
   justify-content: space-between;
 `

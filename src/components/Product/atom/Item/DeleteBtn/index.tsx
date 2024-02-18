@@ -5,6 +5,7 @@ import { useRecoilValue } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
 import { ModalPropsType } from 'types/components/Home/FilterTypes'
 import toastOption from 'utils/libs/toastOption'
+import { Palette } from 'style/global'
 import * as S from './style'
 interface DeleteBtnPropsType {
   setModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -18,7 +19,7 @@ const DeleteBtn = ({ setModal }: DeleteBtnPropsType) => {
     else toast.error('삭제할 물품을 선택해 주세요', toastOption)
   }
   useEffect(() => {
-    setColor(DeleteIds.length > 0 ? '#FF6464' : '#999')
+    setColor(DeleteIds.length > 0 ? '#FF6464' : Palette.NATURAL_N5)
   }, [DeleteIds])
   return (
     <S.DeleteButtonWrapper onClick={openModal}>

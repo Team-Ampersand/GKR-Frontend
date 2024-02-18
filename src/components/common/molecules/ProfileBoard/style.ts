@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const Wrapper = styled.div`
   display: inline-flex;
@@ -8,15 +9,15 @@ export const Wrapper = styled.div`
   gap: 8px;
   padding: 16px 46px 16px 16px;
   box-shadow: 0px 0px 5px 0px rgba(112, 144, 176, 0.15);
-`;
+`
 
 export const ProfileImg = styled.div`
   width: 40px;
   height: 40px;
-`;
+`
 
 export const InfoBox = styled.div`
-  color: #000000;
+  color: ${Palette.NATURAL_N1};
   font-size: 1.125rem;
   font-weight: 400;
   p {
@@ -24,5 +25,4 @@ export const InfoBox = styled.div`
     font-size: 0.925rem;
     font-weight: 400;
   }
-`;
-
+`

@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const DetailWrapper = styled.div`
   display: flex;
   width: 700px;
   height: fit-content;
-  background-color: #fff;
+  background-color: ${Palette.NATURAL_N2};
   border-radius: 10px;
   padding: 50px;
   flex-direction: column;
@@ -26,8 +27,8 @@ export const TopTitleWrapper = styled.div`
 export const EditButton = styled.div`
   display: flex;
   align-items: center;
-  color: #865dff;
-  border: 1.5px solid #865dff;
+  color: ${Palette.PRIMARY_P5};
+  border: 1.5px solid ${Palette.PRIMARY_P5};
   border-radius: 5px;
   justify-content: space-around;
   width: 100px;
@@ -36,7 +37,7 @@ export const EditButton = styled.div`
 `
 
 export const Title = styled.p`
-  color: #000;
+  color: ${Palette.NATURAL_N1};
   font-size: 28px;
   font-style: normal;
   font-weight: 600;

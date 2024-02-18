@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 interface LinePropstype {
   backgroundColor: string
@@ -15,7 +16,7 @@ export const Input = styled.input`
   border: none;
   font-size: 16px;
   ::placeholder {
-    color: #bebdbd;
+    color: ${Palette.NATURAL_N4};
   }
 `
 

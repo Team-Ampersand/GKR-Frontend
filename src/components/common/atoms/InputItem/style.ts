@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   width: 25%;
-  color: #616161;
+  color: ${Palette.NATURAL_N6};
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
@@ -21,7 +21,7 @@ export const Input = styled.div`
   textarea {
     width: 100%;
     border: none;
-    border-bottom: 2px solid #d9d9d9;
+    border-bottom: 2px solid ${Palette.NATURAL_N3};
     background: none;
     font-size: 12px;
     font-weight: 500;
@@ -31,10 +31,10 @@ export const Input = styled.div`
     :focus {
       border: none;
       border-bottom: 2px solid ${Palette.PRIMARY_P5};
-      color: #bebdbd;
+      color: ${Palette.NATURAL_N2};
     }
     ::placeholder {
-      color: #bebdbd;
+      color: ${Palette.NATURAL_N2};
       font-size: 12px;
       font-weight: 500;
       line-height: normal;

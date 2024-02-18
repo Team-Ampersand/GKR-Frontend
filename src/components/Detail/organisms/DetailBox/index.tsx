@@ -11,6 +11,7 @@ import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
+import { Palette } from 'style/global'
 
 interface getNameFromValuePropstype {
   list: {
@@ -99,7 +100,7 @@ export default function DetailBox({}) {
                 router.push(`${id}/edit`)
               }}
             >
-              <I.Edit_Outline stroke="#865DFF" />
+              <I.Edit_Outline stroke={Palette.PRIMARY_P5} />
               수정하기
             </S.EditButton>
           ) : null}
