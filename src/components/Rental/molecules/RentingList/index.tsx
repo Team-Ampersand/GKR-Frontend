@@ -1,6 +1,5 @@
 import RentalList from '../RentalList'
 import * as S from './style'
-import { AdminRentalList } from 'asset/dummy/AdminRentalList'
 import { orderController } from 'utils/libs/requestUrls'
 import { useQuery } from 'react-query'
 import { getData } from 'utils/apis/data'
