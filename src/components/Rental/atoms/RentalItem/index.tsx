@@ -54,7 +54,7 @@ export default function RentalItem({
             <img src={thumbnail} />
           </S.thumbnailWrapper>
           <S.Title>{title}</S.Title>
-          <Tag data={equipmentStatusName} role="admin" />
+          {/* <Tag data={equipmentStatusName} role="admin" /> */}
         </S.TitleWrapper>
         <S.informationWrapper>
           <S.studentWrapper>대여 학생: {student}</S.studentWrapper>
