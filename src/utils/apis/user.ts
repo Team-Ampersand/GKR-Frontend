@@ -4,8 +4,8 @@ import { useQuery } from 'react-query'
 
 export const GetUser = () => {
   const url = UserController.user()
-  const { data: user, refetch } = useQuery(['user', url], () => {
+  const { data: user, refetch } = useQuery([url], () => {
     return getData(url)
   })
-  return { user,refetch }
+  return { user, refetch }
 }

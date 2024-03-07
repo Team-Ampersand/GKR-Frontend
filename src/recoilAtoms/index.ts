@@ -1,4 +1,6 @@
+import { ReactNode } from 'react'
 import { atom } from 'recoil'
+import { modalDataType } from 'types/hooks/useModal'
 
 export const roleType = atom<'member' | 'admin'>({
   key: 'roleType',
@@ -53,5 +55,13 @@ export const noticeEditModal = atom({
   default: {
     state: false,
     id: 0,
+  },
+})
+
+export const IsModal = atom<modalDataType>({
+  key: 'IsModal',
+  default: {
+    component: null,
+    visible: false,
   },
 })

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import * as S from './style'
 import InputItem from 'components/common/atoms/InputItem'
-import ImgBox from 'components/common/ImgBox'
+import ImgBox from 'components/common/molecules/ImgBox'
 import Button from 'components/common/atoms/Button'
 import { useMutation, useQuery } from 'react-query'
 import { EquipmentController } from 'utils/libs/requestUrls'

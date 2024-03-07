@@ -1,4 +1,3 @@
-import { NoticeDetailDummy } from 'asset/dummy/NoticeDetailDummy'
 import DetailBox from 'components/common/molecules/DetailBox'
 import { useState, useEffect } from 'react'
 import { NoticeController } from 'utils/libs/requestUrls'

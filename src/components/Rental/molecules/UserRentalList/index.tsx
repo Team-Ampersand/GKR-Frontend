@@ -11,7 +11,7 @@ const UserRentalList = () => {
   const role = useRecoilValue(roleType)
   const url = UserController.rentalUser()
   const { data, refetch } = useQuery(
-    ['user', url],
+    [url],
     () => {
       return getData(url)
     },

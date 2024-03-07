@@ -1,7 +1,6 @@
 import { useQuery } from 'react-query'
 import RentalList from '../RentalList'
 import * as S from './style'
-import { AdminRentalList } from 'asset/dummy/AdminRentalList'
 import { orderController } from 'utils/libs/requestUrls'
 import { useEffect } from 'react'
 import { getData } from 'utils/apis/data'

@@ -6,7 +6,8 @@ export const Layer = styled.div`
   border-radius: 8px;
   box-shadow: 0px 3px 8px 0px rgba(112, 144, 176, 0.15);
   background: ${Palette.NATURAL_N2};
-  width: 230px;
+  min-width: 230px;
+  width: 100%;
   height: 280px;
   overflow: hidden;
   transition: 0.3s;
