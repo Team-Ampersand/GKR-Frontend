@@ -24,7 +24,6 @@ const ProfileBoard = () => {
         const newProfile = user?.data
         localStorage.setItem('cachedProfile', JSON.stringify(newProfile))
         setProfile(newProfile)
-        console.log('22')
       } catch (error) {
         console.error('Error fetching profile:', error)
       }
@@ -32,8 +31,8 @@ const ProfileBoard = () => {
 
     if (!profile) {
       fetchProfile()
-    }
-    if (profile.role === 'ROLE_ADMIN' && role !== 'admin') setRole('admin')
+    } else if (profile.role === 'ROLE_ADMIN' && role !== 'admin')
+      setRole('admin')
   }, [profile, refetch])
 
   return (
