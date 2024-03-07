@@ -11,7 +11,12 @@ import { useEffect } from 'react'
 const Promotion = () => {
   const router = useRouter()
   useEffect(() => {
-    if (IsLoggedIn()) router.push('/home')
+    const checkLoggedIn = async () => {
+      if (await IsLoggedIn()) {
+        router.push('/home')
+      }
+    }
+    checkLoggedIn()
   }, [])
   Login()
   return (

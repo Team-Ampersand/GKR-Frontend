@@ -14,6 +14,9 @@ const color = {
   '--NATURAL_N3': '#D9D9D9',
   '--NATURAL_N4': '#c2c2c2',
   '--NATURAL_N5': '#999999',
+  '--NATURAL_N6': '#616161',
+  '--NATURAL_N7': '#818198',
+  '--NATURAL_N8': '#525252',
 
   '--BACKGROUND_BG': '#F7F7F9',
 
@@ -35,6 +38,9 @@ export const Palette = {
   NATURAL_N3: cssColor('NATURAL_N3'),
   NATURAL_N4: cssColor('NATURAL_N4'),
   NATURAL_N5: cssColor('NATURAL_N5'),
+  NATURAL_N6: cssColor('NATURAL_N6'),
+  NATURAL_N7: cssColor('NATURAL_N7'),
+  NATURAL_N8: cssColor('NATURAL_N8'),
 
   BACKGROUND_BG: cssColor('BACKGROUND_BG'),
 

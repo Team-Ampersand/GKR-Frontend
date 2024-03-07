@@ -1,4 +1,3 @@
-import { NoticeDetailDummy } from 'asset/dummy/NoticeDetailDummy'
 import DetailBox from 'components/common/molecules/DetailBox'
 import { useState, useEffect } from 'react'
 import { NoticeController } from 'utils/libs/requestUrls'
@@ -29,7 +28,7 @@ const NoticeDetail = () => {
         <DetailBox
           id={data.data.id}
           title={data.data.title}
-          createNoticeDate={'2022.06.26 - 06:23'}
+          createNoticeDate={data.data.createNoticeDate}
           content={data.data.content}
           imageUrl={data.data.imageUrl}
         />

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -12,7 +13,7 @@ export const FilterModalWrapper = styled.div`
   position: fixed;
   width: 30rem;
   height: 18rem;
-  background-color: #fff;
+  background-color: ${Palette.NATURAL_N2};
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   z-index: 2;
   margin: 0 0.8rem;
@@ -27,14 +28,14 @@ export const FilterModalWrapper = styled.div`
 export const Title = styled.div`
   font-size: 1.3rem;
   font-weight: 900;
-  color: #000;
+  color: ${Palette.NATURAL_N1};
   padding-bottom: 1rem;
 `
 
 export const subTitle = styled.div`
   font-size: 1.1rem;
   font-weight: 600;
-  color: #616161;
+  color: ${Palette.NATURAL_N6};
 `
 export const filterListWrapper = styled.div`
   display: flex;

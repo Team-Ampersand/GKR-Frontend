@@ -10,8 +10,8 @@ export default function FilterItem({ name, value, type }: FilterItemPropsType) {
     : state.equipmentStatus === value
   const onClick = () => {
     type
-      ? setState({ ...state, equipmentStatus: '', equipmentType: value })
-      : setState({ ...state, equipmentStatus: value, equipmentType: '' })
+      ? setState({ ...state, equipmentType: value })
+      : setState({ ...state, equipmentStatus: value })
   }
   return (
     <S.FilterItemWrapper onClick={onClick} value={select} role={role}>

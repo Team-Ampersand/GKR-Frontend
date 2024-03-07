@@ -6,7 +6,8 @@ export const Layer = styled.div`
   border-radius: 8px;
   box-shadow: 0px 3px 8px 0px rgba(112, 144, 176, 0.15);
   background: ${Palette.NATURAL_N2};
-  width: 230px;
+  min-width: 230px;
+  width: 100%;
   height: 280px;
   overflow: hidden;
   transition: 0.3s;
@@ -30,7 +31,7 @@ export const Check = styled.input`
   width: 24px;
   height: 24px;
   border-radius: 3px;
-  border: 1px solid #865dff;
+  border: 1px solid ${Palette.NATURAL_N5};
   cursor: pointer;
 
   &:checked {
@@ -39,14 +40,14 @@ export const Check = styled.input`
     background-size: 100% 100%;
     background-position: 50%;
     background-repeat: no-repeat;
-    background-color: #865dff;
+    background-color: ${Palette.PRIMARY_P5};
   }
 `
 
 export const imageFrameWrapper = styled.div`
   width: 100%;
   height: 52%;
-  background-color: #f7f7f9;
+  background-color: ${Palette.BACKGROUND_BG};
   overflow: hidden;
   img {
     width: 100%;
@@ -77,7 +78,7 @@ export const descriptionWrapper = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
-  color: #999;
+  color: ${Palette.NATURAL_N5};
 `
 export const ContentBox = styled.div`
   display: flex;

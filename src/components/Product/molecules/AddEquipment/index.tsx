@@ -1,5 +1,5 @@
 import InputItem from 'components/common/atoms/InputItem'
-import ImgBox from '../../../common/ImgBox'
+import ImgBox from '../../../common/molecules/ImgBox'
 import * as S from './style'
 import { useState } from 'react'
 import { FilterListData } from 'asset/data/FilterListData'

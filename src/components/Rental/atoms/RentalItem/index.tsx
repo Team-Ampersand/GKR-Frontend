@@ -3,6 +3,7 @@ import { FilterListData } from 'asset/data/FilterListData'
 import Tag from 'components/common/atoms/Tag'
 import Link from 'next/link'
 import { RentalItemPropsType } from 'types/components/Rental/RentalType'
+import { Palette } from 'style/global'
 
 interface getNameFromValuePropstype {
   list: {
@@ -27,7 +28,7 @@ export default function RentalItem({
   const Loading = {
     name: '로딩중',
     value: 'Loading',
-    color: '#C2C2C2',
+    color: Palette.NATURAL_N4,
   }
   const replaceDate = (date: string): string => {
     return date.split('T')[0].replace(/-/g, '.')

@@ -5,6 +5,7 @@ import GlobalStyle from 'style/global'
 import { RecoilRoot } from 'recoil'
 import { ToastContainer } from 'react-toastify'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import Modal from 'components/common/molecules/Modal'
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const queryClient = new QueryClient()
@@ -14,6 +15,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
         <RecoilRoot>
           <GlobalStyle />
           {children}
+          <Modal />
           <ToastContainer />
         </RecoilRoot>
       </QueryClientProvider>

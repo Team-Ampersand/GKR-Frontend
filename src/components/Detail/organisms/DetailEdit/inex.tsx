@@ -1,32 +1,26 @@
 import { useEffect, useState } from 'react'
 import * as S from './style'
 import InputItem from 'components/common/atoms/InputItem'
-import ImgBox from 'components/common/ImgBox'
+import ImgBox from 'components/common/molecules/ImgBox'
 import Button from 'components/common/atoms/Button'
 import { useMutation, useQuery } from 'react-query'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import { useParams } from 'next/navigation'
-import { postFormData, getData, patchFormData } from 'utils/apis/data'
+import { getData, patchFormData } from 'utils/apis/data'
 import { toast } from 'react-toastify'
 import toastOption from 'utils/libs/toastOption'
 import { FilterListData } from 'asset/data/FilterListData'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { ProductList } from 'recoilAtoms'
 import ListItem from 'components/Product/atom/Item/ListItem'
 
-interface DetailProps {
-  data:
-    | {
-        id: string
-        name: string
-        imageUrl: string
-        description: string
-        userId: any
-        equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING'
-        equipmentType: string
-        applicationId?: number | undefined
-      }
-    | undefined
+interface getNameFromValuePropstype {
+  list: {
+    name: string
+    value: string
+    color?: string
+  }[]
+  valueToFind: string | undefined
 }
 
 export default function DetailEdit() {
@@ -37,7 +31,15 @@ export default function DetailEdit() {
   const path = useParams()
   const url = EquipmentController.editEquipment(path.detail)
   const getDetailUrl = EquipmentController.getDetail(path.detail)
-  const equipmentType = useRecoilValue(ProductList)
+  const [equipmentType, setEquipmentType] = useRecoilState(ProductList)
+
+  const { data, refetch } = useQuery(
+    getDetailUrl,
+    () => {
+      return getData(getDetailUrl)
+    },
+    {},
+  )
 
   const { mutate } = useMutation(
     [`equipment`, url],
@@ -84,6 +86,19 @@ export default function DetailEdit() {
     )
     mutate(formData)
   }
+
+  useEffect(() => {
+    if (data) {
+      const filter = FilterListData.equipmentType.filter(
+        (i) => i.value == data.data.equipmentType,
+      )[0].name
+      setContent(data.data.description)
+      setTitle(data.data.name)
+      setFile(data.data.imageUrl)
+      setEquipmentType(filter)
+    }
+  }, [data])
+
   return (
     <S.DetailEditWrapper>
       <S.Title>기자재 종류</S.Title>

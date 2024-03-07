@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const ButtonListWrapper = styled.div`
   display: flex;
@@ -11,11 +12,11 @@ export const FillButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ff6000;
+  background-color: ${Palette.PRIMARY_P1};
   border-radius: 5px;
   height: 44px;
   width: 180px;
-  color: #fff;
+  color: ${Palette.NATURAL_N2};
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -27,11 +28,11 @@ export const OutlineButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ff6000;
+  border: 1px solid ${Palette.PRIMARY_P1};
   border-radius: 5px;
   height: 44px;
   width: 180px;
-  color: #ff6000;
+  color: ${Palette.PRIMARY_P1};
   font-size: 16px;
   font-style: normal;
   font-weight: 00;
@@ -43,11 +44,11 @@ export const AdminFillButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #865dff;
+  background-color: ${Palette.PRIMARY_P5};
   border-radius: 5px;
   height: 44px;
   width: 180px;
-  color: #fff;
+  color: ${Palette.NATURAL_N2};
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -59,11 +60,11 @@ export const AdminOutlineButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #865dff;
+  border: 1px solid ${Palette.PRIMARY_P5};
   border-radius: 5px;
   height: 44px;
   width: 180px;
-  color: #865dff;
+  color: ${Palette.PRIMARY_P5};
   font-size: 16px;
   font-style: normal;
   font-weight: 00;

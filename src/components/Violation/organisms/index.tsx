@@ -5,7 +5,7 @@ import * as S from './style'
 const Violation = () => {
   return (
     <S.Wrapper>
-      <TopBox text='제재 내역' />
+      <TopBox text="제재 내역" />
       <ViolationList />
     </S.Wrapper>
   )

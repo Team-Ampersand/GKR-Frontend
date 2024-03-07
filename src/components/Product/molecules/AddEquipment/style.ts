@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Palette } from 'style/global'
 
 export const AddEquipmentWrapper = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ export const TypeWrapper = styled.div`
   gap: 16px;
 `
 export const Title = styled.p`
-  color: #616161;
+  color: ${Palette.NATURAL_N6};
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
