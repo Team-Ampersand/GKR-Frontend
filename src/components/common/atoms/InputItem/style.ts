@@ -31,10 +31,10 @@ export const Input = styled.div`
     :focus {
       border: none;
       border-bottom: 2px solid ${Palette.PRIMARY_P5};
-      color: ${Palette.NATURAL_N2};
+      color: ${Palette.NATURAL_N8};
     }
     ::placeholder {
-      color: ${Palette.NATURAL_N2};
+      color: ${Palette.NATURAL_N4};
       font-size: 12px;
       font-weight: 500;
       line-height: normal;
