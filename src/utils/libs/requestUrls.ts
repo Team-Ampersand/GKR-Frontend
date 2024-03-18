@@ -1,7 +1,7 @@
 export const EquipmentController = {
   getEquipment: (filter?: string) =>
     filter ? `/equipment/${filter}` : '/equipment',
-  filterEquipment:() => `equipment/filter`,
+  filterEquipment: () => `equipment/filter`,
   getDetail: (id: string | string[]) => `/equipment/${id}`,
   deleteEquipment: (id: number[]) => {
     if (id.length === 1) {

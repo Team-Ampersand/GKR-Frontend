@@ -5,6 +5,6 @@ export const AllViolationTemplate = styled.div`
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  padding: 5rem 5rem;
+  padding: 5rem 5rem 0 5rem;
   overflow-y: scroll;
 `
