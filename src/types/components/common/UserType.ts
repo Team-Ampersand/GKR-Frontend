@@ -6,9 +6,11 @@ interface UserTypes {
   stuNum: number
   rentalRestricted: boolean
   profileUrl: string
-  role: 'ROLE_STUDENT' | 'ROLE_ADMIN' | 'ROLE_TEACHER'
+  role: UserRoleType
   email: string
 }
+
+export type UserRoleType = 'ROLE_STUDENT' | 'ROLE_ADMIN' | 'ROLE_TEACHER'
 
 export interface UserListTypes extends Array<UserTypes> {}
 
