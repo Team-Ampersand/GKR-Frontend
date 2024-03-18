@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import * as S from './style'
 import ChoiceBox from 'components/common/molecules/ChoiceBox'
-import AddViolation from 'components/ViolationMenagement/molecules/AddViolation'
+import AddViolation from 'components/ViolationMenagement/organisms/AddViolation'
 import ViolationList from 'components/ViolationMenagement/molecules/ViolationList'
 export default function ViolationManagement() {
   const [pageState, setPageState] = useState('제재 목록')
