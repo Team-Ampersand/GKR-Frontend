@@ -35,6 +35,7 @@ export const date = styled.p`
 
 export const ContentsWrapper = styled.div`
   color: ${Palette.NATURAL_N6};
+  white-space: pre-line;
   font-size: 16px;
   font-style: normal;
   font-weight: 200;
