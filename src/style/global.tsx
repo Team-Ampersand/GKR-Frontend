@@ -1,4 +1,5 @@
 import { Global, css } from '@emotion/react'
+import localFont from 'next/font/local'
 import 'react-toastify/dist/ReactToastify.css'
 
 const color = {
@@ -47,43 +48,58 @@ export const Palette = {
   SUB_RED: cssColor('SUB_RED'),
 }
 
+const SCDream = localFont({
+  src: [
+    {
+      path: 'font/SCDream1.woff',
+      weight: '100',
+      style: 'thin',
+    },
+    {
+      path: 'font/SCDream2.woff',
+      weight: '200',
+      style: 'extra-light',
+    },
+    {
+      path: 'font/SCDream3.woff',
+      weight: '300',
+      style: 'light',
+    },
+    {
+      path: 'font/SCDream4.woff',
+      weight: '400',
+      style: 'regular',
+    },
+    {
+      path: 'font/SCDream5.woff',
+      weight: '500',
+      style: 'Medium',
+    },
+    {
+      path: 'font/SCDream6.woff',
+      weight: '600',
+      style: 'semi-bold',
+    },
+    {
+      path: 'font/SCDream7.woff',
+      weight: '700',
+      style: 'bold',
+    },
+    {
+      path: 'font/SCDream8.woff',
+      weight: '800',
+      style: 'extra-bold',
+    },
+    {
+      path: 'font/SCDream9.woff',
+      weight: '800',
+      style: 'black',
+    },
+  ],
+  variable: '--SCDream',
+})
+
 const style = css`
-  @font-face {
-    font-family: 's-core';
-    src: url('/font/SCDream1.otf');
-    font-style: thin;
-    font-weight: 100;
-  }
-  @font-face {
-    font-family: 's-core';
-    src: url('/font/SCDream2.otf');
-    font-style: extra-light;
-    font-weight: 200;
-  }
-  @font-face {
-    font-family: 's-core';
-    src: url('/font/SCDream3.otf');
-    font-style: light;
-    font-weight: 300;
-  }
-  @font-face {
-    font-family: 's-core';
-    src: url('/font/SCDream4.otf');
-    font-style: regular;
-    font-weight: 400;
-  }
-  @font-face {
-    font-family: 's-core';
-    src: url('/font/SCDream5.otf');
-    font-style: Medium;
-    font-weight: 500;
-  }
-  @font-face {
-    font-family: 's-core';
-    src: url('/font/SCDream6.otf');
-    font-style: bold;
-    font-weight: 600;
-  }
   * {
     box-sizing: border-box;
     margin: 0;

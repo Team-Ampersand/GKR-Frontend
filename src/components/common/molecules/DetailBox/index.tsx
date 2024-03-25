@@ -20,6 +20,7 @@ const DetailBox = ({
     .slice(0, 16)
     .replace(/-/g, '.')
     .replace(/T/g, ' - ')
+
   return (
     <S.Wrapper>
       <S.TitleWrapper>
