@@ -41,8 +41,12 @@ const ProfileBoard = () => {
         <S.Wrapper>
           <People />
           <S.InfoBox>
-            {profile.name}
-            <br />
+            <div>
+              <h2>{profile.name}</h2>
+              {profile.rentalRestricted ? (
+                <S.ViolationTag>제재중</S.ViolationTag>
+              ) : null}
+            </div>
             <p>
               {profile.grade}학년{profile.classNum}반{profile.stuNum}번
             </p>
