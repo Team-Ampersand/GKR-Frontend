@@ -4,7 +4,7 @@ import { Palette } from 'style/global'
 export const UserListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 0.8rem;
   gap: 0.5rem;
   background-color: ${Palette.NATURAL_N2};
   height: 70vh;

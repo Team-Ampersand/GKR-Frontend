@@ -2,8 +2,9 @@ import styled from '@emotion/styled'
 import { Palette } from 'style/global'
 
 export const Positioner = styled.div`
-  display: flex;
-  gap: 5rem;
+  display: grid;
+  column-gap: 2rem;
+  grid-template-columns: 2fr 1.1fr;
 `
 
 export const AddViolation = styled.div`
@@ -11,10 +12,10 @@ export const AddViolation = styled.div`
   flex-direction: column;
   background-color: ${Palette.NATURAL_N2};
   height: fit-content;
-  min-width: 430px;
   padding: 30px 2.2rem;
   border-radius: 5px;
   gap: 50px;
+  height: 70vh;
 `
 
 export const OptionWrapper = styled.div`
@@ -40,9 +41,9 @@ export const OptionWrapper = styled.div`
 
 export const Title = styled.div`
   color: ${Palette.NATURAL_N8};
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: normal;
 `
 
