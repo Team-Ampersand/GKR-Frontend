@@ -72,7 +72,6 @@ export default function AddViolation({ setPage }: AddViolationPropsType) {
             onChange={(e) => setReason(e.target.value)}
           />
         </S.OptionWrapper>
-        <S.PaddingWrapper />
         <Button
           text={'제재하기'}
           width="100%"
