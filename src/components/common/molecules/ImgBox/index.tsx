@@ -1,15 +1,38 @@
 import * as I from 'asset/svg'
 import * as S from './style'
 import { ChangeEvent } from 'react'
+import imageCompression from 'browser-image-compression'
+
 interface ImgBoxPropsType {
   imageValue: File | undefined | string
   setImageValue: React.Dispatch<React.SetStateAction<File | undefined>>
 }
 
 const ImgBox = ({ imageValue, setImageValue }: ImgBoxPropsType) => {
-  const onChangeImg = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChangeImg = async (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.currentTarget.files?.item(0)
-    if (selectedFile !== null) setImageValue(selectedFile)
+
+    if (selectedFile !== null && selectedFile !== undefined) {
+      const options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      }
+      try {
+        const compressedFile = await imageCompression(selectedFile, options)
+        console.log(
+          'compressedFile instanceof Blob',
+          compressedFile instanceof Blob,
+        ) // true
+        console.log(
+          `compressedFile size ${compressedFile.size / 1024 / 1024} MB`,
+        ) // smaller than maxSizeMB
+
+        await setImageValue(compressedFile) // write your own logic
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 
   return (
