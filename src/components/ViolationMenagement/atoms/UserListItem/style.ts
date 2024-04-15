@@ -7,7 +7,7 @@ interface UserListItemWrapperPropsType {
 
 export const Wrapper = styled.div<UserListItemWrapperPropsType>`
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: minmax(39%, auto) repeat(3, minmax(21%, auto));
   min-height: 4rem;
   cursor: pointer;
   border-radius: 5px;
@@ -25,6 +25,6 @@ export const Wrapper = styled.div<UserListItemWrapperPropsType>`
     gap: 5px;
   }
   :hover {
-    background-color: ${Palette.NATURAL_N3};
+    background-color: #f4f4f4;
   }
 `
