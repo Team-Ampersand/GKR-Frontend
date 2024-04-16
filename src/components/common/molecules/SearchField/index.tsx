@@ -6,26 +6,39 @@ import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
 
+
 const SearchField = () => {
   const role = useRecoilValue(roleType)
+  const [list, setList] = useRecoilState(searchState)
   const [inputValue, setInputValue] = useState('')
   const url = EquipmentController.serachEquipment()
+  const DEBOUNCE_TIME = 200;
+
   const { data, refetch } = useQuery(
-    ['search', url, { name: inputValue }],
+    ['search', url],
     () => {
       return getData(url, { name: inputValue })
     },
     {
-      enabled: !!url,
       refetchOnWindowFocus: false,
     },
   )
-  const [list, setList] = useRecoilState(searchState)
+
+ 
   useEffect(() => {
-    refetch()
-    if (data) setList(data?.data?.equipmentList)
-  }, [inputValue, refetch, data, setList])
-  const handleInputChange = (e: any) => {
+    let delayTimer: NodeJS.Timeout
+
+    const delayedFetch = (): void => {
+      clearTimeout(delayTimer)
+      delayTimer = setTimeout(() => {
+        refetch()
+      }, DEBOUNCE_TIME)
+    }
+    delayedFetch()
+
+    return () => clearTimeout(delayTimer)
+  }, [inputValue,refetch])
+  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
   }
   return (
