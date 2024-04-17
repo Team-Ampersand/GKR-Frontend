@@ -12,7 +12,6 @@ const SearchField = () => {
   const [list, setList] = useRecoilState(searchState)
   const [inputValue, setInputValue] = useState('')
   const url = EquipmentController.serachEquipment()
-  const DEBOUNCE_TIME = 200;
 
   const { data, refetch } = useQuery(
     ['search', url],
@@ -32,7 +31,8 @@ const SearchField = () => {
       clearTimeout(delayTimer)
       delayTimer = setTimeout(() => {
         refetch()
-      }, DEBOUNCE_TIME)
+        if (data) setList(data?.data?.equipmentList)
+      }, 200)
     }
     delayedFetch()
 
