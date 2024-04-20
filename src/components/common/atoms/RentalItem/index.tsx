@@ -31,7 +31,6 @@ function RentalItem({
     name: '로딩중',
     value: 'Loading',
   }
-  console.log("리렌더링")
   const [deleteIds, setDeleteIds] = useRecoilState(DeleteChoice)
   const getNameFromValue = ({
     list,
