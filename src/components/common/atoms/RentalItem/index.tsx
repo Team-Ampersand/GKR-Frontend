@@ -8,7 +8,7 @@ import { useRecoilState } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
 import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
 import * as S from './style'
-
+import React from 'react'
 interface getNameFromValuePropstype {
   list: {
     name: string
@@ -31,6 +31,7 @@ function RentalItem({
     name: '로딩중',
     value: 'Loading',
   }
+  console.log("리렌더링")
   const [deleteIds, setDeleteIds] = useRecoilState(DeleteChoice)
   const getNameFromValue = ({
     list,
@@ -101,4 +102,4 @@ function RentalItem({
   return <LinkBox />
 }
 
-export default RentalItem
+export default React.memo(RentalItem)
