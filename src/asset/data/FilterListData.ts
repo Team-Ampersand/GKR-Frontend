@@ -1,4 +1,21 @@
-export const FilterListData = {
+export interface FilterListDataType {
+  equipmentStatusList: EquipmentStatus[];
+  equipmentType: EquipmentType[];
+}
+
+interface EquipmentStatus {
+  name: string;
+  value: string;
+  color: string;
+}
+
+interface EquipmentType {
+  name: string;
+  value: string;
+}
+
+
+export const FilterListData : FilterListDataType = {
   equipmentStatusList: [
     {
       name: '전체',
