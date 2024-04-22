@@ -1,6 +1,10 @@
 'use client'
 
-import { FilterListData } from 'asset/data/FilterListData'
+import {
+  FilterListData,
+  EquipmentStatus,
+  EquipmentType,
+} from 'asset/data/FilterListData'
 import Tag from 'components/common/atoms/Tag'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -8,13 +12,9 @@ import { useRecoilState } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
 import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
 import * as S from './style'
-
-interface getNameFromValuePropstype {
-  list: {
-    name: string
-    value: string
-    color?: string
-  }[]
+import React from 'react'
+interface getNameFromValueParameterType {
+  list: EquipmentStatus[] | EquipmentType[]
   valueToFind: string
 }
 
@@ -27,28 +27,34 @@ function RentalItem({
   equipmentStatus,
   role,
 }: RentalItemPropsType) {
-  const Loading = {
-    name: '로딩중',
-    value: 'Loading',
-  }
   const [deleteIds, setDeleteIds] = useRecoilState(DeleteChoice)
+  const router = usePathname()
+
   const getNameFromValue = ({
     list,
     valueToFind,
-  }: getNameFromValuePropstype) => {
+  }: getNameFromValueParameterType) => {
     const item = list.find((item) => item.value === valueToFind)
-    return item ? item : Loading
+    return item
+      ? item
+      : {
+          name: '로딩중',
+          value: 'Loading',
+        }
   }
+
   const equipmentTypeName = getNameFromValue({
     list: FilterListData.equipmentType,
     valueToFind: equipmentType,
   })
+
   const equipmentStatusName = getNameFromValue({
     list: FilterListData.equipmentStatusList,
     valueToFind: equipmentStatus,
   })
-  const router = usePathname()
+
   const isProductManagementPage = router === '/productmanagement'
+
   const handleCheckboxChange = () => {
     if (isProductManagementPage) {
       if (deleteIds.includes(id)) {
@@ -58,21 +64,10 @@ function RentalItem({
       }
     }
   }
-  const LinkBox = () => {
-    if (isProductManagementPage) {
-      return <Layer />
-    } else if (!isProductManagementPage) {
-      return (
-        <Link href={`/home/${id}`}>
-          <Layer />
-        </Link>
-      )
-    }
-  }
 
-  const Layer = () => {
+  const RentalComponent = () => {
     return (
-      <S.Layer onClick={() => {}}>
+      <S.Layer>
         <S.CheckWrapper>
           {isProductManagementPage && (
             <S.Check
@@ -98,7 +93,20 @@ function RentalItem({
       </S.Layer>
     )
   }
-  return <LinkBox />
+
+  const ConditionalLinkWrapper = () => {
+    if (isProductManagementPage) {
+      return <RentalComponent />
+    } else {
+      return (
+        <Link href={`/home/${id}`}>
+          <RentalComponent />
+        </Link>
+      )
+    }
+  }
+
+  return <ConditionalLinkWrapper />
 }
 
 export default RentalItem

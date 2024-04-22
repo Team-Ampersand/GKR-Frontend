@@ -1,4 +1,20 @@
-export const FilterListData = {
+export interface FilterListDataType {
+  equipmentStatusList: EquipmentStatus[]
+  equipmentType: EquipmentType[]
+}
+
+export interface EquipmentStatus {
+  name: string
+  value: string
+  color: string
+}
+
+export interface EquipmentType {
+  name: string
+  value: string
+}
+
+export const FilterListData: FilterListDataType = {
   equipmentStatusList: [
     {
       name: '전체',
@@ -61,3 +77,5 @@ export const FilterListData = {
     },
   ],
 }
+
+export default FilterListData
