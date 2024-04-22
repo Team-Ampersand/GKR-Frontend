@@ -68,7 +68,7 @@ function RentalItem({
   const LinkBox = () => {
     if (isProductManagementPage) {
       return <Layer />
-    } else if (!isProductManagementPage) {
+    } else {
       return (
         <Link href={`/home/${id}`}>
           <Layer />
@@ -79,7 +79,7 @@ function RentalItem({
 
   const Layer = () => {
     return (
-      <S.Layer onClick={() => {}}>
+      <S.Layer>
         <S.CheckWrapper>
           {isProductManagementPage && (
             <S.Check
