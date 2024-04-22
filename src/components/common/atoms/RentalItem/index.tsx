@@ -1,6 +1,10 @@
 'use client'
 
-import { FilterListData } from 'asset/data/FilterListData'
+import {
+  FilterListData,
+  EquipmentStatus,
+  EquipmentType,
+} from 'asset/data/FilterListData'
 import Tag from 'components/common/atoms/Tag'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -8,13 +12,9 @@ import { useRecoilState } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
 import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
 import * as S from './style'
-import React from 'react'
-interface getNameFromValuePropstype {
-  list: {
-    name: string
-    value: string
-    color?: string
-  }[]
+import React, { useCallback } from 'react'
+interface getNameFromValueParameterType {
+  list: EquipmentStatus[] | EquipmentType[]
   valueToFind: string
 }
 
@@ -27,28 +27,34 @@ function RentalItem({
   equipmentStatus,
   role,
 }: RentalItemPropsType) {
-  const Loading = {
-    name: '로딩중',
-    value: 'Loading',
-  }
   const [deleteIds, setDeleteIds] = useRecoilState(DeleteChoice)
+  const router = usePathname()
+
   const getNameFromValue = ({
     list,
     valueToFind,
-  }: getNameFromValuePropstype) => {
+  }: getNameFromValueParameterType) => {
     const item = list.find((item) => item.value === valueToFind)
-    return item ? item : Loading
+    return item
+      ? item
+      : {
+          name: '로딩중',
+          value: 'Loading',
+        }
   }
+
   const equipmentTypeName = getNameFromValue({
     list: FilterListData.equipmentType,
     valueToFind: equipmentType,
   })
+
   const equipmentStatusName = getNameFromValue({
     list: FilterListData.equipmentStatusList,
     valueToFind: equipmentStatus,
   })
-  const router = usePathname()
+
   const isProductManagementPage = router === '/productmanagement'
+
   const handleCheckboxChange = () => {
     if (isProductManagementPage) {
       if (deleteIds.includes(id)) {
@@ -58,6 +64,7 @@ function RentalItem({
       }
     }
   }
+
   const LinkBox = () => {
     if (isProductManagementPage) {
       return <Layer />
@@ -101,4 +108,4 @@ function RentalItem({
   return <LinkBox />
 }
 
-export default React.memo(RentalItem)
+export default RentalItem
