@@ -12,7 +12,7 @@ import { useRecoilState } from 'recoil'
 import { DeleteChoice } from 'recoilAtoms'
 import { RentalItemPropsType } from 'types/components/Home/RentalTypes'
 import * as S from './style'
-import React, { useCallback } from 'react'
+import React from 'react'
 interface getNameFromValueParameterType {
   list: EquipmentStatus[] | EquipmentType[]
   valueToFind: string
@@ -65,19 +65,7 @@ function RentalItem({
     }
   }
 
-  const LinkBox = () => {
-    if (isProductManagementPage) {
-      return <Layer />
-    } else {
-      return (
-        <Link href={`/home/${id}`}>
-          <Layer />
-        </Link>
-      )
-    }
-  }
-
-  const Layer = () => {
+  const RentalComponent = () => {
     return (
       <S.Layer>
         <S.CheckWrapper>
@@ -105,7 +93,20 @@ function RentalItem({
       </S.Layer>
     )
   }
-  return <LinkBox />
+
+  const ConditionalLinkWrapper = () => {
+    if (isProductManagementPage) {
+      return <RentalComponent />
+    } else {
+      return (
+        <Link href={`/home/${id}`}>
+          <RentalComponent />
+        </Link>
+      )
+    }
+  }
+
+  return <ConditionalLinkWrapper />
 }
 
 export default RentalItem
