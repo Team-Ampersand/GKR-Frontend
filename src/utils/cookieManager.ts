@@ -1,19 +1,25 @@
-import { cookies } from 'next/headers'
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
-const cookieManager = () => {
-  const cookieStore = cookies()
-
+const cookieManager = (ctx = undefined) => {
   const getCookie = (key: string) => {
-    cookieStore.get(key)
+    const cookies = parseCookies(ctx)
+    return cookies[key] ? JSON.parse(cookies[key]) : null
   }
 
-  const setCookies = (key: string, value: string) => {
-    cookieStore.set(key, value)
+  const setCookies = (key: string, value: any, options = {}) => {
+    setCookie(ctx, key, JSON.stringify(value), {
+      path: '/',
+      ...options,
+    })
   }
 
-  const removeCookies = (key: string) => {
-    cookieStore.delete(key)
+  const removeCookies = (key: string, options = {}) => {
+    destroyCookie(ctx, key, {
+      path: '/',
+      ...options,
+    })
   }
+
   return { getCookie, setCookies, removeCookies }
 }
 
