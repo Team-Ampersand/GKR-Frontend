@@ -1,7 +1,8 @@
-import { useRecoilValue } from 'recoil'
-import { roleType } from 'recoilAtoms'
+import cookieManager from './cookieManager'
+
 const IsAdmin = () => {
-  const role = useRecoilValue(roleType)
-  return role === 'admin'
+  const { getCookie } = cookieManager()
+  const role = getCookie('userProfile')
+  return role?.role === 'ROLE_ADMIN'
 }
 export default IsAdmin
