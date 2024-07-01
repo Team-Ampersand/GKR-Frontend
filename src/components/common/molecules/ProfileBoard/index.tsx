@@ -2,18 +2,13 @@ import { People } from 'asset/svg'
 import * as S from './style'
 import { GetUser } from 'utils/apis/user'
 import { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
-import { roleType } from 'recoilAtoms'
-
+import cookieManager from 'utils/cookieManager'
 const ProfileBoard = () => {
-  const [role, setRole] = useRecoilState(roleType)
+  const { getCookie, setCookies } = cookieManager()
   const getCachedProfile = () => {
-    const cachedProfile = localStorage.getItem('cachedProfile')
-    return cachedProfile && cachedProfile !== 'undefined'
-      ? JSON.parse(cachedProfile)
-      : null
+    const cachedProfile = getCookie('userProfile')
+    return cachedProfile
   }
-
   const [profile, setProfile] = useState(getCachedProfile)
   const { user, refetch } = GetUser()
 
@@ -22,17 +17,13 @@ const ProfileBoard = () => {
       try {
         await refetch()
         const newProfile = user?.data
-        localStorage.setItem('cachedProfile', JSON.stringify(newProfile))
+        setCookies('userProfile', newProfile)
         setProfile(newProfile)
       } catch (error) {
-        console.error('Error fetching profile:', error)
+        console.error(error)
       }
     }
-
-    if (!profile) {
-      fetchProfile()
-    } else if (profile.role === 'ROLE_ADMIN' && role !== 'admin')
-      setRole('admin')
+    if (!profile) fetchProfile()
   }, [profile, refetch])
 
   return (

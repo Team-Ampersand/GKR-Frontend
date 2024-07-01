@@ -1,10 +1,13 @@
 import { FilterItemPropsType } from 'types/components/Home/FilterTypes'
 import * as S from './style'
 import { useRecoilState } from 'recoil'
-import { filterState, roleType } from 'recoilAtoms'
+import { filterState } from 'recoilAtoms'
+import cookieManager from 'utils/cookieManager'
+
 export default function FilterItem({ name, value, type }: FilterItemPropsType) {
   const [state, setState] = useRecoilState(filterState)
-  const [role, setRole] = useRecoilState(roleType)
+  const { getCookie } = cookieManager()
+  const role = getCookie('userProfile')
   const select = type
     ? state.equipmentType === value
     : state.equipmentStatus === value
@@ -14,7 +17,7 @@ export default function FilterItem({ name, value, type }: FilterItemPropsType) {
       : setState({ ...state, equipmentStatus: value })
   }
   return (
-    <S.FilterItemWrapper onClick={onClick} value={select} role={role}>
+    <S.FilterItemWrapper onClick={onClick} value={select} role={role?.role}>
       {name}
     </S.FilterItemWrapper>
   )

@@ -1,22 +1,22 @@
 import RentalItem from 'components/common/atoms/RentalItem'
 import { useQuery } from 'react-query'
 import { useRecoilValue } from 'recoil'
-import { filterState, roleType } from 'recoilAtoms'
+import { filterState } from 'recoilAtoms'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
 import { useEffect } from 'react'
-import { toast } from 'react-toastify'
 import { getData } from 'utils/apis/data'
+import getRole from 'utils/getRole'
 
 const RentalList = () => {
-  const role = useRecoilValue(roleType)
+  const role = getRole()
   const params = useRecoilValue(filterState)
   const url = EquipmentController.filterEquipment()
   const { data, refetch } = useQuery(
     ['equipment', url],
     () => {
       const queryParams = {
-        state:params.equipmentStatus,
+        state: params.equipmentStatus,
         type: params.equipmentType,
       }
 

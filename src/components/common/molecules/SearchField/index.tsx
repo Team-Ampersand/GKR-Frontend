@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { roleType, searchState } from 'recoilAtoms'
+import { searchState } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
-
+import getRole from 'utils/getRole'
 
 const SearchField = () => {
-  const role = useRecoilValue(roleType)
+  const role = getRole()
   const [list, setList] = useRecoilState(searchState)
   const [inputValue, setInputValue] = useState('')
   const url = EquipmentController.serachEquipment()
@@ -23,7 +23,6 @@ const SearchField = () => {
     },
   )
 
- 
   useEffect(() => {
     let delayTimer: NodeJS.Timeout
 
@@ -37,8 +36,8 @@ const SearchField = () => {
     delayedFetch()
 
     return () => clearTimeout(delayTimer)
-  }, [inputValue,refetch])
-  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+  }, [inputValue, refetch])
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
   }
   return (

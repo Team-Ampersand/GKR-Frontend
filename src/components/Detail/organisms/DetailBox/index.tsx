@@ -6,12 +6,11 @@ import Tag from 'components/common/atoms/Tag'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
-import { useRecoilState } from 'recoil'
-import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { EquipmentController } from 'utils/libs/requestUrls'
 import * as S from './style'
 import { Palette } from 'style/global'
+import getRole from 'utils/getRole'
 
 interface getNameFromValuePropstype {
   list: {
@@ -34,7 +33,7 @@ interface DetailProps {
 }
 
 export default function DetailBox({}) {
-  const [role, setRole] = useRecoilState(roleType)
+  const role = getRole()
   const params = useParams()
   const router = useRouter()
   const id = params.detail
@@ -94,7 +93,7 @@ export default function DetailBox({}) {
       <S.TitleWrapper>
         <S.TopTitleWrapper>
           <S.Title>{detailData?.name}</S.Title>
-          {role === 'admin' ? (
+          {role !== 'ROLE_STUDENT' ? (
             <S.EditButton
               onClick={() => {
                 router.push(`${id}/edit`)

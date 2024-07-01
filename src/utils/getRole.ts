@@ -1,8 +1,10 @@
 import cookieManager from './cookieManager'
+import { UserRoleType } from 'types/components/common/UserType'
 
-const getRole = () => {
+const getRole = (): UserRoleType => {
   const { getCookie } = cookieManager()
   const profile = getCookie('userProfile')
-  return profile.role
+  console.log(profile)
+  return profile?.role && null
 }
 export default getRole

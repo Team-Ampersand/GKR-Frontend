@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
 import { Palette } from 'style/global'
+import { UserRoleType } from 'types/components/common/UserType'
 
 interface ColorType {
   checked?: boolean
   active?: boolean
-  roleType?: 'member' | 'admin'
+  roleType?: UserRoleType
 }
 
 export const Wrapper = styled.div<ColorType>`
@@ -17,7 +18,7 @@ export const Wrapper = styled.div<ColorType>`
   > div {
     background: ${(props: ColorType) =>
       props.checked
-        ? props.roleType === 'member'
+        ? props.roleType === 'ROLE_STUDENT'
           ? Palette.PRIMARY_P4
           : Palette.PRIMARY_P5
         : ''};
@@ -25,7 +26,7 @@ export const Wrapper = styled.div<ColorType>`
   > div > p {
     color: ${(props: ColorType) =>
       props.checked
-        ? props.roleType === 'member'
+        ? props.roleType === 'ROLE_STUDENT'
           ? Palette.PRIMARY_P2
           : Palette.NATURAL_N2
         : ''};
@@ -34,13 +35,13 @@ export const Wrapper = styled.div<ColorType>`
     path {
       fill: ${(props: ColorType) =>
         props.checked
-          ? props.roleType === 'member'
+          ? props.roleType === 'ROLE_STUDENT'
             ? Palette.PRIMARY_P2
             : Palette.NATURAL_N2
           : ''};
       stroke: ${(props: ColorType) =>
         props.checked
-          ? props.roleType === 'member'
+          ? props.roleType === 'ROLE_STUDENT'
             ? Palette.PRIMARY_P2
             : Palette.NATURAL_N2
           : ''};

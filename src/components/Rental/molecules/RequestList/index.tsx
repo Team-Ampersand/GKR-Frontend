@@ -1,11 +1,10 @@
 import RentalItem from 'components/common/atoms/RentalItem'
 import { useEffect } from 'react'
 import { useQuery } from 'react-query'
-import { useRecoilValue } from 'recoil'
-import { roleType } from 'recoilAtoms'
 import { getData } from 'utils/apis/data'
 import { OrderController } from 'utils/libs/requestUrls'
 import * as S from './style'
+import getRole from 'utils/getRole'
 const state = {
   WAITING: 'WAITING',
   ACCEPT: 'ACCEPT',
@@ -13,7 +12,7 @@ const state = {
 }
 
 const RequestList = () => {
-  const role = useRecoilValue(roleType)
+  const role = getRole()
   const url = OrderController.stateOrder()
   const { data, refetch } = useQuery(
     ['order', url],

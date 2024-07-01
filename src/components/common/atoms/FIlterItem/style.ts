@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
 import { Palette } from 'style/global'
+import { UserRoleType } from 'types/components/common/UserType'
 interface FilterItemPropstype {
   value: boolean
-  role: 'member' | 'admin'
+  role: UserRoleType
 }
 
 export const FilterItemWrapper = styled.div<FilterItemPropstype>`
@@ -12,7 +13,7 @@ export const FilterItemWrapper = styled.div<FilterItemPropstype>`
   border-radius: 0.3rem;
   background-color: ${(props) =>
     props.value
-      ? props.role === 'admin'
+      ? props.role !== 'ROLE_STUDENT'
         ? Palette.PRIMARY_P5
         : Palette.PRIMARY_P2
       : 'none'};

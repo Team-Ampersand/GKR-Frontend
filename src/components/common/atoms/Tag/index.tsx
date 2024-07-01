@@ -7,7 +7,7 @@ export default function Tag({ data, role }: TagPropsType) {
       BackgroundColor={
         data.color
           ? data.color
-          : role === 'admin'
+          : role === 'ROLE_ADMIN'
           ? Palette.PRIMARY_P5
           : Palette.PRIMARY_P2
       }

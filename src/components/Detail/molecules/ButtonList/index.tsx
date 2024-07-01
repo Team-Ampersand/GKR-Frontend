@@ -179,7 +179,7 @@ export default function ButtonList({
     <>
       <S.ButtonListWrapper>
         {equipmentStatus
-          ? role === 'admin'
+          ? role !== 'ROLE_STUDENT'
             ? ChangeAdminButton()[equipmentStatus]()
             : ChangeMemberButton({ isRenter: renter })[equipmentStatus]()
           : null}

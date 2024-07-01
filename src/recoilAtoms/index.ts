@@ -1,11 +1,5 @@
-import { ReactNode } from 'react'
 import { atom } from 'recoil'
 import { modalDataType } from 'types/hooks/useModal'
-
-export const roleType = atom<'member' | 'admin'>({
-  key: 'roleType',
-  default: 'member',
-})
 
 export const calendarState = atom<boolean>({
   key: 'calendarState',

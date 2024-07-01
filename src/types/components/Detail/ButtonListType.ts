@@ -1,6 +1,8 @@
+import { UserRoleType } from '../common/UserType'
+
 export interface ButtonListPropsType {
   equipmentStatus: 'NOT_RENT' | 'WAITING' | 'RENTING' | 'REPAIRING' | undefined
-  role: 'admin' | 'member'
+  role: UserRoleType
   id: string | string[]
   apid?: number
 }

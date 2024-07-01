@@ -1,3 +1,5 @@
+import { UserRoleType } from '../common/UserType'
+
 export interface RentalItemPropsType {
   applicationId?: number
   id: number
@@ -6,5 +8,5 @@ export interface RentalItemPropsType {
   description: string
   equipmentStatus: string
   equipmentType: string
-  role?: 'admin' | 'member'
+  role?: UserRoleType
 }

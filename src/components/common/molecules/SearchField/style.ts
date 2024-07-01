@@ -27,7 +27,7 @@ export const Input = styled.input<{ role: string }>`
   :focus {
     border: 0.5px solid
       ${({ role }) =>
-        role === 'admin' ? Palette.PRIMARY_P5 : Palette.PRIMARY_P2};
+        role === 'ROLE_ADMIN' ? Palette.PRIMARY_P5 : Palette.PRIMARY_P2};
     color: ${Palette.NATURAL_N1};
   }
 `

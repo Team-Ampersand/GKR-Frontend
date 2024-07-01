@@ -1,7 +1,6 @@
-import { useRecoilValue } from 'recoil'
 import * as S from './style'
-import { roleType } from 'recoilAtoms'
 import Link from 'next/link'
+import getRole from 'utils/getRole'
 
 interface Props {
   icon: JSX.Element
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const SidebarItem = ({ icon, name, active, url }: Props) => {
-  const role = useRecoilValue(roleType)
+  const role = getRole()
 
   return (
     <Link href={url}>
